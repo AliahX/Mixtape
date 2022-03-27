@@ -2,7 +2,7 @@
 Adds more configuration to the music in Minecraft.
 
 ## Social
-Discord: https://discord.gg/
+Discord: https://discord.gg/WyrTsYFweK
 <!-- Patreon: https://www.patreon.com/unjust1ce -->
 
 ## Installation
