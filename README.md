@@ -1,2 +1,17 @@
 # Mixtape
-1.18.2 Minecraft mod that lets you configure the music.
+Adds more configuration to the music in Minecraft.
+
+## Social
+Discord: https://discord.gg/
+<!-- Patreon: https://www.patreon.com/unjust1ce -->
+
+## Installation
+1. Download and run the [Fabric installer](https://fabricmc.net/use).
+   - Click the "vanilla" button, leave the other settings as they are,
+     and click "download installer".
+   - Note: this step may vary if you aren't using the vanilla launcher
+     or an old version of Minecraft.
+1. Download the [Fabric API](https://minecraft.curseforge.com/projects/fabric)
+   and move it to the mods folder (`.minecraft/mods`).
+1. Download mixtape from the [releases page](https://github.com/UnJust1ce/mixtape/releases)
+   and move it to the mods folder (`.minecraft/mods`).
