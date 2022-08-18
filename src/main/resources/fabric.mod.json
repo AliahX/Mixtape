@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "mixtape",
+  "version": "${version}",
+  "name": "Mixtape",
+  "description": "A mod that lets you configure the music",
+  "authors": [
+    "Aliah"
+  ],
+  "contact": {},
+  "license": "MIT",
+  "icon": "assets/Mixtape/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "com.unjust1ce.mixtape.Mixtape"
+    ],
+    "modmenu": [
+      "com.unjust1ce.mixtape.config.ModMenuIntegration"
+    ]
+  },
+  "mixins": [
+    "Mixtape.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.14.8",
+    "fabric": "*",
+    "minecraft": "1.19"
+  }
+}

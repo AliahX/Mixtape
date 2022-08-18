@@ -1,0 +1,112 @@
+{
+  "category.mixtape": "Mixtape",
+  "key.mixtape.skip": "Skip Song",
+  "key.mixtape.pause": "Pause/Resume Music",
+
+  "text.autoconfig.mixtape.title": "Mixtape",
+  "text.autoconfig.mixtape.category.main": "Main",
+  "text.autoconfig.mixtape.category.menu": "Menu",
+  "text.autoconfig.mixtape.category.creative": "Creative",
+  "text.autoconfig.mixtape.category.game": "Game",
+  "text.autoconfig.mixtape.category.underwater": "Underwater",
+  "text.autoconfig.mixtape.category.end": "End",
+  "text.autoconfig.mixtape.category.nether": "Nether",
+  "text.autoconfig.mixtape.category.netherWastes": "Nether Wastes",
+  "text.autoconfig.mixtape.category.crimsonForest": "Crimson Forest",
+  "text.autoconfig.mixtape.category.basaltDelta": "Basalt Delta",
+  "text.autoconfig.mixtape.category.soulSandValley": "Soul Sand Valley",
+  "text.autoconfig.mixtape.category.dripstoneCaves": "Dripstone Caves",
+  "text.autoconfig.mixtape.category.grove": "Grove",
+  "text.autoconfig.mixtape.category.jaggedPeaks": "Jagged Peaks",
+  "text.autoconfig.mixtape.category.lushCaves": "Lush Caves",
+  "text.autoconfig.mixtape.category.meadow": "Meadow",
+  "text.autoconfig.mixtape.category.frozenPeaks": "Frozen Peaks",
+  "text.autoconfig.mixtape.category.snowySlopes": "Snowy Slopes",
+  "text.autoconfig.mixtape.category.stonyPeaks": "Stony Peaks",
+  "text.autoconfig.mixtape.category.credits": "Credits",
+  "text.autoconfig.mixtape.category.jukebox": "Jukebox",
+
+  "text.autoconfig.mixtape.option.mainConfig.enabled": "Enabled",
+  "text.autoconfig.mixtape.option.mainConfig.varyPitch": "Vary Pitch",
+  "text.autoconfig.mixtape.option.mainConfig.minNoteChange": "Minimum Note Change",
+  "text.autoconfig.mixtape.option.mainConfig.maxNoteChange": "Maximum Note Change",
+  "text.autoconfig.mixtape.option.mainConfig.paused": "Paused",
+  "text.autoconfig.mixtape.option.mainConfig.mixtapeButtonLocation": "Mixtape Button Location",
+  "IN_MUSIC_BUTTON": "In Music Button",
+  "BESIDE_MUSIC_BUTTON": "Beside Music Button",
+
+  "text.autoconfig.mixtape.option.menuConfig.enabled": "Enabled",
+  "text.autoconfig.mixtape.option.menuConfig.minSongDelay": "Minimum Delay Between Songs",
+  "text.autoconfig.mixtape.option.menuConfig.maxSongDelay": "Maximum Delay Between Songs",
+  "text.autoconfig.mixtape.option.menuConfig.volume": "Volume",
+
+  "text.autoconfig.mixtape.option.creativeConfig.enabled": "Enabled",
+  "text.autoconfig.mixtape.option.creativeConfig.minSongDelay": "Minimum Delay Between Songs",
+  "text.autoconfig.mixtape.option.creativeConfig.maxSongDelay": "Maximum Delay Between Songs",
+  "text.autoconfig.mixtape.option.creativeConfig.volume": "Volume",
+
+  "text.autoconfig.mixtape.option.gameConfig.enabled": "Enabled",
+  "text.autoconfig.mixtape.option.gameConfig.minSongDelay": "Minimum Delay Between Songs",
+  "text.autoconfig.mixtape.option.gameConfig.maxSongDelay": "Maximum Delay Between Songs",
+  "text.autoconfig.mixtape.option.gameConfig.volume": "Volume",
+
+  "text.autoconfig.mixtape.option.underwaterConfig.enabled": "Enabled",
+  "text.autoconfig.mixtape.option.underwaterConfig.minSongDelay": "Minimum Delay Between Songs",
+  "text.autoconfig.mixtape.option.underwaterConfig.maxSongDelay": "Maximum Delay Between Songs",
+  "text.autoconfig.mixtape.option.underwaterConfig.volume": "Volume",
+
+  "text.autoconfig.mixtape.option.endConfig.enabled": "Enabled",
+  "text.autoconfig.mixtape.option.endConfig.minSongDelay": "Minimum Delay Between Songs",
+  "text.autoconfig.mixtape.option.endConfig.maxSongDelay": "Maximum Delay Between Songs",
+  "text.autoconfig.mixtape.option.endConfig.volume": "Volume",
+
+  "text.autoconfig.mixtape.option.netherConfig.enabled": "Enabled",
+  "text.autoconfig.mixtape.option.netherConfig.minSongDelay": "Minimum Delay Between Songs",
+  "text.autoconfig.mixtape.option.netherConfig.maxSongDelay": "Maximum Delay Between Songs",
+  "text.autoconfig.mixtape.option.netherConfig.volume": "Volume",
+
+  "text.autoconfig.mixtape.option.netherWastesConfig.enabled": "Enabled",
+  "text.autoconfig.mixtape.option.netherWastesConfig.volume": "Volume",
+
+  "text.autoconfig.mixtape.option.crimsonForestConfig.enabled": "Enabled",
+  "text.autoconfig.mixtape.option.crimsonForestConfig.volume": "Volume",
+
+  "text.autoconfig.mixtape.option.basaltDeltaConfig.enabled": "Enabled",
+  "text.autoconfig.mixtape.option.basaltDeltaConfig.volume": "Volume",
+
+  "text.autoconfig.mixtape.option.soulsandValleyConfig.enabled": "Enabled",
+  "text.autoconfig.mixtape.option.soulsandValleyConfig.volume": "Volume",
+
+  "text.autoconfig.mixtape.option.groveConfig.enabled": "Enabled",
+  "text.autoconfig.mixtape.option.groveConfig.volume": "Volume",
+
+  "text.autoconfig.mixtape.option.dripstoneCavesConfig.enabled": "Enabled",
+  "text.autoconfig.mixtape.option.dripstoneCavesConfig.volume": "Volume",
+
+  "text.autoconfig.mixtape.option.jaggedPeaksConfig.enabled": "Enabled",
+  "text.autoconfig.mixtape.option.jaggedPeaksConfig.volume": "Volume",
+
+  "text.autoconfig.mixtape.option.lushCavesConfig.enabled": "Enabled",
+  "text.autoconfig.mixtape.option.lushCavesConfig.volume": "Volume",
+
+  "text.autoconfig.mixtape.option.meadowConfig.enabled": "Enabled",
+  "text.autoconfig.mixtape.option.meadowConfig.volume": "Volume",
+
+  "text.autoconfig.mixtape.option.frozenPeaksConfig.enabled": "Enabled",
+  "text.autoconfig.mixtape.option.frozenPeaksConfig.volume": "Volume",
+
+  "text.autoconfig.mixtape.option.snowySlopesConfig.enabled": "Enabled",
+  "text.autoconfig.mixtape.option.snowySlopesConfig.volume": "Volume",
+
+  "text.autoconfig.mixtape.option.stonyPeaksConfig.enabled": "Enabled",
+  "text.autoconfig.mixtape.option.stonyPeaksConfig.volume": "Volume",
+
+  "text.autoconfig.mixtape.option.creditsConfig.enabled": "Enabled",
+  "text.autoconfig.mixtape.option.creditsConfig.volume": "Volume",
+
+  "text.autoconfig.mixtape.option.jukeboxConfig.enabled": "Enabled",
+  "text.autoconfig.mixtape.option.jukeboxConfig.mono": "Mono",
+  "text.autoconfig.mixtape.option.jukeboxConfig.elevenReplaces11": "Replace the 11 disc with the song eleven by c418",
+  "text.autoconfig.mixtape.option.jukeboxConfig.dogReplacesCat": "Replace the cat disc with the song dog by c418",
+  "text.autoconfig.mixtape.option.jukeboxConfig.volume": "Volume"
+}
