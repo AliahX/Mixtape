@@ -8,7 +8,7 @@
     "OptionsScreenMixin",
     "PositionedSoundInstanceMixin",
     "WorldRendererMixin",
-    "MixinDebugHud"
+    "DebugHudMixin"
   ],
   "injectors": {
     "defaultRequire": 1
