@@ -160,6 +160,9 @@ public class ModConfig implements ConfigData {
         public MixtapeButtonLocation mixtapeButtonLocation = MixtapeButtonLocation.IN_MUSIC_BUTTON;
 
         public MusicType musicType = MusicType.AUTOMATIC;
+
+        public String currentMusicType = "minecraft:music.game";
+        public int timeUntilNextSong = 10;
     }
 
     @Config(name = "menu")
