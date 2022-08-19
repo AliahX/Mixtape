@@ -52,6 +52,8 @@ public class PositionedSoundInstanceMixin{
             };
         }
 
+        config.mainConfig.currentMusicType = sound.getId().toString();
+
         float volume = 100.0F;
         if (config.mainConfig.enabled && config.mainConfig.varyPitch) {
             switch (sound.getId().toString()) {
@@ -75,7 +77,7 @@ public class PositionedSoundInstanceMixin{
                     if (!config.creditsConfig.enabled) cir.setReturnValue(null);
                     volume = config.creditsConfig.volume;
                 }
-                case "minecraft:music.game" -> {
+                case "minecraft:music.game", "minecraft:music.overworld.deep_dark", "minecraft:music.overworld.dripstone_caves", "minecraft:music.overworld.grove", "minecraft:music.overworld.jagged_peaks", "minecraft:music.overworld.lush_caves", "minecraft:music.overworld.swamp", "minecraft:music.overworld.jungle_and_forest", "minecraft:music.overworld.old_growth_taiga", "minecraft:music.overworld.meadow", "minecraft:music.overworld.frozen_peaks", "minecraft:music.overworld.snowy_slopes", "minecraft:music.overworld.stony_peaks" -> {
                     if (!config.gameConfig.enabled) cir.setReturnValue(null);
                     volume = config.gameConfig.volume;
                 }
