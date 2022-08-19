@@ -5,11 +5,16 @@ import me.shedaniel.autoconfig.AutoConfig;
 import net.minecraft.client.sound.MusicTracker;
 import net.minecraft.sound.MusicSound;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.Redirect;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(MusicTracker.class)
 public class MusicTrackerMixin {
+
+    @Shadow private int timeUntilNextSong;
 
     @Redirect(method = "tick", at = @At(value = "INVOKE", target = "Lnet/minecraft/sound/MusicSound;getMinDelay()I"))
     private int getMinDelayMixin(MusicSound musicSound) {
@@ -25,10 +30,16 @@ public class MusicTrackerMixin {
             case "minecraft:music.creative" -> config.creativeConfig.minSongDelay;
             case "minecraft:music.end" -> config.endConfig.minSongDelay;
             case "minecraft:music.underwater" -> config.underwaterConfig.minSongDelay;
-            case "minecraft:music.game", "music.overworld.deep_dark", "music.overworld.dripstone_caves", "music.overworld.grove", "music.overworld.jagged_peaks", "music.overworld.lush_caves", "music.overworld.swamp", "music.overworld.jungle_and_forest", "music.overworld.old_growth_taiga", "music.overworld.meadow", "music.overworld.frozen_peaks", "music.overworld.snowy_slopes", "music.overworld.stony_peaks" -> config.gameConfig.minSongDelay;
+            case "minecraft:music.game", "minecraft:music.overworld.deep_dark", "minecraft:music.overworld.dripstone_caves", "minecraft:music.overworld.grove", "minecraft:music.overworld.jagged_peaks", "minecraft:music.overworld.lush_caves", "minecraft:music.overworld.swamp", "minecraft:music.overworld.jungle_and_forest", "minecraft:music.overworld.old_growth_taiga", "minecraft:music.overworld.meadow", "minecraft:music.overworld.frozen_peaks", "minecraft:music.overworld.snowy_slopes", "minecraft:music.overworld.stony_peaks" -> config.gameConfig.minSongDelay;
             case "minecraft:music.nether.nether_wastes", "minecraft:music.nether.warped_forest", "minecraft:music.nether.soul_sand_valley", "minecraft:music.nether.crimson_forest", "minecraft:music.nether.basalt_deltas" -> config.netherConfig.minSongDelay;
             default -> musicSound.getMinDelay();
         };
+    }
+
+    @Inject(at = @At("RETURN"), method = "tick")
+    private void tick(CallbackInfo info) {
+        ModConfig config = AutoConfig.getConfigHolder(ModConfig.class).getConfig();
+        config.mainConfig.timeUntilNextSong = this.timeUntilNextSong;
     }
 
     @Redirect(method = "tick", at = @At(value = "INVOKE", target = "Lnet/minecraft/sound/MusicSound;getMaxDelay()I"))
@@ -46,7 +57,7 @@ public class MusicTrackerMixin {
             case "minecraft:music.creative" -> config.creativeConfig.maxSongDelay;
             case "minecraft:music.end" -> config.endConfig.maxSongDelay;
             case "minecraft:music.underwater" -> config.underwaterConfig.maxSongDelay;
-            case "minecraft:music.game" -> config.gameConfig.maxSongDelay;
+            case "minecraft:music.game", "minecraft:music.overworld.deep_dark", "minecraft:music.overworld.dripstone_caves", "minecraft:music.overworld.grove", "minecraft:music.overworld.jagged_peaks", "minecraft:music.overworld.lush_caves", "minecraft:music.overworld.swamp", "minecraft:music.overworld.jungle_and_forest", "minecraft:music.overworld.old_growth_taiga", "minecraft:music.overworld.meadow", "minecraft:music.overworld.frozen_peaks", "minecraft:music.overworld.snowy_slopes", "minecraft:music.overworld.stony_peaks" -> config.gameConfig.maxSongDelay;
             case "minecraft:music.nether.nether_wastes", "minecraft:music.nether.warped_forest", "minecraft:music.nether.soul_sand_valley", "minecraft:music.nether.crimson_forest", "minecraft:music.nether.basalt_deltas" -> config.netherConfig.maxSongDelay;
             default -> musicSound.getMaxDelay();
         };
