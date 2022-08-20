@@ -278,6 +278,7 @@ public class ModConfig implements ConfigData {
         public boolean enabled = true;
         public int minSongDelay = 12000;
         public int maxSongDelay = 24000;
+        public boolean creativeMusicPlaysInSurvival = false;
         public float volume = 100;
     }
 

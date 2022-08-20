@@ -52,6 +52,10 @@ public class PositionedSoundInstanceMixin{
             };
         }
 
+        if(config.mainConfig.enabled && config.gameConfig.creativeMusicPlaysInSurvival && (sound.getId().toString().equals("minecraft:music.game")) || sound.getId().toString().contains("minecraft:music.overworld.")) {
+            sound = SoundEvents.MUSIC_CREATIVE;
+        }
+
         config.mainConfig.currentMusicType = sound.getId().toString();
 
         float volume = 100.0F;
