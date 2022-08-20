@@ -69,7 +69,7 @@ public class PositionedSoundInstanceMixin{
                     if (!config.endConfig.enabled) cir.setReturnValue(null);
                     volume = config.endConfig.volume;
                 }
-                case "minecraft:music.underwater" -> {
+                case "minecraft:music.under_water" -> {
                     if (!config.underwaterConfig.enabled) cir.setReturnValue(null);
                     volume = config.underwaterConfig.volume;
                 }
