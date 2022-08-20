@@ -8,8 +8,8 @@ import net.minecraft.util.Identifier;
 
 public class MixtapePacks {
     public static void init() {
-        Identifier packId = new Identifier(Mixtape.MOD_ID, "cassettes");
-        FabricLoader.getInstance().getModContainer(Mixtape.MOD_ID).ifPresent(container
+        Identifier packId = new Identifier("mixtape", "cassettes");
+        FabricLoader.getInstance().getModContainer("mixtape").ifPresent(container
                 -> ResourceManagerHelper.registerBuiltinResourcePack(packId, container, ResourcePackActivationType.DEFAULT_ENABLED));
     }
 }

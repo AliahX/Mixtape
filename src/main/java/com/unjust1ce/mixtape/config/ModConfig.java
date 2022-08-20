@@ -4,10 +4,9 @@ import me.shedaniel.autoconfig.ConfigData;
 import me.shedaniel.autoconfig.annotation.Config;
 import me.shedaniel.autoconfig.annotation.ConfigEntry;
 
-import static com.unjust1ce.mixtape.Mixtape.MOD_ID;
 
 @SuppressWarnings("unused")
-@Config(name = MOD_ID)
+@Config(name = "mixtape")
 @Config.Gui.CategoryBackground(category = "jukebox", background = "minecraft:textures/block/jukebox_side.png")
 @Config.Gui.CategoryBackground(category = "credits", background = "minecraft:textures/block/bedrock.png")
 //@Config.Gui.CategoryBackground(category = "soulSandValley", background = "minecraft:textures/block/soul_soil.png")

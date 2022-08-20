@@ -26,9 +26,7 @@ import static net.minecraft.sound.SoundCategory.MUSIC;
 public class Mixtape implements ClientModInitializer {
     public static final Logger LOGGER = LogManager.getLogger();
 
-    public static final String MOD_ID = "mixtape";
-    public static final String MOD_NAME = "Mixtape";
-    public static final String MOD_VERSION = "0.0.1";
+    public static final String MOD_VERSION = "1.1";
     private static KeyBinding skipKey;
     private static KeyBinding pauseKey;
 
@@ -37,16 +35,16 @@ public class Mixtape implements ClientModInitializer {
         AutoConfig.register(ModConfig.class, GsonConfigSerializer::new);
 
         MixtapePacks.init();
-        LOGGER.info(MOD_NAME + " version " + MOD_VERSION + " loaded!");
+        LOGGER.info("Mixtape version " + MOD_VERSION + " loaded!");
 
-        skipKey = KeyBindingHelper.registerKeyBinding(new KeyBinding("key." + MOD_ID + ".skip", InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_N, "category." + MOD_ID));
+        skipKey = KeyBindingHelper.registerKeyBinding(new KeyBinding("key.mixtape.skip", InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_N, "category.mixtape"));
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
             while (skipKey.wasPressed()) {
                 MinecraftClient.getInstance().getSoundManager().stopSounds(null, MUSIC);
             }
         });
 
-        pauseKey = KeyBindingHelper.registerKeyBinding(new KeyBinding("key." + MOD_ID + ".pause", InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_M, "category." + MOD_ID));
+        pauseKey = KeyBindingHelper.registerKeyBinding(new KeyBinding("key.mixtape.pause", InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_M, "category.mixtape"));
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
             while (pauseKey.wasPressed()) {
                 ModConfig config = AutoConfig.getConfigHolder(ModConfig.class).getConfig();
