@@ -1,9 +1,14 @@
 package com.unjust1ce.mixtape.mixin;
 
+import com.unjust1ce.mixtape.Mixtape;
 import com.unjust1ce.mixtape.config.ModConfig;
 import me.shedaniel.autoconfig.AutoConfig;
+import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.sound.MusicTracker;
+import net.minecraft.client.sound.SoundInstance;
 import net.minecraft.sound.MusicSound;
+import org.jetbrains.annotations.Nullable;
+import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
@@ -15,6 +20,10 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public class MusicTrackerMixin {
 
     @Shadow private int timeUntilNextSong;
+
+    @Shadow private @Nullable SoundInstance current;
+
+    @Shadow @Final private MinecraftClient client;
 
     @Redirect(method = "tick", at = @At(value = "INVOKE", target = "Lnet/minecraft/sound/MusicSound;getMinDelay()I"))
     private int getMinDelayMixin(MusicSound musicSound) {
@@ -38,8 +47,9 @@ public class MusicTrackerMixin {
 
     @Inject(at = @At("RETURN"), method = "tick")
     private void tick(CallbackInfo info) {
-        ModConfig config = AutoConfig.getConfigHolder(ModConfig.class).getConfig();
-        config.mainConfig.timeUntilNextSong = this.timeUntilNextSong;
+        Mixtape.debugTimeUntilNextSong = this.timeUntilNextSong;
+        Mixtape.debugMaxTimeUntilNextSong = this.getMaxDelayMixin(this.client.getMusicType());
+        Mixtape.debugNextMusicType = this.client.getMusicType().getSound().getId().toString();
     }
 
     @Redirect(method = "tick", at = @At(value = "INVOKE", target = "Lnet/minecraft/sound/MusicSound;getMaxDelay()I"))

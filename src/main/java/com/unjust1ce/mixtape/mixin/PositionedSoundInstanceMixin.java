@@ -1,5 +1,6 @@
 package com.unjust1ce.mixtape.mixin;
 
+import com.unjust1ce.mixtape.Mixtape;
 import com.unjust1ce.mixtape.config.ModConfig;
 import me.shedaniel.autoconfig.AutoConfig;
 import net.minecraft.client.sound.PositionedSoundInstance;
@@ -56,7 +57,7 @@ public class PositionedSoundInstanceMixin{
             sound = SoundEvents.MUSIC_CREATIVE;
         }
 
-        config.mainConfig.currentMusicType = sound.getId().toString();
+        Mixtape.debugCurrentMusicType = sound.getId().toString();
 
         float volume = 100.0F;
         if (config.mainConfig.enabled && config.mainConfig.varyPitch) {

@@ -13,7 +13,6 @@ import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.widget.ClickableWidget;
 import net.minecraft.client.option.KeyBinding;
 import net.minecraft.client.util.InputUtil;
-import net.minecraft.sound.SoundEvent;
 import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableTextContent;
 import org.apache.logging.log4j.LogManager;
@@ -29,6 +28,11 @@ public class Mixtape implements ClientModInitializer {
     public static final String MOD_VERSION = "1.1";
     private static KeyBinding skipKey;
     private static KeyBinding pauseKey;
+
+    public static String debugCurrentMusicType = "minecraft:music.game";
+    public static String debugNextMusicType = "minecraft:music.game";
+    public static int debugTimeUntilNextSong = Integer.MAX_VALUE;
+    public static int debugMaxTimeUntilNextSong = Integer.MAX_VALUE;
 
     @Override
     public void onInitializeClient() {

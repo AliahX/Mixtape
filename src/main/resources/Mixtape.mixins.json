@@ -4,11 +4,12 @@
   "package": "com.unjust1ce.mixtape.mixin",
   "compatibilityLevel": "JAVA_17",
   "client": [
+    "DebugHudMixin",
+    "MinecraftClientMixin",
     "MusicTrackerMixin",
     "OptionsScreenMixin",
     "PositionedSoundInstanceMixin",
-    "WorldRendererMixin",
-    "DebugHudMixin"
+    "WorldRendererMixin"
   ],
   "injectors": {
     "defaultRequire": 1
