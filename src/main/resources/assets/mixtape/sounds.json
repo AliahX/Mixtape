@@ -71,9 +71,9 @@
       "stream" : true
     }]
   },
-  "music.droopyremembers": {
+  "music.droopy_remembers": {
     "sounds" : [{
-      "name" : "mixtape:music/droopyremembers",
+      "name" : "mixtape:music/droopy_remembers",
       "stream" : true
     }]
   },
