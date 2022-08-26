@@ -8,8 +8,17 @@ import net.minecraft.util.Identifier;
 
 public class MixtapePacks {
     public static void init() {
-        Identifier packId = new Identifier("mixtape", "cassettes");
-        FabricLoader.getInstance().getModContainer("mixtape").ifPresent(container
-                -> ResourceManagerHelper.registerBuiltinResourcePack(packId, container, ResourcePackActivationType.DEFAULT_ENABLED));
+        Identifier cassettes = new Identifier("mixtape", "cassettes");
+        Identifier noCavesAndCliffs = new Identifier("mixtape", "no_caves_and_cliffs");
+        Identifier noCavesAndCliffsPlusUnusedMusic = new Identifier("mixtape", "no_caves_and_cliffs_plus_unused_music");
+        Identifier unusedMusic = new Identifier("mixtape", "unused_music");
+        FabricLoader.getInstance().getModContainer("mixtape").ifPresent(
+                container -> ResourceManagerHelper.registerBuiltinResourcePack(cassettes, container, ResourcePackActivationType.NORMAL));
+        FabricLoader.getInstance().getModContainer("mixtape").ifPresent(
+                container -> ResourceManagerHelper.registerBuiltinResourcePack(noCavesAndCliffs, container, ResourcePackActivationType.NORMAL));
+        FabricLoader.getInstance().getModContainer("mixtape").ifPresent(
+                container -> ResourceManagerHelper.registerBuiltinResourcePack(noCavesAndCliffsPlusUnusedMusic, container, ResourcePackActivationType.NORMAL));
+        FabricLoader.getInstance().getModContainer("mixtape").ifPresent(
+                container -> ResourceManagerHelper.registerBuiltinResourcePack(unusedMusic, container, ResourcePackActivationType.NORMAL));
     }
 }
