@@ -153,7 +153,6 @@ public class ModConfig implements ConfigData {
         public int minNoteChange = -3;
         @ConfigEntry.BoundedDiscrete(min = 0, max = 12)
         public int maxNoteChange = 3;
-        public boolean paused = false;
 
         @ConfigEntry.Gui.EnumHandler(option = ConfigEntry.Gui.EnumHandler.EnumDisplayOption.BUTTON)
         public MixtapeButtonLocation mixtapeButtonLocation = MixtapeButtonLocation.IN_MUSIC_BUTTON;
