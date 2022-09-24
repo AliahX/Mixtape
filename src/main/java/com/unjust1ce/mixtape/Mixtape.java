@@ -34,6 +34,8 @@ public class Mixtape implements ClientModInitializer {
     public static int debugTimeUntilNextSong = Integer.MAX_VALUE;
     public static int debugMaxTimeUntilNextSong = Integer.MAX_VALUE;
 
+    public static boolean paused = false;
+
     @Override
     public void onInitializeClient() {
         AutoConfig.register(ModConfig.class, GsonConfigSerializer::new);
@@ -51,19 +53,8 @@ public class Mixtape implements ClientModInitializer {
         pauseKey = KeyBindingHelper.registerKeyBinding(new KeyBinding("key.mixtape.pause", InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_M, "category.mixtape"));
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
             while (pauseKey.wasPressed()) {
-                ModConfig config = AutoConfig.getConfigHolder(ModConfig.class).getConfig();
-                config.mainConfig.paused = !config.mainConfig.paused;
+                paused = !paused;
             }
         });
-
-    }
-
-    public static boolean buttonMatchesKey(ClickableWidget button, String key) {
-        Text buttonMessage = button.getMessage();
-        if (buttonMessage instanceof TranslatableTextContent) {
-            String buttonKey = ((TranslatableTextContent) buttonMessage).getKey();
-            return buttonKey.equals(key);
-        }
-        return false;
     }
 }
