@@ -30,7 +30,6 @@
   "text.autoconfig.mixtape.option.mainConfig.varyPitch": "Vary Pitch",
   "text.autoconfig.mixtape.option.mainConfig.minNoteChange": "Minimum Note Change",
   "text.autoconfig.mixtape.option.mainConfig.maxNoteChange": "Maximum Note Change",
-  "text.autoconfig.mixtape.option.mainConfig.paused": "Paused",
   "text.autoconfig.mixtape.option.mainConfig.mixtapeButtonLocation": "Mixtape Button Location",
   "text.autoconfig.mixtape.option.mainConfig.musicType": "Music Type",
 
