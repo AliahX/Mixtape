@@ -1,5 +1,6 @@
 {
   "music.nether.basalt_deltas": {
+    "replace": true,
     "sounds": [
       {
         "name": "music/game/nether/nether1",
@@ -20,6 +21,7 @@
     ]
   },
   "music.nether.crimson_forest": {
+    "replace": true,
     "sounds": [
       {
         "name": "music/game/nether/nether1",
@@ -40,6 +42,7 @@
     ]
   },
   "music.nether.nether_wastes": {
+    "replace": true,
     "sounds": [
       {
         "name": "music/game/nether/nether1",
@@ -60,6 +63,7 @@
     ]
   },
   "music.nether.soul_sand_valley": {
+    "replace": true,
     "sounds": [
       {
         "name": "music/game/nether/nether1",

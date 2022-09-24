@@ -1,5 +1,6 @@
 {
   "music.creative": {
+    "replace": true,
     "sounds": [
       {
         "name": "music.game",
@@ -44,6 +45,7 @@
     ]
   },
   "music.game": {
+    "replace": true,
     "sounds": [
       {
         "name": "music/game/calm1",
@@ -117,6 +119,7 @@
     ]
   },
   "music.menu": {
+    "replace": true,
     "sounds": [
       {
         "name": "music/menu/menu1",
@@ -145,6 +148,7 @@
     ]
   },
   "music.nether.basalt_deltas": {
+    "replace": true,
     "sounds": [
       {
         "name": "music/game/nether/nether1",
@@ -175,6 +179,7 @@
     ]
   },
   "music.nether.crimson_forest": {
+    "replace": true,
     "sounds": [
       {
         "name": "music/game/nether/crimson_forest/chrysopoeia",
@@ -205,6 +210,7 @@
     ]
   },
   "music.nether.nether_wastes": {
+    "replace": true,
     "sounds": [
       {
         "name": "music/game/nether/nether1",
@@ -235,6 +241,7 @@
     ]
   },
   "music.nether.soul_sand_valley": {
+    "replace": true,
     "sounds": [
       {
         "name": "music/game/nether/nether1",
@@ -265,6 +272,7 @@
     ]
   },
   "music.overworld.deep_dark": {
+    "replace": true,
     "sounds": [
       {
         "name": "music.game",
@@ -273,6 +281,7 @@
     ]
   },
   "music.overworld.dripstone_caves": {
+    "replace": true,
     "sounds": [
       {
         "name": "music.game",
@@ -281,6 +290,7 @@
     ]
   },
   "music.overworld.frozen_peaks": {
+    "replace": true,
     "sounds": [
       {
         "name": "music.game",
@@ -289,6 +299,7 @@
     ]
   },
   "music.overworld.grove": {
+    "replace": true,
     "sounds": [
       {
         "name": "music.game",
@@ -297,6 +308,7 @@
     ]
   },
   "music.overworld.jagged_peaks": {
+    "replace": true,
     "sounds": [
       {
         "name": "music.game",
@@ -305,6 +317,7 @@
     ]
   },
   "music.overworld.jungle_and_forest": {
+    "replace": true,
     "sounds": [
       {
         "name": "music.game",
@@ -313,6 +326,7 @@
     ]
   },
   "music.overworld.lush_caves": {
+    "replace": true,
     "sounds": [
       {
         "name": "music.game",
@@ -321,6 +335,7 @@
     ]
   },
   "music.overworld.meadow": {
+    "replace": true,
     "sounds": [
       {
         "name": "music.game",
@@ -329,6 +344,7 @@
     ]
   },
   "music.overworld.old_growth_taiga": {
+    "replace": true,
     "sounds": [
       {
         "name": "music.game",
@@ -337,6 +353,7 @@
     ]
   },
   "music.overworld.snowy_slopes": {
+    "replace": true,
     "sounds": [
       {
         "name": "music.game",
@@ -345,6 +362,7 @@
     ]
   },
   "music.overworld.stony_peaks": {
+    "replace": true,
     "sounds": [
       {
         "name": "music.game",
@@ -353,6 +371,7 @@
     ]
   },
   "music.overworld.swamp": {
+    "replace": true,
     "sounds": [
       {
         "name": "music.game",
