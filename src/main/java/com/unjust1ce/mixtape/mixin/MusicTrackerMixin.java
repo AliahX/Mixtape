@@ -5,9 +5,7 @@ import com.unjust1ce.mixtape.config.ModConfig;
 import me.shedaniel.autoconfig.AutoConfig;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.sound.MusicTracker;
-import net.minecraft.client.sound.SoundInstance;
 import net.minecraft.sound.MusicSound;
-import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -16,12 +14,12 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+import static com.unjust1ce.mixtape.Mixtape.paused;
+
 @Mixin(MusicTracker.class)
 public class MusicTrackerMixin {
 
     @Shadow private int timeUntilNextSong;
-
-    @Shadow private @Nullable SoundInstance current;
 
     @Shadow @Final private MinecraftClient client;
 
@@ -31,7 +29,7 @@ public class MusicTrackerMixin {
         if(!config.mainConfig.enabled) {
             return musicSound.getMinDelay();
         }
-        if(config.mainConfig.paused) {
+        if(paused) {
             return Integer.MAX_VALUE;
         }
         return switch (musicSound.getSound().getId().toString()) {
@@ -58,7 +56,7 @@ public class MusicTrackerMixin {
         if(!config.mainConfig.enabled) {
             return musicSound.getMaxDelay();
         }
-        if(config.mainConfig.paused) {
+        if(paused) {
             return Integer.MAX_VALUE;
         }
 
