@@ -1,6 +1,5 @@
 package com.unjust1ce.mixtape.config;
 
-import com.unjust1ce.mixtape.Mixtape;
 import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
 import net.fabricmc.fabric.api.resource.ResourcePackActivationType;
 import net.fabricmc.loader.api.FabricLoader;
