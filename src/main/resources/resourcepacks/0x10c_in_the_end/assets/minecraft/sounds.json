@@ -1,0 +1,18 @@
+{
+  "music.end": {
+    "sounds": [
+      {
+        "name": "music/game/end/end",
+        "stream": true
+      },
+      {
+        "name": "mixtape:music/0",
+        "stream": true
+      },
+      {
+        "name": "mixtape:music/0x10c",
+        "stream": true
+      }
+    ]
+  }
+}
