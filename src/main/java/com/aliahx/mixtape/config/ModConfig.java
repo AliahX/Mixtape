@@ -1,4 +1,4 @@
-package com.unjust1ce.mixtape.config;
+package com.aliahx.mixtape.config;
 
 import me.shedaniel.autoconfig.ConfigData;
 import me.shedaniel.autoconfig.annotation.Config;

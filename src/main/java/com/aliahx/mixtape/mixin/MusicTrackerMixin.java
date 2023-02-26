@@ -1,7 +1,7 @@
-package com.unjust1ce.mixtape.mixin;
+package com.aliahx.mixtape.mixin;
 
-import com.unjust1ce.mixtape.Mixtape;
-import com.unjust1ce.mixtape.config.ModConfig;
+import com.aliahx.mixtape.Mixtape;
+import com.aliahx.mixtape.config.ModConfig;
 import me.shedaniel.autoconfig.AutoConfig;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.sound.MusicTracker;
@@ -14,7 +14,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-import static com.unjust1ce.mixtape.Mixtape.paused;
+import static com.aliahx.mixtape.Mixtape.paused;
 
 @Mixin(MusicTracker.class)
 public class MusicTrackerMixin {

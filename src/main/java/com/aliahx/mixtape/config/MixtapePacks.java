@@ -1,4 +1,4 @@
-package com.unjust1ce.mixtape.config;
+package com.aliahx.mixtape.config;
 
 import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
 import net.fabricmc.fabric.api.resource.ResourcePackActivationType;

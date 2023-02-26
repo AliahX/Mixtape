@@ -1,4 +1,4 @@
-package com.unjust1ce.mixtape.mixin;
+package com.aliahx.mixtape.mixin;
 
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.sound.MusicTracker;

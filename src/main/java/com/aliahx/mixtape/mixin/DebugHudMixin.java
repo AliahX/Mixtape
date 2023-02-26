@@ -1,6 +1,6 @@
-package com.unjust1ce.mixtape.mixin;
+package com.aliahx.mixtape.mixin;
 
-import com.unjust1ce.mixtape.Mixtape;
+import com.aliahx.mixtape.Mixtape;
 import net.minecraft.client.gui.hud.DebugHud;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;

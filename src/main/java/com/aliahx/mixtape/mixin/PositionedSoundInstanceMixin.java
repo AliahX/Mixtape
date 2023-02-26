@@ -1,7 +1,7 @@
-package com.unjust1ce.mixtape.mixin;
+package com.aliahx.mixtape.mixin;
 
-import com.unjust1ce.mixtape.Mixtape;
-import com.unjust1ce.mixtape.config.ModConfig;
+import com.aliahx.mixtape.Mixtape;
+import com.aliahx.mixtape.config.ModConfig;
 import me.shedaniel.autoconfig.AutoConfig;
 import net.minecraft.client.sound.PositionedSoundInstance;
 import net.minecraft.client.sound.SoundInstance;
