@@ -5,7 +5,7 @@
   "name": "Mixtape",
   "description": "A mod that lets you configure the music",
   "authors": [
-    "Aliah"
+    "AliahX"
   ],
   "contact": {},
   "license": "MIT",
@@ -13,10 +13,10 @@
   "environment": "client",
   "entrypoints": {
     "client": [
-      "com.unjust1ce.mixtape.Mixtape"
+      "com.aliahx.mixtape.Mixtape"
     ],
     "modmenu": [
-      "com.unjust1ce.mixtape.config.ModMenuIntegration"
+      "com.aliahx.mixtape.config.ModMenuIntegration"
     ]
   },
   "mixins": [
