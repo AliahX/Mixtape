@@ -13,10 +13,10 @@
   "environment": "client",
   "entrypoints": {
     "client": [
-      "com.unjust1ce.mixtape.Mixtape"
+      "com.aliahx.mixtape.Mixtape"
     ],
     "modmenu": [
-      "com.unjust1ce.mixtape.config.ModMenuIntegration"
+      "com.aliahx.mixtape.config.ModMenuIntegration"
     ]
   },
   "mixins": [
