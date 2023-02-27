@@ -61,7 +61,7 @@ public class PositionedSoundInstanceMixin{
         Mixtape.debugCurrentMusicType = sound.getId().toString();
 
         float volume = 100.0F;
-        if (config.mainConfig.enabled && config.mainConfig.varyPitch) {
+        if (config.mainConfig.enabled) {
             switch (sound.getId().toString()) {
                 case "minecraft:music.menu" -> {
                     if (!config.menuConfig.enabled) cir.setReturnValue(null);
@@ -93,7 +93,7 @@ public class PositionedSoundInstanceMixin{
                 }
             }
             Random random = new Random();
-            long note = random.nextLong((config.mainConfig.maxNoteChange - config.mainConfig.minNoteChange) + 1) + config.mainConfig.minNoteChange;
+            long note = config.mainConfig.varyPitch ? random.nextLong((config.mainConfig.maxNoteChange - config.mainConfig.minNoteChange) + 1) + config.mainConfig.minNoteChange : 0;
             cir.setReturnValue(new PositionedSoundInstance(sound.getId(), SoundCategory.MUSIC, volume / 100, (float) Math.pow(2.0D, (double) (note) / 12.0D), SoundInstance.createRandom(), false, 0, SoundInstance.AttenuationType.NONE, 0.0D, 0.0D, 0.0D, false));
         }
     }
