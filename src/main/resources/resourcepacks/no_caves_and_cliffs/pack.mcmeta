@@ -1,6 +1,6 @@
 {
    "pack": {
-      "pack_format": 9,
-      "description": "Stops the Caves & Cliffs music from playing."
+      "pack_format": 12,
+      "description": "Removes Caves & Cliffs music.\n\n"
    }
 }
