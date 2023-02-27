@@ -1,6 +1,6 @@
 {
    "pack": {
-      "pack_format": 9,
-      "description": "Stops the Caves & Cliffs music\nAdds the unused minecraft music."
+      "pack_format": 12,
+      "description": "Removes Caves & Cliffs music.\nAdds unused Minecraft music."
    }
 }
