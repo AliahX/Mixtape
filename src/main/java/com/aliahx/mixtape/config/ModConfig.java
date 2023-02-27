@@ -40,6 +40,11 @@ public class ModConfig implements ConfigData {
         UNDER_WATER
     }
 
+//    public enum MixtapeButtonLocation {
+//        IN_MUSIC_BUTTON,
+//        BESIDE_MUSIC_BUTTON
+//    }
+
     @ConfigEntry.Category("main")
     @ConfigEntry.Gui.TransitiveObject
     public MainConfig mainConfig = new MainConfig();
@@ -84,6 +89,9 @@ public class ModConfig implements ConfigData {
         public int maxNoteChange = 3;
         @ConfigEntry.BoundedDiscrete(min = -12, max = 0)
         public int minNoteChange = -3;
+
+//        @ConfigEntry.Gui.EnumHandler(option = ConfigEntry.Gui.EnumHandler.EnumDisplayOption.BUTTON)
+//        public MixtapeButtonLocation mixtapeButtonLocation = MixtapeButtonLocation.IN_MUSIC_BUTTON;
 
         public MusicType musicType = MusicType.AUTOMATIC;
     }
