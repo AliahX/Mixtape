@@ -9,7 +9,8 @@
     "MusicTrackerMixin",
     "OptionsScreenMixin",
     "PositionedSoundInstanceMixin",
-    "WorldRendererMixin"
+    "WorldRendererMixin",
+    "MusicDiscItemMixin"
   ],
   "injectors": {
     "defaultRequire": 1
