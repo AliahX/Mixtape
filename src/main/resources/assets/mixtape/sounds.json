@@ -11,12 +11,6 @@
       "stream" : true
     }]
   },
-  "music.aria_economy": {
-    "sounds" : [{
-      "name" : "mixtape:music/aria_economy",
-      "stream" : true
-    }]
-  },
   "music.beginning": {
     "sounds" : [{
       "name" : "mixtape:music/beginning",
@@ -29,21 +23,9 @@
       "stream" : true
     }]
   },
-  "music.biome_party": {
-    "sounds" : [{
-      "name" : "mixtape:music/biome_party",
-      "stream" : true
-    }]
-  },
   "music.chris": {
     "sounds" : [{
       "name" : "mixtape:music/chris",
-      "stream" : true
-    }]
-  },
-  "music.death": {
-    "sounds" : [{
-      "name" : "mixtape:music/death",
       "stream" : true
     }]
   },
@@ -56,24 +38,6 @@
   "music.door": {
     "sounds" : [{
       "name" : "mixtape:music/door",
-      "stream" : true
-    }]
-  },
-  "music.droopy_likes_ricochet": {
-    "sounds" : [{
-      "name" : "mixtape:music/droopy_likes_ricochet",
-      "stream" : true
-    }]
-  },
-  "music.droopy_likes_your_face": {
-    "sounds" : [{
-      "name" : "mixtape:music/droopy_likes_your_face",
-      "stream" : true
-    }]
-  },
-  "music.droopy_remembers": {
-    "sounds" : [{
-      "name" : "mixtape:music/droopy_remembers",
       "stream" : true
     }]
   },
@@ -125,21 +89,9 @@
       "stream" : true
     }]
   },
-  "music.cat_stereo": {
-    "sounds" : [{
-      "name" : "mixtape:music/cat_stereo",
-      "stream" : true
-    }]
-  },
   "music.flake": {
     "sounds" : [{
       "name" : "mixtape:music/flake",
-      "stream" : true
-    }]
-  },
-  "music.mice_on_venus_short": {
-    "sounds" : [{
-      "name" : "mixtape:music/mice_on_venus_short",
       "stream" : true
     }]
   },
