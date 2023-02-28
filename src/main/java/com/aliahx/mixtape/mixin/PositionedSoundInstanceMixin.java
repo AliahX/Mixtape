@@ -100,19 +100,13 @@ public class PositionedSoundInstanceMixin{
     @Inject(method = "record", at = @At("RETURN"), cancellable = true)
     private static void recordMixin(SoundEvent sound, double x, double y, double z, CallbackInfoReturnable<PositionedSoundInstance> cir) {
         ModConfig config = AutoConfig.getConfigHolder(ModConfig.class).getConfig();
-
-        if(config.mainConfig.enabled && config.jukeboxConfig.dogReplacesCat && sound.getId().toString().equals("minecraft:music_disc.cat")) {
-            sound = new SoundEvent(new Identifier("mixtape:music.dog"));
-        }
-
-        if(config.mainConfig.enabled && config.jukeboxConfig.elevenReplaces11 && sound.getId().toString().equals("minecraft:music_disc.11")) {
-            sound = new SoundEvent(new Identifier("mixtape:music.eleven"));
-        }
-
-        if (config.mainConfig.enabled && config.jukeboxConfig.mono) {
-            cir.setReturnValue(new PositionedSoundInstance(sound.getId(), SoundCategory.RECORDS, config.jukeboxConfig.volume / 100, 1.0F, SoundInstance.createRandom(), false, 0, SoundInstance.AttenuationType.LINEAR, 0, 0, 0, true));
-        } else {
-            cir.setReturnValue(new PositionedSoundInstance(sound.getId(), SoundCategory.RECORDS, config.jukeboxConfig.volume / 100, 1.0F, SoundInstance.createRandom(), false, 0, SoundInstance.AttenuationType.LINEAR, x, y, z, false));
+        if(config.mainConfig.enabled) {
+            if(config.jukeboxConfig.dogReplacesCat && sound.getId().toString().equals("minecraft:music_disc.cat")) {
+                sound = new SoundEvent(new Identifier("mixtape:music.dog"));
+            } else if(config.jukeboxConfig.elevenReplaces11 && sound.getId().toString().equals("minecraft:music_disc.11")) {
+                sound = new SoundEvent(new Identifier("mixtape:music.eleven"));
+            }
+            cir.setReturnValue(new PositionedSoundInstance(sound.getId(), SoundCategory.RECORDS, config.jukeboxConfig.volume / 100, 1.0F, SoundInstance.createRandom(), false, 0, SoundInstance.AttenuationType.LINEAR, x, y, z, config.jukeboxConfig.mono));
         }
     }
 }
