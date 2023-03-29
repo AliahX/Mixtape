@@ -42,24 +42,4 @@ public abstract class OptionsScreenMixin extends Screen {
             MinecraftClient.getInstance().setScreen(AutoConfig.getConfigScreen(ModConfig.class, this).get());
         }));
     }
-//
-//    @ModifyArg(method = "init", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/widget/GridWidget$Adder;add(Lnet/minecraft/client/gui/widget/ClickableWidget;)Lnet/minecraft/client/gui/widget/ClickableWidget;", ordinal = 3), index = 0)
-//    private ClickableWidget createSoundsButton(ClickableWidget widget) {
-//        ModConfig config = AutoConfig.getConfigHolder(ModConfig.class).getConfig();
-//        if(config.mainConfig.mixtapeButtonLocation == ModConfig.MixtapeButtonLocation.BESIDE_MUSIC_BUTTON) {
-//            return widget;
-//        }
-//        ButtonWidget soundsButton = ButtonWidget.builder(Text.translatable("options.sounds"), (button) -> {
-//            Supplier<Screen> screenSupplier = () -> {
-//                return new SoundOptionsScreen(this, this.settings);
-//            };
-//            this.client.setScreen((Screen) screenSupplier.get());
-//        }).build();
-//        soundsButton.setWidth(130);
-//        AxisGridWidget axisGridWidget = new AxisGridWidget(150, 0, AxisGridWidget.DisplayAxis.HORIZONTAL);
-//        axisGridWidget.add(soundsButton);
-////        axisGridWidget.add(mixtapeButton);
-//        axisGridWidget.recalculateDimensions();
-//        return axisGridWidget;
-//    }
 }
