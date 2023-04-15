@@ -55,6 +55,19 @@ public class MusicTrackerMixin {
         Mixtape.debugTimeUntilNextSong = this.timeUntilNextSong;
         Mixtape.debugMaxTimeUntilNextSong = this.getMaxDelayMixin(this.client.getMusicType());
         Mixtape.debugNextMusicType = this.client.getMusicType().getSound().value().getId().toString();
+
+        ModConfig config = AutoConfig.getConfigHolder(ModConfig.class).getConfig();
+        client.getSoundManager().updateSoundVolume(SoundCategory.MUSIC, config.jukeboxConfig.turnDownMusic ? Mixtape.volumeScale : 1.0f);
+
+        if(Mixtape.discPlaying && Mixtape.volumeScale > 0.1f) {
+            Mixtape.volumeScale -= 0.1f;
+        } else if (Mixtape.discPlaying && Mixtape.volumeScale <= 0.1f) {
+            Mixtape.volumeScale = 0.001f;
+        } else if (!Mixtape.discPlaying && Mixtape.volumeScale < 1.0f) {
+            Mixtape.volumeScale += 0.1f;
+        } else {
+            Mixtape.volumeScale = 1.0f;
+        }
     }
 
     @Redirect(method = "tick", at = @At(value = "INVOKE", target = "Lnet/minecraft/sound/MusicSound;getMaxDelay()I"))

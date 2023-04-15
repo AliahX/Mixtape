@@ -10,7 +10,8 @@
     "OptionsScreenMixin",
     "PositionedSoundInstanceMixin",
     "WorldRendererMixin",
-    "MusicDiscItemMixin"
+    "MusicDiscItemMixin",
+    "SoundSystemMixin"
   ],
   "injectors": {
     "defaultRequire": 1

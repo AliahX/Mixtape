@@ -1,5 +1,6 @@
 package com.aliahx.mixtape.mixin;
 
+import com.aliahx.mixtape.Mixtape;
 import com.aliahx.mixtape.config.ModConfig;
 import me.shedaniel.autoconfig.AutoConfig;
 import net.minecraft.client.MinecraftClient;
@@ -17,7 +18,9 @@ import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.Redirect;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.util.Map;
 
@@ -55,5 +58,12 @@ public abstract class WorldRendererMixin {
             this.updateEntitiesForSong(this.world, songPosition, song != null);
         }
 
+    }
+
+
+
+    @Inject(method = "updateEntitiesForSong", at = @At("HEAD"), cancellable = true)
+    private void updateEntitiesForSongMixin(World world, BlockPos pos, boolean playing, CallbackInfo ci) {
+        Mixtape.discPlaying = playing;
     }
 }

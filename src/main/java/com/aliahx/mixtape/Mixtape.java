@@ -31,6 +31,8 @@ public class Mixtape implements ClientModInitializer {
     public static String debugNextMusicType = "minecraft:music.game";
     public static int debugTimeUntilNextSong = Integer.MAX_VALUE;
     public static int debugMaxTimeUntilNextSong = Integer.MAX_VALUE;
+    public static boolean discPlaying = false;
+    public static float volumeScale = 1.0f;
 
     public static boolean paused = false;
 
