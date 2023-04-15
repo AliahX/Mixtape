@@ -30,11 +30,11 @@
   "text.autoconfig.mixtape.option.mainConfig.varyPitch": "Vary Pitch",
   "text.autoconfig.mixtape.option.mainConfig.minNoteChange": "Minimum Note Change",
   "text.autoconfig.mixtape.option.mainConfig.maxNoteChange": "Maximum Note Change",
+  "text.autoconfig.mixtape.option.mainConfig.noDelayBetweenSongs": "No Delay Between Songs (Overrides specific delays)",
   "text.autoconfig.mixtape.option.mainConfig.mixtapeButtonLocation": "Mixtape Button Location",
   "text.autoconfig.mixtape.option.mainConfig.musicType": "Music Type",
-
-  "IN_MUSIC_BUTTON": "In Music Button",
-  "BESIDE_MUSIC_BUTTON": "Beside Music Button",
+  "text.autoconfig.mixtape.option.mainConfig.playKeybindReplacesCurrentSong": "Play Keybind Replaces Current Song",
+  "text.autoconfig.mixtape.option.mainConfig.skipKeybindStartsNextSong": "Skip Keybind Starts Next Song",
 
   "AUTOMATIC": "Automatic",
   "CREATIVE": "Creative",
@@ -45,7 +45,7 @@
   "MENU": "Menu",
   "NETHER_BASALT_DELTAS": "Basalt Deltas",
   "NETHER_CRIMSON_FOREST": "Crimson Forest",
-  "NETHER_WASTES": "Nether Wastes",
+  "NETHER_NETHER_WASTES": "Nether Wastes",
   "NETHER_SOUL_SAND_VALLEY": "Soul Sand Valley",
   "NETHER_WARPED_FOREST": "Warped Forest",
   "OVERWORLD_DEEP_DARK": "Deep Dark",
@@ -92,42 +92,6 @@
   "text.autoconfig.mixtape.option.netherConfig.minSongDelay": "Minimum Delay Between Songs",
   "text.autoconfig.mixtape.option.netherConfig.maxSongDelay": "Maximum Delay Between Songs",
   "text.autoconfig.mixtape.option.netherConfig.volume": "Volume",
-
-  "text.autoconfig.mixtape.option.netherWastesConfig.enabled": "Enabled",
-  "text.autoconfig.mixtape.option.netherWastesConfig.volume": "Volume",
-
-  "text.autoconfig.mixtape.option.crimsonForestConfig.enabled": "Enabled",
-  "text.autoconfig.mixtape.option.crimsonForestConfig.volume": "Volume",
-
-  "text.autoconfig.mixtape.option.basaltDeltaConfig.enabled": "Enabled",
-  "text.autoconfig.mixtape.option.basaltDeltaConfig.volume": "Volume",
-
-  "text.autoconfig.mixtape.option.soulsandValleyConfig.enabled": "Enabled",
-  "text.autoconfig.mixtape.option.soulsandValleyConfig.volume": "Volume",
-
-  "text.autoconfig.mixtape.option.groveConfig.enabled": "Enabled",
-  "text.autoconfig.mixtape.option.groveConfig.volume": "Volume",
-
-  "text.autoconfig.mixtape.option.dripstoneCavesConfig.enabled": "Enabled",
-  "text.autoconfig.mixtape.option.dripstoneCavesConfig.volume": "Volume",
-
-  "text.autoconfig.mixtape.option.jaggedPeaksConfig.enabled": "Enabled",
-  "text.autoconfig.mixtape.option.jaggedPeaksConfig.volume": "Volume",
-
-  "text.autoconfig.mixtape.option.lushCavesConfig.enabled": "Enabled",
-  "text.autoconfig.mixtape.option.lushCavesConfig.volume": "Volume",
-
-  "text.autoconfig.mixtape.option.meadowConfig.enabled": "Enabled",
-  "text.autoconfig.mixtape.option.meadowConfig.volume": "Volume",
-
-  "text.autoconfig.mixtape.option.frozenPeaksConfig.enabled": "Enabled",
-  "text.autoconfig.mixtape.option.frozenPeaksConfig.volume": "Volume",
-
-  "text.autoconfig.mixtape.option.snowySlopesConfig.enabled": "Enabled",
-  "text.autoconfig.mixtape.option.snowySlopesConfig.volume": "Volume",
-
-  "text.autoconfig.mixtape.option.stonyPeaksConfig.enabled": "Enabled",
-  "text.autoconfig.mixtape.option.stonyPeaksConfig.volume": "Volume",
 
   "text.autoconfig.mixtape.option.creditsConfig.enabled": "Enabled",
   "text.autoconfig.mixtape.option.creditsConfig.volume": "Volume",
