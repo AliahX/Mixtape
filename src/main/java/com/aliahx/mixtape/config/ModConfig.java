@@ -89,10 +89,9 @@ public class ModConfig implements ConfigData {
         public int maxNoteChange = 3;
         @ConfigEntry.BoundedDiscrete(min = -12, max = 0)
         public int minNoteChange = -3;
-
-//        @ConfigEntry.Gui.EnumHandler(option = ConfigEntry.Gui.EnumHandler.EnumDisplayOption.BUTTON)
-//        public MixtapeButtonLocation mixtapeButtonLocation = MixtapeButtonLocation.IN_MUSIC_BUTTON;
-
+        public boolean noDelayBetweenSongs = false;
+        public boolean playKeybindReplacesCurrentSong = false;
+        public boolean skipKeybindStartsNextSong = false;
         public MusicType musicType = MusicType.AUTOMATIC;
     }
 
@@ -157,6 +156,7 @@ public class ModConfig implements ConfigData {
         public boolean mono = false;
         public boolean elevenReplaces11 = false;
         public boolean dogReplacesCat = false;
+        public boolean turnDownMusic = false;
         public float volume = 400;
     }
 }
