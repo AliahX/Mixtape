@@ -17,5 +17,7 @@ public class DebugHudMixin {
         info.getReturnValue().add("[Mixtape] Paused: " + Mixtape.paused);
         info.getReturnValue().add("[Mixtape] Next music type: " + Mixtape.debugNextMusicType);
         info.getReturnValue().add("[Mixtape] Time until next song: " + Mixtape.debugTimeUntilNextSong + "/" + Mixtape.debugMaxTimeUntilNextSong);
+        info.getReturnValue().add("[Mixtape] Is disc playing: " + Mixtape.discPlaying);
+        info.getReturnValue().add("[Mixtape] Music volume scale: " + Mixtape.volumeScale);
     }
 }
