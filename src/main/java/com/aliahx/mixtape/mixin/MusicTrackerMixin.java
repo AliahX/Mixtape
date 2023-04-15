@@ -5,7 +5,12 @@ import com.aliahx.mixtape.config.ModConfig;
 import me.shedaniel.autoconfig.AutoConfig;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.sound.MusicTracker;
+import net.minecraft.client.sound.PositionedSoundInstance;
+import net.minecraft.client.sound.SoundInstance;
 import net.minecraft.sound.MusicSound;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvents;
+import net.minecraft.util.math.Vec3d;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -14,6 +19,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+import static com.aliahx.mixtape.Mixtape.debugCurrentMusicType;
 import static com.aliahx.mixtape.Mixtape.paused;
 
 @Mixin(MusicTracker.class)
@@ -33,7 +39,7 @@ public class MusicTrackerMixin {
             return Integer.MAX_VALUE;
         }
 
-        return switch (musicSound.getSound().value().getId().toString()) {
+        return config.mainConfig.noDelayBetweenSongs ? 0 : switch (musicSound.getSound().value().getId().toString()) {
             case "minecraft:music.menu" -> config.menuConfig.minSongDelay;
             case "minecraft:music.creative" -> config.creativeConfig.minSongDelay;
             case "minecraft:music.end" -> config.endConfig.minSongDelay;
@@ -61,7 +67,7 @@ public class MusicTrackerMixin {
             return Integer.MAX_VALUE;
         }
 
-        return switch (musicSound.getSound().value().getId().toString()) {
+        return config.mainConfig.noDelayBetweenSongs ? 0 : switch (musicSound.getSound().value().getId().toString()) {
             case "minecraft:music.menu" -> config.menuConfig.maxSongDelay;
             case "minecraft:music.creative" -> config.creativeConfig.maxSongDelay;
             case "minecraft:music.end" -> config.endConfig.maxSongDelay;
