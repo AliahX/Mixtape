@@ -25,6 +25,7 @@ public class Mixtape implements ClientModInitializer {
     public static final String MOD_VERSION = "1.3.4";
     private static KeyBinding skipKey;
     private static KeyBinding pauseKey;
+    private static KeyBinding playKey;
 
     public static String debugCurrentMusicType = "minecraft:music.game";
     public static String debugNextMusicType = "minecraft:music.game";
@@ -41,16 +42,30 @@ public class Mixtape implements ClientModInitializer {
         LOGGER.info("Mixtape version " + MOD_VERSION + " loaded!");
 
         skipKey = KeyBindingHelper.registerKeyBinding(new KeyBinding("key.mixtape.skip", InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_N, "category.mixtape"));
+        pauseKey = KeyBindingHelper.registerKeyBinding(new KeyBinding("key.mixtape.pause", InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_UNKNOWN, "category.mixtape"));
+        playKey = KeyBindingHelper.registerKeyBinding(new KeyBinding("key.mixtape.play", InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_UNKNOWN, "category.mixtape"));
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
+            ModConfig config = AutoConfig.getConfigHolder(ModConfig.class).getConfig();
             while (skipKey.wasPressed()) {
                 MinecraftClient.getInstance().getSoundManager().stopSounds(null, MUSIC);
+                if(config.mainConfig.skipKeybindStartsNextSong) {
+                    MinecraftClient.getInstance().getMusicTracker().play(MinecraftClient.getInstance().getMusicType());
+                }
             }
-        });
 
-        pauseKey = KeyBindingHelper.registerKeyBinding(new KeyBinding("key.mixtape.pause", InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_M, "category.mixtape"));
-        ClientTickEvents.END_CLIENT_TICK.register(client -> {
             while (pauseKey.wasPressed()) {
                 paused = !paused;
+            }
+
+            while (playKey.wasPressed()) {
+                if(config.mainConfig.playKeybindReplacesCurrentSong) {
+                    MinecraftClient.getInstance().getSoundManager().stopSounds(null, MUSIC);
+                } else {
+                    if(MinecraftClient.getInstance().getMusicTracker().isPlayingType(MinecraftClient.getInstance().getMusicType())) {
+                        return;
+                    }
+                }
+                MinecraftClient.getInstance().getMusicTracker().play(MinecraftClient.getInstance().getMusicType());
             }
         });
     }
