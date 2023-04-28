@@ -25,6 +25,8 @@ public class PositionedSoundInstanceMixin{
         ModConfig config = AutoConfig.getConfigHolder(ModConfig.class).getConfig();
 
         if(config.mainConfig.enabled) {
+            Mixtape.debugCurrentMusicType = sound.getId().toString();
+
             sound = switch (config.mainConfig.musicType) {
                 case AUTOMATIC -> sound;
                 case CREATIVE -> SoundEvents.MUSIC_CREATIVE.value();
@@ -52,48 +54,22 @@ public class PositionedSoundInstanceMixin{
                 case OVERWORLD_SWAMP -> SoundEvents.MUSIC_OVERWORLD_SWAMP.value();
                 case UNDER_WATER -> SoundEvents.MUSIC_UNDER_WATER.value();
             };
-        }
 
-        if(config.mainConfig.enabled && config.gameConfig.creativeMusicPlaysInSurvival && (sound.getId().toString().equals("minecraft:music.game")) || sound.getId().toString().contains("minecraft:music.overworld.")) {
-            sound = SoundEvents.MUSIC_CREATIVE.value();
-        }
-
-        Mixtape.debugCurrentMusicType = sound.getId().toString();
-
-        float volume = 100.0F;
-        if (config.mainConfig.enabled) {
-            switch (sound.getId().toString()) {
-                case "minecraft:music.menu" -> {
-                    if (!config.menuConfig.enabled) cir.setReturnValue(null);
-                    volume = config.menuConfig.volume;
-                }
-                case "minecraft:music.creative" -> {
-                    if (!config.creativeConfig.enabled) cir.setReturnValue(null);
-                    volume = config.creativeConfig.volume;
-                }
-                case "minecraft:music.end" -> {
-                    if (!config.endConfig.enabled) cir.setReturnValue(null);
-                    volume = config.endConfig.volume;
-                }
-                case "minecraft:music.under_water" -> {
-                    if (!config.underwaterConfig.enabled) cir.setReturnValue(null);
-                    volume = config.underwaterConfig.volume;
-                }
-                case "minecraft:music.credits" -> {
-                    if (!config.creditsConfig.enabled) cir.setReturnValue(null);
-                    volume = config.creditsConfig.volume;
-                }
-                case "minecraft:music.game", "minecraft:music.overworld.deep_dark", "minecraft:music.overworld.dripstone_caves", "minecraft:music.overworld.grove", "minecraft:music.overworld.jagged_peaks", "minecraft:music.overworld.lush_caves", "minecraft:music.overworld.swamp", "minecraft:music.overworld.jungle_and_forest", "minecraft:music.overworld.old_growth_taiga", "minecraft:music.overworld.meadow", "minecraft:music.overworld.frozen_peaks", "minecraft:music.overworld.snowy_slopes", "minecraft:music.overworld.stony_peaks" -> {
-                    if (!config.gameConfig.enabled) cir.setReturnValue(null);
-                    volume = config.gameConfig.volume;
-                }
-                case "minecraft:music.nether.nether_wastes", "minecraft:music.nether.warped_forest", "minecraft:music.nether.soul_sand_valley", "minecraft:music.nether.crimson_forest", "minecraft:music.nether.basalt_deltas" -> {
-                    if (!config.netherConfig.enabled) cir.setReturnValue(null);
-                    volume = config.netherConfig.volume;
-                }
+            if(config.gameConfig.creativeMusicPlaysInSurvival && (sound.getId().toString().equals("minecraft:music.game")) || sound.getId().toString().contains("minecraft:music.overworld.")) {
+                sound = SoundEvents.MUSIC_CREATIVE.value();
             }
-            Random random = new Random();
-            long note = config.mainConfig.varyPitch ? random.nextLong((config.mainConfig.maxNoteChange - config.mainConfig.minNoteChange) + 1) + config.mainConfig.minNoteChange : 0;
+
+            float volume = 100.0F;
+            switch (sound.getId().toString()) {
+                case "minecraft:music.menu" -> volume = config.menuConfig.volume;
+                case "minecraft:music.creative" -> volume = config.creativeConfig.volume;
+                case "minecraft:music.end" -> volume = config.endConfig.volume;
+                case "minecraft:music.under_water" -> volume = config.underwaterConfig.volume;
+                case "minecraft:music.credits" -> volume = config.creditsConfig.volume;
+                case "minecraft:music.game", "minecraft:music.overworld.deep_dark", "minecraft:music.overworld.dripstone_caves", "minecraft:music.overworld.grove", "minecraft:music.overworld.jagged_peaks", "minecraft:music.overworld.lush_caves", "minecraft:music.overworld.swamp", "minecraft:music.overworld.jungle_and_forest", "minecraft:music.overworld.old_growth_taiga", "minecraft:music.overworld.meadow", "minecraft:music.overworld.frozen_peaks", "minecraft:music.overworld.snowy_slopes", "minecraft:music.overworld.stony_peaks" -> volume = config.gameConfig.volume;
+                case "minecraft:music.nether.nether_wastes", "minecraft:music.nether.warped_forest", "minecraft:music.nether.soul_sand_valley", "minecraft:music.nether.crimson_forest", "minecraft:music.nether.basalt_deltas" -> volume = config.netherConfig.volume;
+            }
+            long note = config.mainConfig.varyPitch ? new Random().nextLong((config.mainConfig.maxNoteChange - config.mainConfig.minNoteChange) + 1) + config.mainConfig.minNoteChange : 0;
             cir.setReturnValue(new PositionedSoundInstance(sound.getId(), SoundCategory.MUSIC, volume / 100, (float) Math.pow(2.0D, (double) (note) / 12.0D), SoundInstance.createRandom(), false, 0, SoundInstance.AttenuationType.NONE, 0.0D, 0.0D, 0.0D, false));
         }
     }
@@ -108,6 +84,7 @@ public class PositionedSoundInstanceMixin{
             } else if(config.jukeboxConfig.elevenReplaces11 && sound.getId().toString().equals("minecraft:music_disc.11")) {
                 sound = SoundEvent.of(new Identifier("mixtape:music.eleven"));
             }
+
             if(config.jukeboxConfig.mono) {
                 cir.setReturnValue(new PositionedSoundInstance(sound.getId(), SoundCategory.RECORDS, config.jukeboxConfig.volume / 100, 1.0F, SoundInstance.createRandom(), false, 0, SoundInstance.AttenuationType.LINEAR, 0, 0, 0, true));
             } else {
