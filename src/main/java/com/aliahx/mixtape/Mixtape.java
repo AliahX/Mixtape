@@ -12,9 +12,15 @@ import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.option.KeyBinding;
 import net.minecraft.client.util.InputUtil;
+import net.minecraft.util.math.BlockPos;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.lwjgl.glfw.GLFW;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 import static net.minecraft.sound.SoundCategory.MUSIC;
 
@@ -33,7 +39,9 @@ public class Mixtape implements ClientModInitializer {
     public static int debugMaxTimeUntilNextSong = Integer.MAX_VALUE;
     public static boolean discPlaying = false;
     public static float volumeScale = 1.0f;
-
+    public static Map<BlockPos, Boolean> jukeBoxesPlaying = new ConcurrentHashMap<BlockPos, Boolean>() {};
+    public static Map<BlockPos, Boolean> lastJukeBoxes = new ConcurrentHashMap<BlockPos, Boolean>() {};
+    public static Map<BlockPos, Boolean> lastLastJukeBoxes = new ConcurrentHashMap<BlockPos, Boolean>() {};
     public static boolean paused = false;
 
     @Override

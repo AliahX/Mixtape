@@ -1,9 +1,6 @@
 package com.aliahx.mixtape.mixin;
 
-import net.minecraft.client.sound.Channel;
-import net.minecraft.client.sound.SoundInstance;
-import net.minecraft.client.sound.SoundListener;
-import net.minecraft.client.sound.SoundSystem;
+import net.minecraft.client.sound.*;
 import net.minecraft.sound.SoundCategory;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
@@ -12,6 +9,8 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 
 @Mixin(SoundSystem.class)
@@ -31,18 +30,13 @@ public abstract class SoundSystemMixin {
                 this.listener.setVolume(volume);
             } else {
                 this.sources.forEach((source, sourceManager) -> {
-                    float f = this.getAdjustedVolume(source);
-                    if(source.getCategory() == category) {
-                        f *= volume;
-                    }
-                    float finalF = f;
+                    float f = this.getAdjustedVolume(source) * (source.getCategory() == category ? volume : 1.0F);
                     sourceManager.run((sourcex) -> {
-                        if (finalF <= 0.0F) {
+                        if (f <= 0.0F) {
                             sourcex.stop();
                         } else {
-                            sourcex.setVolume(finalF);
+                            sourcex.setVolume(f);
                         }
-
                     });
                 });
             }

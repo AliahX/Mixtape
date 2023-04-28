@@ -57,13 +57,20 @@ public abstract class WorldRendererMixin {
             }
             this.updateEntitiesForSong(this.world, songPosition, song != null);
         }
-
     }
 
-
-
-    @Inject(method = "updateEntitiesForSong", at = @At("HEAD"), cancellable = true)
+    @Inject(method = "updateEntitiesForSong", at = @At("HEAD"))
     private void updateEntitiesForSongMixin(World world, BlockPos pos, boolean playing, CallbackInfo ci) {
-        Mixtape.discPlaying = playing;
+        if(client.player != null) {
+            if (playing) {
+                Mixtape.jukeBoxesPlaying.put(pos, true);
+                Mixtape.lastJukeBoxes.put(pos, true);
+                Mixtape.lastLastJukeBoxes.put(pos, true);
+            } else {
+                Mixtape.jukeBoxesPlaying.remove(pos);
+                Mixtape.lastJukeBoxes.remove(pos);
+                Mixtape.lastLastJukeBoxes.remove(pos);
+            }
+        }
     }
 }

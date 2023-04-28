@@ -6,12 +6,13 @@
   "client": [
     "DebugHudMixin",
     "MinecraftClientMixin",
+    "MusicDiscItemMixin",
     "MusicTrackerMixin",
     "OptionsScreenMixin",
     "PositionedSoundInstanceMixin",
+    "SoundSystemMixin",
     "WorldRendererMixin",
-    "MusicDiscItemMixin",
-    "SoundSystemMixin"
+    "JukeboxBlockEntityMixin"
   ],
   "injectors": {
     "defaultRequire": 1
