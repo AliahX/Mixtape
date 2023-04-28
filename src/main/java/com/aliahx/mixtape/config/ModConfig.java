@@ -40,11 +40,6 @@ public class ModConfig implements ConfigData {
         UNDER_WATER
     }
 
-//    public enum MixtapeButtonLocation {
-//        IN_MUSIC_BUTTON,
-//        BESIDE_MUSIC_BUTTON
-//    }
-
     @ConfigEntry.Category("main")
     @ConfigEntry.Gui.TransitiveObject
     public MainConfig mainConfig = new MainConfig();
