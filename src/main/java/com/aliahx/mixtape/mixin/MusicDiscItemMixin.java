@@ -19,10 +19,12 @@ public abstract class MusicDiscItemMixin {
     @Inject(method = "Lnet/minecraft/item/MusicDiscItem;getDescription()Lnet/minecraft/text/MutableText;", at = @At("HEAD"), cancellable = true)
     private void getDescriptionMixin(CallbackInfoReturnable<MutableText> cir) {
         ModConfig config = AutoConfig.getConfigHolder(ModConfig.class).getConfig();
-        if(this.getComparatorOutput() == 2 && config.jukeboxConfig.dogReplacesCat) {
-            cir.setReturnValue(Text.literal("C418 - dog"));
-        } else if(this.getComparatorOutput() == 11 && config.jukeboxConfig.elevenReplaces11) {
-            cir.setReturnValue(Text.literal("C418 - eleven"));
+        if(config.mainConfig.enabled) {
+            if (this.getComparatorOutput() == 2 && config.jukeboxConfig.dogReplacesCat) {
+                cir.setReturnValue(Text.literal("C418 - dog"));
+            } else if (this.getComparatorOutput() == 11 && config.jukeboxConfig.elevenReplaces11) {
+                cir.setReturnValue(Text.literal("C418 - eleven"));
+            }
         }
     }
 }
