@@ -2,6 +2,7 @@
   "category.mixtape": "Mixtape",
   "key.mixtape.skip": "Skip Song",
   "key.mixtape.pause": "Pause/Resume Music",
+  "key.mixtape.play": "Play Song",
 
   "text.autoconfig.mixtape.title": "Mixtape",
   "text.autoconfig.mixtape.category.main": "Main",
@@ -100,5 +101,6 @@
   "text.autoconfig.mixtape.option.jukeboxConfig.mono": "Mono",
   "text.autoconfig.mixtape.option.jukeboxConfig.elevenReplaces11": "Replace the 11 disc with the song eleven by c418",
   "text.autoconfig.mixtape.option.jukeboxConfig.dogReplacesCat": "Replace the cat disc with the song dog by c418",
-  "text.autoconfig.mixtape.option.jukeboxConfig.volume": "Volume"
+  "text.autoconfig.mixtape.option.jukeboxConfig.volume": "Volume",
+  "text.autoconfig.mixtape.option.jukeboxConfig.turnDownMusic": "Turn down the regular music while discs play"
 }
