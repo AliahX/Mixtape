@@ -36,6 +36,7 @@
   "text.autoconfig.mixtape.option.mainConfig.musicType": "Music Type",
   "text.autoconfig.mixtape.option.mainConfig.playKeybindReplacesCurrentSong": "Play Keybind Replaces Current Song",
   "text.autoconfig.mixtape.option.mainConfig.skipKeybindStartsNextSong": "Skip Keybind Starts Next Song",
+  "text.autoconfig.mixtape.option.mainConfig.pauseMusicWhenGamePaused": "Pause Music When Game Is Paused",
 
   "AUTOMATIC": "Automatic",
   "CREATIVE": "Creative",
