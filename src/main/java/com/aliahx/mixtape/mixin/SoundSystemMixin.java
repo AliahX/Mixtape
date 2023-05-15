@@ -1,5 +1,7 @@
 package com.aliahx.mixtape.mixin;
 
+import com.aliahx.mixtape.config.ModConfig;
+import me.shedaniel.autoconfig.AutoConfig;
 import net.minecraft.client.sound.*;
 import net.minecraft.sound.SoundCategory;
 import org.spongepowered.asm.mixin.Final;
@@ -9,8 +11,6 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-import java.util.Iterator;
-import java.util.List;
 import java.util.Map;
 
 @Mixin(SoundSystem.class)
@@ -42,5 +42,14 @@ public abstract class SoundSystemMixin {
             }
         }
         ci.cancel();
+    }
+
+
+    @Inject(at = @At("HEAD"), method = "stopAll", cancellable = true)
+    public void stopAllMixin(CallbackInfo ci) {
+        ModConfig config = AutoConfig.getConfigHolder(ModConfig.class).getConfig();
+        if (config.mainConfig.enabled && !(config.mainConfig.stopMusicWhenLeftGame || config.mainConfig.stopMusicWhenSwitchingDimensions)) {
+            ci.cancel();
+        }
     }
 }

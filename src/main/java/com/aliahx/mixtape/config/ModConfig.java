@@ -89,6 +89,8 @@ public class ModConfig implements ConfigData {
         public boolean skipKeybindStartsNextSong = false;
         public MusicType musicType = MusicType.AUTOMATIC;
         public boolean pauseMusicWhenGamePaused = true;
+        public boolean stopMusicWhenSwitchingDimensions = true;
+        public boolean stopMusicWhenLeftGame = true;
     }
 
     @Config(name = "menu")

@@ -24,4 +24,9 @@ public class MinecraftClientMixin {
             instance.pauseAll();
         }
     }
+
+    @Redirect(method = "reset", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/sound/SoundManager;stopAll()V"))
+    private void injected(SoundManager instance) {
+            System.out.println("SoundManager reset" + Math.random());
+    }
 }

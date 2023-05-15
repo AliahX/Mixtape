@@ -16,6 +16,8 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+import java.util.Objects;
+
 import static com.aliahx.mixtape.Mixtape.paused;
 
 @Mixin(MusicTracker.class)
@@ -40,7 +42,7 @@ public class MusicTrackerMixin {
     }
 
     @Inject(at = @At("RETURN"), method = "tick")
-    private void tick(CallbackInfo info) {
+    private void tickMixin(CallbackInfo info) {
         ModConfig config = AutoConfig.getConfigHolder(ModConfig.class).getConfig();
 
         Mixtape.debugTimeUntilNextSong = timeUntilNextSong;
@@ -80,5 +82,22 @@ public class MusicTrackerMixin {
             case "minecraft:music.nether.nether_wastes", "minecraft:music.nether.warped_forest", "minecraft:music.nether.soul_sand_valley", "minecraft:music.nether.crimson_forest", "minecraft:music.nether.basalt_deltas" -> config.netherConfig.maxSongDelay;
             default -> musicSound.getMaxDelay();
         };
+    }
+
+    @Inject(method = "stop", at = @At("HEAD"), cancellable = true)
+    public void stopMixin(CallbackInfo ci) {
+        ModConfig config = AutoConfig.getConfigHolder(ModConfig.class).getConfig();
+        if(config.mainConfig.enabled && !config.mainConfig.stopMusicWhenSwitchingDimensions) {
+            ci.cancel();
+        }
+    }
+
+    @Redirect(method = "tick", at = @At(value = "INVOKE", target = "Lnet/minecraft/sound/MusicSound;shouldReplaceCurrentMusic()Z"))
+    private boolean shouldReplaceCurrentMusicMixin(MusicSound instance) {
+        ModConfig config = AutoConfig.getConfigHolder(ModConfig.class).getConfig();
+        if(config.mainConfig.enabled && !config.mainConfig.stopMusicWhenLeftGame && !Objects.equals(instance.getSound().value().getId().toString(), "minecraft:music.dragon")) {
+            return false;
+        }
+        return instance.shouldReplaceCurrentMusic();
     }
 }

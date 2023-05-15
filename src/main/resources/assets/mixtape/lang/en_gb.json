@@ -37,6 +37,8 @@
   "text.autoconfig.mixtape.option.mainConfig.playKeybindReplacesCurrentSong": "Play Keybind Replaces Current Song",
   "text.autoconfig.mixtape.option.mainConfig.skipKeybindStartsNextSong": "Skip Keybind Starts Next Song",
   "text.autoconfig.mixtape.option.mainConfig.pauseMusicWhenGamePaused": "Pause Music When Game Is Paused",
+  "text.autoconfig.mixtape.option.mainConfig.stopMusicWhenSwitchingDimensions": "Stop Music When Switching Dimensions",
+  "text.autoconfig.mixtape.option.mainConfig.stopMusicWhenLeftGame": "Stop Music When Left Game",
 
   "AUTOMATIC": "Automatic",
   "CREATIVE": "Creative",
