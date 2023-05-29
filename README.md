@@ -1,8 +1,8 @@
 # Mixtape
 Adds more configuration to the music in Minecraft.
-<!--  -->
-<!-- ## Social -->
-<!-- Discord: https://discord.gg/WyrTsYFweK -->
+
+## Social
+Discord: https://discord.gg/WyrTsYFweK
 <!-- Patreon: https://www.patreon.com/aliahx -->
 
 ## Features
