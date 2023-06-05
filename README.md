@@ -66,7 +66,7 @@ Songs added by the unused music resourcepack include:
      and click "download installer".
    - Note: this step may vary if you aren't using the vanilla launcher
      or an old version of Minecraft.
-2. Download the [Fabric API](https://minecraft.curseforge.com/projects/fabric), [Modmenu](https://minecraft.curseforge.com/projects/modmenu), and [Cloth Config](https://www.curseforge.com/minecraft/mc-mods/cloth-config)
+2. Download the [Fabric API](https://modrinth.com/mod/fabric-api) and [Cloth Config](https://modrinth.com/mod/cloth-config)
    and move them to the mods folder (`.minecraft/mods`).
 3. Download mixtape from the [releases page](https://github.com/AliahX/mixtape/releases)
       and move it to the mods folder (`.minecraft/mods`).
