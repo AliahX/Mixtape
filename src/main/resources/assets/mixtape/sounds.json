@@ -1,104 +1,104 @@
 {
   "music.0": {
-    "sounds" : [{
-      "name" : "mixtape:music/0",
-      "stream" : true
+    "sounds": [{
+      "name": "mixtape:music/0",
+      "stream": true
     }]
   },
   "music.0x10c": {
-    "sounds" : [{
-      "name" : "mixtape:music/0x10c",
-      "stream" : true
+    "sounds": [{
+      "name": "mixtape:music/0x10c",
+      "stream": true
     }]
   },
   "music.beginning": {
-    "sounds" : [{
-      "name" : "mixtape:music/beginning",
-      "stream" : true
-    }]
-  },
-  "music.beta": {
-    "sounds" : [{
-      "name" : "mixtape:music/beta",
-      "stream" : true
+    "sounds": [{
+      "name": "mixtape:music/beginning",
+      "stream": true
     }]
   },
   "music.chris": {
-    "sounds" : [{
-      "name" : "mixtape:music/chris",
-      "stream" : true
+    "sounds": [{
+      "name": "mixtape:music/chris",
+      "stream": true
     }]
   },
   "music.dog": {
-    "sounds" : [{
-      "name" : "mixtape:music/dog",
-      "stream" : true
+    "sounds": [{
+      "name": "mixtape:music/dog",
+      "stream": true
     }]
   },
   "music.door": {
-    "sounds" : [{
-      "name" : "mixtape:music/door",
-      "stream" : true
+    "sounds": [{
+      "name": "mixtape:music/door",
+      "stream": true
     }]
   },
   "music.eleven": {
-    "sounds" : [{
-      "name" : "mixtape:music/eleven",
-      "stream" : true
+    "sounds": [{
+      "name": "mixtape:music/eleven",
+      "stream": true
     }]
   },
   "music.equinoxe": {
-    "sounds" : [{
-      "name" : "mixtape:music/equinoxe",
-      "stream" : true
+    "sounds": [{
+      "name": "mixtape:music/equinoxe",
+      "stream": true
     }]
   },
   "music.excuse": {
-    "sounds" : [{
-      "name" : "mixtape:music/excuse",
-      "stream" : true
+    "sounds": [{
+      "name": "mixtape:music/excuse",
+      "stream": true
     }]
   },
   "music.intro": {
-    "sounds" : [{
-      "name" : "mixtape:music/intro",
-      "stream" : true
+    "sounds": [{
+      "name": "mixtape:music/intro",
+      "stream": true
     }]
   },
   "music.ki": {
-    "sounds" : [{
-      "name" : "mixtape:music/ki",
-      "stream" : true
+    "sounds": [{
+      "name": "mixtape:music/ki",
+      "stream": true
     }]
   },
   "music.kyoto": {
-    "sounds" : [{
-      "name" : "mixtape:music/kyoto",
-      "stream" : true
+    "sounds": [{
+      "name": "mixtape:music/kyoto",
+      "stream": true
     }]
   },
   "music.moog_city": {
-    "sounds" : [{
-      "name" : "mixtape:music/moog_city",
-      "stream" : true
+    "sounds": [{
+      "name": "mixtape:music/moog_city",
+      "stream": true
     }]
   },
-  "music.viertron": {
-    "sounds" : [{
-      "name" : "mixtape:music/viertron",
-      "stream" : true
+  "music.droopy_likes_ricochet": {
+    "sounds": [{
+      "name": "mixtape:music/droopy_likes_ricochet",
+      "stream": true
+    }]
+  },
+  "music.droopy_likes_your_face": {
+    "sounds": [{
+      "name": "mixtape:music/droopy_likes_your_face",
+      "stream": true
     }]
   },
   "music.flake": {
-    "sounds" : [{
-      "name" : "mixtape:music/flake",
-      "stream" : true
+    "sounds": [{
+      "name": "mixtape:music/flake",
+      "stream": true
     }]
   },
   "music.memento_mori": {
-    "sounds" : [{
-      "name" : "mixtape:music/memento_mori",
-      "stream" : true
+    "sounds": [{
+      "name": "mixtape:music/memento_mori",
+      "stream": true
     }]
   }
 }
