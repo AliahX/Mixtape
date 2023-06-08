@@ -1,13 +1,14 @@
 package com.aliahx.mixtape.mixin;
 
 import com.aliahx.mixtape.Mixtape;
-import com.aliahx.mixtape.config.ModConfig;
-import me.shedaniel.autoconfig.AutoConfig;
+import com.aliahx.mixtape.MusicManager;
+import com.aliahx.mixtape.toast.MusicToast;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.render.WorldRenderer;
 import net.minecraft.client.sound.PositionedSoundInstance;
 import net.minecraft.client.sound.SoundInstance;
 import net.minecraft.client.world.ClientWorld;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.MusicDiscItem;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.math.BlockPos;
@@ -23,23 +24,22 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.util.Map;
+import java.util.Objects;
+
+import static com.aliahx.mixtape.Mixtape.config;
 
 @Mixin(WorldRenderer.class)
 public abstract class WorldRendererMixin {
 
     @Shadow @Final private Map<BlockPos, SoundInstance> playingSongs;
-
     @Shadow @Final private MinecraftClient client;
-
     @Shadow protected abstract void updateEntitiesForSong(World world, BlockPos pos, boolean playing);
-
     @Shadow private @Nullable ClientWorld world;
 
     @Redirect(method = "processWorldEvent", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/render/WorldRenderer;playSong(Lnet/minecraft/sound/SoundEvent;Lnet/minecraft/util/math/BlockPos;)V"))
     private void playSongMixin(WorldRenderer instance, SoundEvent song, BlockPos songPosition) {
-        ModConfig config = AutoConfig.getConfigHolder(ModConfig.class).getConfig();
         if(!config.mainConfig.enabled || config.jukeboxConfig.enabled) {
-            SoundInstance soundInstance = (SoundInstance) this.playingSongs.get(songPosition);
+            SoundInstance soundInstance = this.playingSongs.get(songPosition);
             if (soundInstance != null) {
                 this.client.getSoundManager().stop(soundInstance);
                 this.playingSongs.remove(songPosition);
@@ -48,7 +48,9 @@ public abstract class WorldRendererMixin {
             if (song != null) {
                 MusicDiscItem musicDiscItem = MusicDiscItem.bySound(song);
                 if (musicDiscItem != null) {
-                    this.client.inGameHud.setRecordPlayingOverlay(musicDiscItem.getDescription());
+                    if(!config.musicToastConfig.enabled || !config.musicToastConfig.hideJukeboxHotbarMessage) {
+                        this.client.inGameHud.setRecordPlayingOverlay(musicDiscItem.getDescription());
+                    }
                 }
 
                 SoundInstance soundInstance2 = PositionedSoundInstance.record(song, Vec3d.ofCenter(songPosition));
@@ -57,19 +59,33 @@ public abstract class WorldRendererMixin {
             }
             this.updateEntitiesForSong(this.world, songPosition, song != null);
         }
+
+        if(song != null) {
+            String songName = song.getId().toString().split("\\.")[1];
+            if(Objects.equals(songName, "cat") && config.jukeboxConfig.dogReplacesCat) {
+                songName = "dog";
+            } else if (Objects.equals(songName, "11") && config.jukeboxConfig.elevenReplaces11) {
+                songName = "eleven";
+            } else if (Objects.equals(songName, "ward") && config.jukeboxConfig.droopyLikesYourFaceReplacesWard) {
+                songName = "droopy_likes_your_face";
+            }
+            MusicManager.Entry entry = Mixtape.musicManager.getEntry(songName);
+            MusicToast.show(MinecraftClient.getInstance().getToastManager(), entry, new ItemStack(MusicDiscItem.bySound(song)));
+        }
+
     }
 
     @Inject(method = "updateEntitiesForSong", at = @At("HEAD"))
     private void updateEntitiesForSongMixin(World world, BlockPos pos, boolean playing, CallbackInfo ci) {
         if(client.player != null) {
             if (playing) {
-                Mixtape.jukeBoxesPlaying.put(pos, true);
-                Mixtape.lastJukeBoxes.put(pos, true);
-                Mixtape.lastLastJukeBoxes.put(pos, true);
+                Mixtape.jukeboxesPlaying.put(pos, true);
+                Mixtape.lastJukeboxes.put(pos, true);
+                Mixtape.lastLastJukeboxes.put(pos, true);
             } else {
-                Mixtape.jukeBoxesPlaying.remove(pos);
-                Mixtape.lastJukeBoxes.remove(pos);
-                Mixtape.lastLastJukeBoxes.remove(pos);
+                Mixtape.jukeboxesPlaying.remove(pos);
+                Mixtape.lastJukeboxes.remove(pos);
+                Mixtape.lastLastJukeboxes.remove(pos);
             }
         }
     }

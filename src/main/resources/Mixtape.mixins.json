@@ -12,6 +12,7 @@
     "OptionsScreenMixin",
     "PositionedSoundInstanceMixin",
     "SoundSystemMixin",
+    "ToastManagerEntryMixin",
     "WorldRendererMixin"
   ],
   "injectors": {

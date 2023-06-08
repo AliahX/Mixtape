@@ -1,7 +1,8 @@
 package com.aliahx.mixtape;
 
-import com.aliahx.mixtape.config.MixtapePacks;
 import com.aliahx.mixtape.config.ModConfig;
+import com.aliahx.mixtape.toast.MusicToast;
+import com.google.gson.JsonObject;
 import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.serializer.GsonConfigSerializer;
 import net.fabricmc.api.ClientModInitializer;
@@ -11,15 +12,24 @@ import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.option.KeyBinding;
+import net.minecraft.client.sound.SoundInstanceListener;
+import net.minecraft.client.sound.SoundManager;
 import net.minecraft.client.util.InputUtil;
+import net.minecraft.item.ItemStack;
+import net.minecraft.resource.Resource;
+import net.minecraft.resource.ResourceManager;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.util.Identifier;
+import net.minecraft.util.JsonHelper;
 import net.minecraft.util.math.BlockPos;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.lwjgl.glfw.GLFW;
 
-import java.util.ArrayList;
-import java.util.HashMap;
+import java.io.BufferedReader;
+import java.io.IOException;
 import java.util.Map;
+import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
 
 import static net.minecraft.sound.SoundCategory.MUSIC;
@@ -28,34 +38,42 @@ import static net.minecraft.sound.SoundCategory.MUSIC;
 public class Mixtape implements ClientModInitializer {
     public static final Logger LOGGER = LogManager.getLogger();
 
-    public static final String MOD_VERSION = "1.4.1";
+    public static final String MOD_VERSION = "1.4.2";
+    public static final String MOD_ID = "mixtape";
     private static KeyBinding skipKey;
     private static KeyBinding pauseKey;
     private static KeyBinding playKey;
 
     public static String debugCurrentMusicType = "minecraft:music.game";
+    public static String debugCurrentSong = "";
     public static String debugNextMusicType = "minecraft:music.game";
     public static int debugTimeUntilNextSong = Integer.MAX_VALUE;
     public static int debugMaxTimeUntilNextSong = Integer.MAX_VALUE;
     public static boolean discPlaying = false;
     public static float volumeScale = 1.0f;
-    public static Map<BlockPos, Boolean> jukeBoxesPlaying = new ConcurrentHashMap<BlockPos, Boolean>() {};
-    public static Map<BlockPos, Boolean> lastJukeBoxes = new ConcurrentHashMap<BlockPos, Boolean>() {};
-    public static Map<BlockPos, Boolean> lastLastJukeBoxes = new ConcurrentHashMap<BlockPos, Boolean>() {};
     public static boolean paused = false;
+    public static Map<BlockPos, Boolean> jukeboxesPlaying = new ConcurrentHashMap<BlockPos, Boolean>() {};
+    public static Map<BlockPos, Boolean> lastJukeboxes = new ConcurrentHashMap<BlockPos, Boolean>() {};
+    public static Map<BlockPos, Boolean> lastLastJukeboxes = new ConcurrentHashMap<BlockPos, Boolean>() {};
+
+    public static MinecraftClient client;
+    public static MusicManager musicManager;
+    public static ResourceManager resourceManager;
+    public static SoundManager soundManager;
+    public static ModConfig config;
 
     @Override
     public void onInitializeClient() {
         AutoConfig.register(ModConfig.class, GsonConfigSerializer::new);
+        config = AutoConfig.getConfigHolder(ModConfig.class).getConfig();
+        client = MinecraftClient.getInstance();
 
         MixtapePacks.init();
-        LOGGER.info("Mixtape version " + MOD_VERSION + " loaded!");
 
         skipKey = KeyBindingHelper.registerKeyBinding(new KeyBinding("key.mixtape.skip", InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_N, "category.mixtape"));
         pauseKey = KeyBindingHelper.registerKeyBinding(new KeyBinding("key.mixtape.pause", InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_UNKNOWN, "category.mixtape"));
         playKey = KeyBindingHelper.registerKeyBinding(new KeyBinding("key.mixtape.play", InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_UNKNOWN, "category.mixtape"));
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
-            ModConfig config = AutoConfig.getConfigHolder(ModConfig.class).getConfig();
             while (skipKey.wasPressed()) {
                 MinecraftClient.getInstance().getSoundManager().stopSounds(null, MUSIC);
                 if(config.mainConfig.skipKeybindStartsNextSong) {
@@ -78,5 +96,30 @@ public class Mixtape implements ClientModInitializer {
                 MinecraftClient.getInstance().getMusicTracker().play(MinecraftClient.getInstance().getMusicType());
             }
         });
+
+        LOGGER.info("Mixtape version " + MOD_VERSION + " loaded!");
+    }
+
+    public static SoundInstanceListener SoundListener = (soundInstance, soundSet) -> {
+        if (soundInstance.getCategory() == SoundCategory.MUSIC) {
+            debugCurrentSong = soundInstance.getSound().getIdentifier().toString();
+            if(Mixtape.volumeScale != 0.001f) {
+                String[] arr = soundInstance.getSound().getIdentifier().toString().split("/");
+                MusicToast.show(client.getToastManager(), Mixtape.musicManager.getEntry(arr[arr.length - 1]), ItemStack.EMPTY);
+            }
+        }
+    };
+
+    public static JsonObject resourceLoader(ResourceManager manager) {
+        Optional<Resource> resource = manager.getResource(new Identifier(MOD_ID, "music_list.json"));
+        if (resource.isPresent()) {
+            Resource  resource1 = resource.get();
+            try (BufferedReader reader = resource1.getReader()) {
+                return JsonHelper.deserialize(reader);
+            } catch (IOException e) {
+                LOGGER.error("Invalid music_list.json in resourcepack: " + resource1.getResourcePackName());
+            }
+        }
+        return new JsonObject();
     }
 }

@@ -44,6 +44,10 @@ public class ModConfig implements ConfigData {
     @ConfigEntry.Gui.TransitiveObject
     public MainConfig mainConfig = new MainConfig();
 
+    @ConfigEntry.Category("musicToast")
+    @ConfigEntry.Gui.TransitiveObject
+    public MusicToastConfig musicToastConfig = new MusicToastConfig();
+
     @ConfigEntry.Category("menu")
     @ConfigEntry.Gui.TransitiveObject
     public MenuConfig menuConfig = new MenuConfig();
@@ -91,6 +95,7 @@ public class ModConfig implements ConfigData {
         public boolean pauseMusicWhenGamePaused = true;
         public boolean stopMusicWhenSwitchingDimensions = true;
         public boolean stopMusicWhenLeftGame = true;
+        public boolean enableDebugInfo = true;
     }
 
     @Config(name = "menu")
@@ -99,6 +104,20 @@ public class ModConfig implements ConfigData {
         public int minSongDelay = 20;
         public int maxSongDelay = 600;
         public float volume = 100;
+    }
+
+    @Config(name = "musicToast")
+    public static class MusicToastConfig implements ConfigData {
+        public boolean enabled = true;
+        public boolean showArtistName = true;
+        public boolean showAlbumName = true;
+        public boolean showAlbumCover = true;
+        public boolean useDiscItemAsAlbumCover = false;
+        public boolean hideJukeboxHotbarMessage = true;
+        public boolean useHotbarInsteadOfToast = false;
+        public boolean toastMakesSound = false;
+        @ConfigEntry.BoundedDiscrete(min = 2000, max = 20000)
+        public long toastDisplayTime = 7500;
     }
 
     @Config(name = "creative")
@@ -154,6 +173,7 @@ public class ModConfig implements ConfigData {
         public boolean mono = false;
         public boolean elevenReplaces11 = false;
         public boolean dogReplacesCat = false;
+        public boolean droopyLikesYourFaceReplacesWard = false;
         public boolean turnDownMusic = false;
         public float volume = 400;
     }

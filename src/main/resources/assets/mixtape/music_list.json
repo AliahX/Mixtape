@@ -1,0 +1,404 @@
+{
+  "calm1": {
+    "name": "Minecraft",
+    "artist": "C418",
+    "album": "Minecraft - Volume Alpha"
+  },
+  "calm2": {
+    "name": "Clark",
+    "artist": "C418",
+    "album": "Minecraft - Volume Alpha"
+  },
+  "calm3": {
+    "name": "Sweden",
+    "artist": "C418",
+    "album": "Minecraft - Volume Alpha"
+  },
+  "creative1": {
+    "name": "Biome Fest",
+    "artist": "C418",
+    "album": "Minecraft - Volume Beta"
+  },
+  "creative2": {
+    "name": "Blind Spots",
+    "artist": "C418",
+    "album": "Minecraft - Volume Beta"
+  },
+  "creative3": {
+    "name": "Haunt Muskie",
+    "artist": "C418",
+    "album": "Minecraft - Volume Beta"
+  },
+  "creative4": {
+    "name": "Aria Math",
+    "artist": "C418",
+    "album": "Minecraft - Volume Beta"
+  },
+  "creative5": {
+    "name": "Dreiton",
+    "artist": "C418",
+    "album": "Minecraft - Volume Beta"
+  },
+  "creative6": {
+    "name": "Taswell",
+    "artist": "C418",
+    "album": "Minecraft - Volume Beta"
+  },
+  "hal1": {
+    "name": "Subwoofer Lullaby",
+    "artist": "C418",
+    "album": "Minecraft - Volume Alpha"
+  },
+  "hal2": {
+    "name": "Living Mice",
+    "artist": "C418",
+    "album": "Minecraft - Volume Alpha"
+  },
+  "hal3": {
+    "name": "Haggstrom",
+    "artist": "C418",
+    "album": "Minecraft - Volume Alpha"
+  },
+  "hal4": {
+    "name": "Danny",
+    "artist": "C418",
+    "album": "Minecraft - Volume Alpha"
+  },
+  "nuance1": {
+    "name": "Key",
+    "artist": "C418",
+    "album": "Minecraft - Volume Alpha"
+  },
+  "nuance2": {
+    "name": "Oxygène",
+    "artist": "C418",
+    "album": "Minecraft - Volume Alpha"
+  },
+  "piano1": {
+    "name": "Dry Hands",
+    "artist": "C418",
+    "album": "Minecraft - Volume Alpha"
+  },
+  "piano2": {
+    "name": "Wet Hands",
+    "artist": "C418",
+    "album": "Minecraft - Volume Alpha"
+  },
+  "piano3": {
+    "name": "Mice On Venus",
+    "artist": "C418",
+    "album": "Minecraft - Volume Alpha"
+  },
+
+  "aerie": {
+    "name": "Aerie",
+    "artist": "Lena Raine",
+    "album": "Minecraft: The Wild Update"
+  },
+  "ancestry": {
+    "name": "Ancestry",
+    "artist": "Lena Raine",
+    "album": "Minecraft: Caves & Cliffs"
+  },
+  "an_ordinary_day": {
+    "name": "An Ordinary Day",
+    "artist": "Kumi Tanioka",
+    "album": "Minecraft: Caves & Cliffs"
+  },
+  "comforting_memories": {
+    "name": "Comforting Memories",
+    "artist": "Kumi Tanioka",
+    "album": "Minecraft: Caves & Cliffs"
+  },
+  "firebugs": {
+    "name": "Firebugs",
+    "artist": "Lena Raine",
+    "album": "Minecraft: The Wild Update"
+  },
+  "floating_dream": {
+    "name": "Floating Dream",
+    "artist": "Kumi Tanioka",
+    "album": "Minecraft: Caves & Cliffs"
+  },
+  "infinite_amethyst": {
+    "name": "Infinite Amethyst",
+    "artist": "Lena Raine",
+    "album": "Minecraft: Caves & Cliffs"
+  },
+  "labyrinthine": {
+    "name": "Labyrinthine",
+    "artist": "Lena Raine",
+    "album": "Minecraft: The Wild Update"
+  },
+  "left_to_bloom": {
+    "name": "Left To Bloom",
+    "artist": "Lena Raine",
+    "album": "Minecraft: Caves & Cliffs"
+  },
+  "one_more_day": {
+    "name": "One More Day",
+    "artist": "Lena Raine",
+    "album": "Minecraft: Caves & Cliffs"
+  },
+  "stand_tall": {
+    "name": "Stand Tall",
+    "artist": "Lena Raine",
+    "album": "Minecraft: Caves & Cliffs"
+  },
+  "wending": {
+    "name": "Wending",
+    "artist": "Lena Raine",
+    "album": "Minecraft: Caves & Cliffs"
+  },
+
+  "axolotl": {
+    "name": "Axolotl",
+    "artist": "C418",
+    "album": "Axolotl - Single"
+  },
+  "dragon_fish": {
+    "name": "Dragon Fish",
+    "artist": "C418",
+    "album": "Dragon Fish - Single"
+  },
+  "shuniji": {
+    "name": "Shuniji",
+    "artist": "C418",
+    "album": "Shuniji - Single"
+  },
+
+  "nether1": {
+    "name": "Concrete Halls",
+    "artist": "C418",
+    "album": "Minecraft - Volume Beta"
+  },
+  "nether2": {
+    "name": "Dead Voxel",
+    "artist": "C418",
+    "album": "Minecraft - Volume Beta"
+  },
+  "nether3": {
+    "name": "Warmth",
+    "artist": "C418",
+    "album": "Minecraft - Volume Beta"
+  },
+  "nether4": {
+    "name": "Ballad of the Cats",
+    "artist": "C418",
+    "album": "Minecraft - Volume Beta"
+  },
+  "chrysopoeia": {
+    "name": "Chrysopoeia",
+    "artist": "Lena Raine",
+    "album": "Minecraft: Nether Update"
+  },
+  "rubedo": {
+    "name": "Rubedo",
+    "artist": "Lena Raine",
+    "album": "Minecraft: Nether Update"
+  },
+  "so_below": {
+    "name": "So Below",
+    "artist": "Lena Raine",
+    "album": "Minecraft: Nether Update"
+  },
+
+  "boss": {
+    "name": "Boss",
+    "artist": "C418",
+    "album": "Minecraft - Volume Beta"
+  },
+  "end": {
+    "name": "The End",
+    "artist": "C418",
+    "album": "Minecraft - Volume Beta"
+  },
+
+  "menu1": {
+    "name": "Mutation",
+    "artist": "C418",
+    "album": "Minecraft - Volume Beta"
+  },
+  "menu2": {
+    "name": "Moog City 2",
+    "artist": "C418",
+    "album": "Minecraft - Volume Beta"
+  },
+  "menu3": {
+    "name": "Beginning 2",
+    "artist": "C418",
+    "album": "Minecraft - Volume Beta"
+  },
+  "menu4": {
+    "name": "Floating Trees",
+    "artist": "C418",
+    "album": "Minecraft - Volume Beta"
+  },
+  "credits": {
+    "name": "Alpha",
+    "artist": "C418",
+    "album": "Minecraft - Volume Beta"
+  },
+
+  "11": {
+    "name": "11",
+    "artist": "C418",
+    "album": "Minecraft - Volume Alpha"
+  },
+  "13": {
+    "name": "Thirteen",
+    "artist": "C418",
+    "album": "Minecraft - Volume Alpha"
+  },
+  "5": {
+    "name": "5",
+    "artist": "Samuel Åberg",
+    "album": "Minecraft: The Wild Update"
+  },
+  "blocks": {
+    "name": "Blocks",
+    "artist": "C418",
+    "album": "Minecraft - Volume Beta"
+  },
+  "cat": {
+    "name": "Cat",
+    "artist": "C418",
+    "album": "Minecraft - Volume Alpha"
+  },
+  "chirp": {
+    "name": "Chirp",
+    "artist": "C418",
+    "album": "Minecraft - Volume Beta"
+  },
+  "far": {
+    "name": "Far",
+    "artist": "C418",
+    "album": "Minecraft - Volume Beta"
+  },
+  "mall": {
+    "name": "Mall",
+    "artist": "C418",
+    "album": "Minecraft - Volume Beta"
+  },
+  "mellohi": {
+    "name": "Mellohi",
+    "artist": "C418",
+    "album": "Minecraft - Volume Beta"
+  },
+  "otherside": {
+    "name": "Otherside",
+    "artist": "Lena Raine",
+    "album": "Minecraft: Caves & Cliffs"
+  },
+  "pigstep": {
+    "name": "Pigstep",
+    "artist": "Lena Raine",
+    "album": "Minecraft: Nether Update"
+  },
+  "stal": {
+    "name": "Stal",
+    "artist": "C418",
+    "album": "Minecraft - Volume Beta"
+  },
+  "strad": {
+    "name": "Strad",
+    "artist": "C418",
+    "album": "Minecraft - Volume Beta"
+  },
+  "wait": {
+    "name": "Wait",
+    "artist": "C418",
+    "album": "Minecraft - Volume Beta"
+  },
+  "ward": {
+    "name": "Ward",
+    "artist": "C418",
+    "album": "Minecraft - Volume Beta"
+  },
+
+  "0": {
+    "name": "0",
+    "artist": "C418",
+    "album": "0x10c"
+  },
+  "0x10c": {
+    "name": "0x10c",
+    "artist": "C418",
+    "album": "0x10c"
+  },
+  "beginning": {
+    "name": "Beginning",
+    "artist": "C418",
+    "album": "Minecraft - Volume Alpha"
+  },
+  "chris": {
+    "name": "Chris",
+    "artist": "C418",
+    "album": "Minecraft - Volume Alpha"
+  },
+  "dog": {
+    "name": "Dog",
+    "artist": "C418",
+    "album": "Minecraft - Volume Alpha"
+  },
+  "door": {
+    "name": "Door",
+    "artist": "C418",
+    "album": "Minecraft - Volume Alpha"
+  },
+  "eleven": {
+    "name": "Eleven",
+    "artist": "C418",
+    "album": "Minecraft - Volume Beta"
+  },
+  "equinoxe": {
+    "name": "Équinoxe",
+    "artist": "C418",
+    "album": "Minecraft - Volume Alpha"
+  },
+  "excuse": {
+    "name": "Excuse",
+    "artist": "C418",
+    "album": "Minecraft - Volume Alpha"
+  },
+  "intro": {
+    "name": "Intro",
+    "artist": "C418",
+    "album": "Minecraft - Volume Beta"
+  },
+  "ki": {
+    "name": "Ki",
+    "artist": "C418",
+    "album": "Minecraft - Volume Beta"
+  },
+  "kyoto": {
+    "name": "Kyoto",
+    "artist": "C418",
+    "album": "Minecraft - Volume Beta"
+  },
+  "moog_city": {
+    "name": "Moog City",
+    "artist": "C418",
+    "album": "Minecraft - Volume Alpha"
+  },
+  "flake": {
+    "name": "Flake",
+    "artist": "C418",
+    "album": "Minecraft - Volume Beta"
+  },
+  "memento_mori": {
+    "name": "Memento Mori",
+    "artist": "C418",
+    "album": "Memento Mori - Single"
+  },
+  "droopy_likes_ricochet": {
+    "name": "Droopy Likes Ricochet",
+    "artist": "C418",
+    "album": "Minecraft - Volume Alpha"
+  },
+  "droopy_likes_your_face": {
+    "name": "Droopy Likes Your Face",
+    "artist": "C418",
+    "album": "Minecraft - Volume Alpha"
+  }
+}
