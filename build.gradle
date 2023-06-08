@@ -11,6 +11,10 @@ repositories {
     maven { url "https://maven.terraformersmc.com/releases" }   
 }
 
+loom {
+    accessWidenerPath = file('src/main/resources/mixtape.accesswidener')
+}
+
 dependencies {
     minecraft "com.mojang:minecraft:${project.minecraft_version}"
     mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
