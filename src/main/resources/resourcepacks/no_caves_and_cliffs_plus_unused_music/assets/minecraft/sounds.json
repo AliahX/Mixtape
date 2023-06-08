@@ -115,6 +115,10 @@
       {
         "name": "mixtape:music/equinoxe",
         "stream": true
+      },
+      {
+        "name": "mixtape:music/droopy_likes_ricochet",
+        "stream": true
       }
     ]
   },
