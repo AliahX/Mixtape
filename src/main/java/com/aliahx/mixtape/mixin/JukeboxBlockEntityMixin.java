@@ -23,27 +23,27 @@ public abstract class JukeboxBlockEntityMixin implements SingleStackInventory {
 
     @Inject(method = "tick(Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/block/BlockState;Lnet/minecraft/block/entity/JukeboxBlockEntity;)V", at = @At("HEAD"))
     private static void tickMixin(World world, BlockPos pos, BlockState state, JukeboxBlockEntity blockEntity, CallbackInfo ci) {
-        if(Mixtape.lastJukeBoxes.containsKey(pos)) {
-            if(!Mixtape.lastLastJukeBoxes.get(pos) && !Mixtape.lastJukeBoxes.get(pos) && !blockEntity.isPlayingRecord()) {
-                Mixtape.jukeBoxesPlaying.put(pos, false);
+        if(Mixtape.lastJukeboxes.containsKey(pos)) {
+            if(!Mixtape.lastLastJukeboxes.get(pos) && !Mixtape.lastJukeboxes.get(pos) && !blockEntity.isPlayingRecord()) {
+                Mixtape.jukeboxesPlaying.put(pos, false);
             } else {
-                Mixtape.jukeBoxesPlaying.put(pos, true);
+                Mixtape.jukeboxesPlaying.put(pos, true);
             }
         } else {
-            Mixtape.jukeBoxesPlaying.put(pos, true);
+            Mixtape.jukeboxesPlaying.put(pos, true);
         }
 
-        Mixtape.lastLastJukeBoxes.put(pos, Mixtape.lastJukeBoxes.getOrDefault(pos, false));
-        Mixtape.lastJukeBoxes.put(pos, blockEntity.isPlayingRecord());
+        Mixtape.lastLastJukeboxes.put(pos, Mixtape.lastJukeboxes.getOrDefault(pos, false));
+        Mixtape.lastJukeboxes.put(pos, blockEntity.isPlayingRecord());
     }
 
     @Inject(method = "isSongFinished", at = @At("HEAD"))
     private void isSongFinishedMixin(MusicDiscItem musicDisc, CallbackInfoReturnable<Boolean> cir) {
         if(tickCount >= this.recordStartTick + (long)musicDisc.getSongLengthInTicks() + 20L) {
             BlockPos pos = ((JukeboxBlockEntity)(Object)this).getPos();
-            Mixtape.jukeBoxesPlaying.remove(pos);
-            Mixtape.lastJukeBoxes.remove(pos);
-            Mixtape.lastLastJukeBoxes.remove(pos);
+            Mixtape.jukeboxesPlaying.remove(pos);
+            Mixtape.lastJukeboxes.remove(pos);
+            Mixtape.lastLastJukeboxes.remove(pos);
         }
     }
 }
