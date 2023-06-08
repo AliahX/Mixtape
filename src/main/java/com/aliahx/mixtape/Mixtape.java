@@ -38,7 +38,7 @@ import static net.minecraft.sound.SoundCategory.MUSIC;
 public class Mixtape implements ClientModInitializer {
     public static final Logger LOGGER = LogManager.getLogger();
 
-    public static final String MOD_VERSION = "1.4.2";
+    public static final String MOD_VERSION = "1.5.0";
     public static final String MOD_ID = "mixtape";
     private static KeyBinding skipKey;
     private static KeyBinding pauseKey;
