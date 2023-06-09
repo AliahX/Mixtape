@@ -65,15 +65,15 @@ public class MusicToast implements Toast {
         }
 
         int albumCoverOffset = config.musicToastConfig.showAlbumCover ? 30 : 6;
-        drawScrollableText(context, manager.getClient().textRenderer, Text.of(config.musicToastConfig.showArtistName ? ARTIST.getString() + " - " + NAME.getString() : NAME.getString()), albumCoverOffset, 0, 154, 20);
+        drawScrollableText(context, manager.getClient().textRenderer, Text.of(config.musicToastConfig.showArtistName ? ARTIST.getString() + " - " + NAME.getString() : NAME.getString()), albumCoverOffset, 0, 154, 20, -11534256);
         if(config.musicToastConfig.showAlbumName) {
-            drawScrollableText(context, manager.getClient().textRenderer, ALBUM, albumCoverOffset, 10, 154, 30);
+            drawScrollableText(context, manager.getClient().textRenderer, ALBUM, albumCoverOffset, 10, 154, 30, -16777216);
         }
 
         return (double)(startTime) >= DURATION * manager.getNotificationDisplayTimeMultiplier() ? Toast.Visibility.HIDE : Toast.Visibility.SHOW;
     }
 
-    static void drawScrollableText(DrawContext context, TextRenderer textRenderer, Text text, int left, int top, int right, int bottom) {
+    static void drawScrollableText(DrawContext context, TextRenderer textRenderer, Text text, int left, int top, int right, int bottom, int color) {
         int i = textRenderer.getWidth(text);
         int var10000 = top + bottom;
         Objects.requireNonNull(textRenderer);
@@ -90,10 +90,10 @@ public class MusicToast implements Toast {
             int y = (int) matrices.peek().getPositionMatrix().translate(FORWARD_SHIFT).get(3, 1);
 
             context.enableScissor(x + left, y + top, x + right, y + bottom);
-            context.drawText(textRenderer, text, left - g, j, -11534256, false);
+            context.drawText(textRenderer, text, left - g, j, color, false);
             context.disableScissor();
         } else {
-            context.drawText(textRenderer, text, left, j, -11534256, false);
+            context.drawText(textRenderer, text, left, j, color, false);
         }
     }
 
