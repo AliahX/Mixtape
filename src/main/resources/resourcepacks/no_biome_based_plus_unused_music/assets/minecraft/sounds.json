@@ -143,6 +143,42 @@
         "volume": 0.4
       },
       {
+        "name": "music/menu/menu1",
+        "stream": true
+      },
+      {
+        "name": "music/menu/menu2",
+        "stream": true
+      },
+      {
+        "name": "music/menu/menu3",
+        "stream": true
+      },
+      {
+        "name": "music/menu/menu4",
+        "stream": true
+      },
+      {
+        "name": "music/game/a_familiar_room",
+        "stream": true,
+        "volume": 0.4
+      },
+      {
+        "name": "music/game/crescent_dunes",
+        "stream": true,
+        "volume": 0.4
+      },
+      {
+        "name": "music/game/echo_in_the_wind",
+        "stream": true,
+        "volume": 0.4
+      },
+      {
+        "name": "music/game/bromeliad",
+        "stream": true,
+        "volume": 0.4
+      },
+      {
         "name": "mixtape:music/ki",
         "stream": true
       },
@@ -180,37 +216,12 @@
         "stream": true
       },
       {
-        "name": "music/menu/menu1",
-        "stream": true
-      },
-      {
-        "name": "music/menu/menu2",
-        "stream": true
-      },
-      {
-        "name": "music/menu/menu3",
-        "stream": true
-      },
-      {
-        "name": "music/menu/menu4",
-        "stream": true
-      },
-      {
         "name": "mixtape:music/beginning",
         "stream": true
       },
       {
         "name": "mixtape:music/moog_city",
         "stream": true
-      }
-    ]
-  },
-  "music.menu": {
-    "replace": true,
-    "sounds": [
-      {
-        "name": "music.game",
-        "type": "event"
       }
     ]
   },
@@ -223,7 +234,143 @@
       }
     ]
   },
+  "music.menu": {
+    "replace": true,
+    "sounds": [
+      {
+        "name": "music.game",
+        "type": "event"
+      }
+    ]
+  },
+  "music.nether": {
+    "sounds": [
+      {
+        "name": "music/game/nether/nether1",
+        "stream": true
+      },
+      {
+        "name": "music/game/nether/nether2",
+        "stream": true
+      },
+      {
+        "name": "music/game/nether/nether3",
+        "stream": true
+      },
+      {
+        "name": "music/game/nether/nether4",
+        "stream": true
+      },
+      {
+        "name": "music/game/nether/soulsand_valley/so_below",
+        "stream": true,
+        "volume": 0.5,
+        "weight": 7
+      },
+      {
+        "name": "music/game/nether/crimson_forest/chrysopoeia",
+        "stream": true,
+        "volume": 0.5,
+        "weight": 7
+      },
+      {
+        "name": "music/game/nether/nether_wastes/rubedo",
+        "stream": true,
+        "volume": 0.5,
+        "weight": 6
+      },
+      {
+        "name": "mixtape:music/excuse",
+        "stream": true
+      }
+    ]
+  },
+  "music.nether.basalt_deltas": {
+    "sounds": [
+      {
+        "name": "music.nether",
+        "type": "event"
+      }
+    ]
+  },
+  "music.nether.crimson_forest": {
+    "sounds": [
+      {
+        "name": "music.nether",
+        "type": "event"
+      }
+    ]
+  },
+  "music.nether.nether_wastes": {
+    "sounds": [
+      {
+        "name": "music.nether",
+        "type": "event"
+      }
+    ]
+  },
+  "music.nether.soul_sand_valley": {
+    "sounds": [
+      {
+        "name": "music.nether",
+        "type": "event"
+      }
+    ]
+  },
+  "music.overworld.badlands": {
+    "sounds": [
+      {
+        "name": "music.nether",
+        "type": "event"
+      }
+    ]
+  },
+  "music.overworld.bamboo_jungle": {
+    "replace": true,
+    "sounds": [
+      {
+        "name": "music.game",
+        "type": "event"
+      }
+    ]
+  },
+  "music.overworld.cherry_grove": {
+    "replace": true,
+    "sounds": [
+      {
+        "name": "music.game",
+        "type": "event"
+      }
+    ]
+  },
+  "music.overworld.desert": {
+    "replace": true,
+    "sounds": [
+      {
+        "name": "music.game",
+        "type": "event"
+      }
+    ]
+  },
   "music.overworld.dripstone_caves": {
+    "replace": true,
+    "sounds": [
+      {
+        "name": "music.game",
+        "type": "event"
+      }
+    ]
+  },
+  "music.overworld.flower_forest": {
+    "replace": true,
+    "sounds": [
+      {
+        "name": "music.game",
+        "type": "event"
+      }
+    ]
+  },
+  "music.overworld.forest": {
     "replace": true,
     "sounds": [
       {
@@ -259,7 +406,7 @@
       }
     ]
   },
-  "music.overworld.jungle_and_forest": {
+  "music.overworld.jungle": {
     "replace": true,
     "sounds": [
       {
@@ -304,6 +451,15 @@
       }
     ]
   },
+  "music.overworld.sparse_jungle": {
+    "replace": true,
+    "sounds": [
+      {
+        "name": "music.game",
+        "type": "event"
+      }
+    ]
+  },
   "music.overworld.stony_peaks": {
     "replace": true,
     "sounds": [
@@ -326,81 +482,6 @@
     "sounds": [
       {
         "name": "music.game",
-        "type": "event"
-      }
-    ]
-  },
-
-  "music.nether": {
-    "sounds": [
-      {
-        "name": "music/game/nether/nether1",
-        "stream": true
-      },
-      {
-        "name": "music/game/nether/nether2",
-        "stream": true
-      },
-      {
-        "name": "music/game/nether/nether3",
-        "stream": true
-      },
-      {
-        "name": "music/game/nether/nether4",
-        "stream": true
-      },
-      {
-        "name": "mixtape:music/excuse",
-        "stream": true
-      },
-      {
-        "name": "music/game/nether/soulsand_valley/so_below",
-        "stream": true,
-        "volume": 0.5,
-        "weight": 7
-      },
-      {
-        "name": "music/game/nether/crimson_forest/chrysopoeia",
-        "stream": true,
-        "volume": 0.5,
-        "weight": 7
-      },
-      {
-        "name": "music/game/nether/nether_wastes/rubedo",
-        "stream": true,
-        "volume": 0.5,
-        "weight": 6
-      }
-    ]
-  },
-  "music.nether.basalt_deltas": {
-    "sounds": [
-      {
-        "name": "music.nether",
-        "type": "event"
-      }
-    ]
-  },
-  "music.nether.crimson_forest": {
-    "sounds": [
-      {
-        "name": "music.nether",
-        "type": "event"
-      }
-    ]
-  },
-  "music.nether.nether_wastes": {
-    "sounds": [
-      {
-        "name": "music.nether",
-        "type": "event"
-      }
-    ]
-  },
-  "music.nether.soul_sand_valley": {
-    "sounds": [
-      {
-        "name": "music.nether",
         "type": "event"
       }
     ]

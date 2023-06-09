@@ -2,34 +2,6 @@
   "music.creative": {
     "sounds": [
       {
-        "name": "music.game",
-        "type": "event"
-      },
-      {
-        "name": "music/game/creative/creative1",
-        "stream": true
-      },
-      {
-        "name": "music/game/creative/creative2",
-        "stream": true
-      },
-      {
-        "name": "music/game/creative/creative3",
-        "stream": true
-      },
-      {
-        "name": "music/game/creative/creative4",
-        "stream": true
-      },
-      {
-        "name": "music/game/creative/creative5",
-        "stream": true
-      },
-      {
-        "name": "music/game/creative/creative6",
-        "stream": true
-      },
-      {
         "name": "mixtape:music/ki",
         "stream": true
       },
@@ -46,44 +18,6 @@
   "music.game": {
     "sounds": [
       {
-        "name": "music/game/calm1",
-        "stream": true
-      },
-      {
-        "name": "music/game/calm2",
-        "stream": true
-      },
-      {
-        "name": "music/game/calm3",
-        "stream": true
-      },
-      {
-        "name": "music/game/comforting_memories",
-        "stream": true,
-        "volume": 0.4
-      },
-      {
-        "name": "music/game/floating_dream",
-        "stream": true,
-        "volume": 0.4
-      },
-      {
-        "name": "music/game/hal1",
-        "stream": true
-      },
-      {
-        "name": "music/game/hal2",
-        "stream": true
-      },
-      {
-        "name": "music/game/hal3",
-        "stream": true
-      },
-      {
-        "name": "music/game/hal4",
-        "stream": true
-      },
-      {
         "name": "mixtape:music/chris",
         "stream": true
       },
@@ -92,25 +26,12 @@
         "stream": true
       },
       {
-        "name": "music/game/left_to_bloom",
-        "stream": true,
-        "volume": 0.4
-      },
-      {
         "name": "mixtape:music/memento_mori",
         "stream": true,
         "volume": 0.4
       },
       {
-        "name": "music/game/nuance1",
-        "stream": true
-      },
-      {
         "name": "mixtape:music/door",
-        "stream": true
-      },
-      {
-        "name": "music/game/nuance2",
         "stream": true
       },
       {
@@ -120,56 +41,11 @@
       {
         "name": "mixtape:music/droopy_likes_ricochet",
         "stream": true
-      },
-      {
-        "name": "music/game/one_more_day",
-        "stream": true,
-        "volume": 0.4
-      },
-      {
-        "name": "music/game/piano1",
-        "stream": true
-      },
-      {
-        "name": "music/game/piano2",
-        "stream": true
-      },
-      {
-        "name": "music/game/piano3",
-        "stream": true
       }
     ]
   },
   "music.menu": {
     "sounds": [
-      {
-        "name": "music/game/swamp/aerie",
-        "stream": true
-      },
-      {
-        "name": "music/game/swamp/firebugs",
-        "stream": true
-      },
-      {
-        "name": "music/game/swamp/labyrinthine",
-        "stream": true
-      },
-      {
-        "name": "music/menu/menu1",
-        "stream": true
-      },
-      {
-        "name": "music/menu/menu2",
-        "stream": true
-      },
-      {
-        "name": "music/menu/menu3",
-        "stream": true
-      },
-      {
-        "name": "music/menu/menu4",
-        "stream": true
-      },
       {
         "name": "mixtape:music/beginning",
         "stream": true
@@ -183,57 +59,13 @@
   "music.nether.basalt_deltas": {
     "sounds": [
       {
-        "name": "music/game/nether/nether1",
-        "stream": true
-      },
-      {
-        "name": "music/game/nether/nether2",
-        "stream": true
-      },
-      {
-        "name": "music/game/nether/nether3",
-        "stream": true
-      },
-      {
-        "name": "music/game/nether/nether4",
-        "stream": true
-      },
-      {
         "name": "mixtape:music/excuse",
         "stream": true
-      },
-      {
-        "name": "music/game/nether/soulsand_valley/so_below",
-        "stream": true,
-        "volume": 0.5,
-        "weight": 7
       }
     ]
   },
   "music.nether.crimson_forest": {
     "sounds": [
-      {
-        "name": "music/game/nether/crimson_forest/chrysopoeia",
-        "stream": true,
-        "volume": 0.5,
-        "weight": 7
-      },
-      {
-        "name": "music/game/nether/nether1",
-        "stream": true
-      },
-      {
-        "name": "music/game/nether/nether2",
-        "stream": true
-      },
-      {
-        "name": "music/game/nether/nether3",
-        "stream": true
-      },
-      {
-        "name": "music/game/nether/nether4",
-        "stream": true
-      },
       {
         "name": "mixtape:music/excuse",
         "stream": true
@@ -243,85 +75,128 @@
   "music.nether.nether_wastes": {
     "sounds": [
       {
-        "name": "music/game/nether/nether1",
-        "stream": true
-      },
-      {
-        "name": "music/game/nether/nether2",
-        "stream": true
-      },
-      {
-        "name": "music/game/nether/nether3",
-        "stream": true
-      },
-      {
-        "name": "music/game/nether/nether4",
-        "stream": true
-      },
-      {
         "name": "mixtape:music/excuse",
         "stream": true
-      },
-      {
-        "name": "music/game/nether/nether_wastes/rubedo",
-        "stream": true,
-        "volume": 0.5,
-        "weight": 6
       }
     ]
   },
   "music.nether.soul_sand_valley": {
     "sounds": [
       {
-        "name": "music/game/nether/nether1",
-        "stream": true
-      },
-      {
-        "name": "music/game/nether/nether2",
-        "stream": true
-      },
-      {
-        "name": "music/game/nether/nether3",
-        "stream": true
-      },
-      {
-        "name": "music/game/nether/nether4",
-        "stream": true
-      },
-      {
         "name": "mixtape:music/excuse",
         "stream": true
+      }
+    ]
+  },
+  "music.overworld.badlands": {
+    "sounds": [
+      {
+        "name": "mixtape:music/chris",
+        "stream": true
       },
       {
-        "name": "music/game/nether/soulsand_valley/so_below",
+        "name": "mixtape:music/memento_mori",
         "stream": true,
-        "volume": 0.5,
-        "weight": 7
+        "volume": 0.4
+      },
+      {
+        "name": "mixtape:music/door",
+        "stream": true
+      },
+      {
+        "name": "mixtape:music/equinoxe",
+        "stream": true
+      },
+      {
+        "name": "mixtape:music/droopy_likes_ricochet",
+        "stream": true
+      }
+    ]
+  },
+  "music.overworld.bamboo_jungle": {
+    "sounds": [
+      {
+        "name": "mixtape:music/kyoto",
+        "stream": true
+      },
+      {
+        "name": "mixtape:music/chris",
+        "stream": true
+      },
+      {
+        "name": "mixtape:music/memento_mori",
+        "stream": true,
+        "volume": 0.4
+      },
+      {
+        "name": "mixtape:music/door",
+        "stream": true
+      },
+      {
+        "name": "mixtape:music/equinoxe",
+        "stream": true
+      },
+      {
+        "name": "mixtape:music/droopy_likes_ricochet",
+        "stream": true
+      }
+    ]
+  },
+  "music.overworld.cherry_grove": {
+    "sounds": [
+      {
+        "name": "mixtape:music/kyoto",
+        "stream": true
+      },
+      {
+        "name": "mixtape:music/memento_mori",
+        "stream": true,
+        "volume": 0.4
+      },
+      {
+        "name": "mixtape:music/door",
+        "stream": true
+      },
+      {
+        "name": "mixtape:music/equinoxe",
+        "stream": true
+      },
+      {
+        "name": "mixtape:music/droopy_likes_ricochet",
+        "stream": true
+      }
+    ]
+  },
+  "music.overworld.desert": {
+    "sounds": [
+      {
+        "name": "mixtape:music/chris",
+        "stream": true
+      },
+      {
+        "name": "mixtape:music/memento_mori",
+        "stream": true,
+        "volume": 0.4
+      },
+      {
+        "name": "mixtape:music/door",
+        "stream": true
+      },
+      {
+        "name": "mixtape:music/equinoxe",
+        "stream": true
+      },
+      {
+        "name": "mixtape:music/droopy_likes_ricochet",
+        "stream": true
       }
     ]
   },
   "music.overworld.dripstone_caves": {
     "sounds": [
       {
-        "name": "music/game/an_ordinary_day",
-        "stream": true
-      },
-      {
-        "name": "music/game/hal1",
-        "stream": true
-      },
-      {
-        "name": "music/game/hal4",
-        "stream": true
-      },
-      {
         "name": "mixtape:music/chris",
         "stream": true
-      },
-      {
-        "name": "music/game/infinite_amethyst",
-        "stream": true,
-        "volume": 0.4
       },
       {
         "name": "mixtape:music/memento_mori",
@@ -329,15 +204,7 @@
         "volume": 0.4
       },
       {
-        "name": "music/game/nuance1",
-        "stream": true
-      },
-      {
         "name": "mixtape:music/door",
-        "stream": true
-      },
-      {
-        "name": "music/game/nuance2",
         "stream": true
       },
       {
@@ -347,84 +214,80 @@
       {
         "name": "mixtape:music/droopy_likes_ricochet",
         "stream": true
+      }
+    ]
+  },
+  "music.overworld.flower_forest": {
+    "sounds": [
+      {
+        "name": "mixtape:music/kyoto",
+        "stream": true
       },
       {
-        "name": "music/game/wending",
+        "name": "mixtape:music/chris",
+        "stream": true
+      },
+      {
+        "name": "mixtape:music/memento_mori",
         "stream": true,
-        "volume": 0.4,
-        "weight": 2
+        "volume": 0.4
+      },
+      {
+        "name": "mixtape:music/door",
+        "stream": true
+      },
+      {
+        "name": "mixtape:music/equinoxe",
+        "stream": true
+      },
+      {
+        "name": "mixtape:music/droopy_likes_ricochet",
+        "stream": true
+      }
+    ]
+  },
+  "music.overworld.forest": {
+    "sounds": [
+      {
+        "name": "mixtape:music/kyoto",
+        "stream": true
+      },
+      {
+        "name": "mixtape:music/chris",
+        "stream": true
+      },
+      {
+        "name": "mixtape:music/memento_mori",
+        "stream": true,
+        "volume": 0.4
+      },
+      {
+        "name": "mixtape:music/door",
+        "stream": true
+      },
+      {
+        "name": "mixtape:music/equinoxe",
+        "stream": true
+      },
+      {
+        "name": "mixtape:music/droopy_likes_ricochet",
+        "stream": true
       }
     ]
   },
   "music.overworld.frozen_peaks": {
     "sounds": [
       {
-        "name": "music/game/hal1",
-        "stream": true
-      },
-      {
-        "name": "music/game/hal2",
-        "stream": true
-      },
-      {
-        "name": "music/game/hal3",
-        "stream": true
-      },
-      {
-        "name": "music/game/hal4",
-        "stream": true
-      },
-      {
         "name": "mixtape:music/chris",
         "stream": true
-      },
-      {
-        "name": "music/game/piano1",
-        "stream": true
-      },
-      {
-        "name": "music/game/piano2",
-        "stream": true
-      },
-      {
-        "name": "music/game/piano3",
-        "stream": true
-      },
-      {
-        "name": "music/game/stand_tall",
-        "stream": true,
-        "volume": 0.4,
-        "weight": 2
       }
     ]
   },
   "music.overworld.grove": {
     "sounds": [
       {
-        "name": "music/game/calm1",
-        "stream": true
-      },
-      {
-        "name": "music/game/calm2",
-        "stream": true
-      },
-      {
-        "name": "music/game/calm3",
-        "stream": true
-      },
-      {
         "name": "mixtape:music/kyoto",
         "stream": true
-      },
-      {
-        "name": "music/game/comforting_memories",
-        "stream": true,
-        "volume": 0.4
-      },
-      {
-        "name": "music/game/infinite_amethyst",
-        "stream": true,
-        "volume": 0.4
       },
       {
         "name": "mixtape:music/memento_mori",
@@ -432,15 +295,7 @@
         "volume": 0.4
       },
       {
-        "name": "music/game/nuance1",
-        "stream": true
-      },
-      {
         "name": "mixtape:music/door",
-        "stream": true
-      },
-      {
-        "name": "music/game/nuance2",
         "stream": true
       },
       {
@@ -450,47 +305,17 @@
       {
         "name": "mixtape:music/droopy_likes_ricochet",
         "stream": true
-      },
-      {
-        "name": "music/game/piano3",
-        "stream": true
-      },
-      {
-        "name": "music/game/wending",
-        "stream": true,
-        "volume": 0.4
       }
     ]
   },
   "music.overworld.jagged_peaks": {
     "sounds": [
       {
-        "name": "music/game/floating_dream",
-        "stream": true,
-        "volume": 0.4
-      },
-      {
         "name": "mixtape:music/kyoto",
         "stream": true
       },
       {
-        "name": "music/game/hal1",
-        "stream": true
-      },
-      {
-        "name": "music/game/hal2",
-        "stream": true
-      },
-      {
-        "name": "music/game/nuance1",
-        "stream": true
-      },
-      {
         "name": "mixtape:music/door",
-        "stream": true
-      },
-      {
-        "name": "music/game/nuance2",
         "stream": true
       },
       {
@@ -500,73 +325,13 @@
       {
         "name": "mixtape:music/droopy_likes_ricochet",
         "stream": true
-      },
-      {
-        "name": "music/game/piano1",
-        "stream": true
-      },
-      {
-        "name": "music/game/piano2",
-        "stream": true
-      },
-      {
-        "name": "music/game/piano3",
-        "stream": true
-      },
-      {
-        "name": "music/game/stand_tall",
-        "stream": true,
-        "volume": 0.4
-      },
-      {
-        "name": "music/game/wending",
-        "stream": true,
-        "volume": 0.4
       }
     ]
   },
-  "music.overworld.jungle_and_forest": {
+  "music.overworld.jungle": {
     "sounds": [
       {
-        "name": "music/game/calm1",
-        "stream": true
-      },
-      {
-        "name": "music/game/calm2",
-        "stream": true
-      },
-      {
-        "name": "music/game/calm3",
-        "stream": true
-      },
-      {
-        "name": "music/game/comforting_memories",
-        "stream": true,
-        "volume": 0.4
-      },
-      {
-        "name": "music/game/floating_dream",
-        "stream": true,
-        "volume": 0.4
-      },
-      {
         "name": "mixtape:music/kyoto",
-        "stream": true
-      },
-      {
-        "name": "music/game/hal1",
-        "stream": true
-      },
-      {
-        "name": "music/game/hal2",
-        "stream": true
-      },
-      {
-        "name": "music/game/hal3",
-        "stream": true
-      },
-      {
-        "name": "music/game/hal4",
         "stream": true
       },
       {
@@ -574,25 +339,12 @@
         "stream": true
       },
       {
-        "name": "music/game/left_to_bloom",
-        "stream": true,
-        "volume": 0.4
-      },
-      {
         "name": "mixtape:music/memento_mori",
         "stream": true,
         "volume": 0.4
       },
       {
-        "name": "music/game/nuance1",
-        "stream": true
-      },
-      {
         "name": "mixtape:music/door",
-        "stream": true
-      },
-      {
-        "name": "music/game/nuance2",
         "stream": true
       },
       {
@@ -601,35 +353,6 @@
       },
       {
         "name": "mixtape:music/droopy_likes_ricochet",
-        "stream": true
-      },
-      {
-        "name": "music/game/one_more_day",
-        "stream": true,
-        "volume": 0.4
-      },
-      {
-        "name": "music/game/piano1",
-        "stream": true
-      },
-      {
-        "name": "music/game/piano2",
-        "stream": true
-      },
-      {
-        "name": "music/game/piano3",
-        "stream": true
-      },
-      {
-        "name": "music/game/swamp/aerie",
-        "stream": true
-      },
-      {
-        "name": "music/game/swamp/firebugs",
-        "stream": true
-      },
-      {
-        "name": "music/game/swamp/labyrinthine",
         "stream": true
       }
     ]
@@ -637,90 +360,20 @@
   "music.overworld.lush_caves": {
     "sounds": [
       {
-        "name": "music/game/an_ordinary_day",
-        "stream": true,
-        "weight": 2
-      },
-      {
         "name": "mixtape:music/kyoto",
         "stream": true
-      },
-      {
-        "name": "music/game/calm1",
-        "stream": true,
-        "weight": 2
-      },
-      {
-        "name": "music/game/calm2",
-        "stream": true,
-        "weight": 2
-      },
-      {
-        "name": "music/game/calm3",
-        "stream": true,
-        "weight": 2
-      },
-      {
-        "name": "music/game/floating_dream",
-        "stream": true,
-        "weight": 2
-      },
-      {
-        "name": "music/game/left_to_bloom",
-        "stream": true,
-        "volume": 0.4,
-        "weight": 4
       },
       {
         "name": "mixtape:music/memento_mori",
         "stream": true,
         "volume": 0.4
-      },
-      {
-        "name": "music/game/one_more_day",
-        "stream": true,
-        "volume": 0.4,
-        "weight": 2
-      },
-      {
-        "name": "music/game/piano3",
-        "stream": true,
-        "weight": 2
-      },
-      {
-        "name": "music/game/swamp/aerie",
-        "stream": true
-      },
-      {
-        "name": "music/game/swamp/firebugs",
-        "stream": true
-      },
-      {
-        "name": "music/game/swamp/labyrinthine",
-        "stream": true
       }
     ]
   },
   "music.overworld.meadow": {
     "sounds": [
       {
-        "name": "music/game/hal1",
-        "stream": true
-      },
-      {
         "name": "mixtape:music/kyoto",
-        "stream": true
-      },
-      {
-        "name": "music/game/hal2",
-        "stream": true
-      },
-      {
-        "name": "music/game/hal3",
-        "stream": true
-      },
-      {
-        "name": "music/game/hal4",
         "stream": true
       },
       {
@@ -728,85 +381,21 @@
         "stream": true
       },
       {
-        "name": "music/game/left_to_bloom",
-        "stream": true,
-        "volume": 0.4
-      },
-      {
         "name": "mixtape:music/memento_mori",
         "stream": true,
         "volume": 0.4
-      },
-      {
-        "name": "music/game/one_more_day",
-        "stream": true,
-        "volume": 0.4,
-        "weight": 2
       }
     ]
   },
   "music.overworld.old_growth_taiga": {
     "sounds": [
       {
-        "name": "music/game/calm1",
-        "stream": true,
-        "weight": 3
-      },
-      {
         "name": "mixtape:music/kyoto",
         "stream": true
       },
       {
-        "name": "music/game/calm2",
-        "stream": true,
-        "weight": 3
-      },
-      {
-        "name": "music/game/calm3",
-        "stream": true,
-        "weight": 3
-      },
-      {
-        "name": "music/game/comforting_memories",
-        "stream": true,
-        "volume": 0.4,
-        "weight": 3
-      },
-      {
-        "name": "music/game/floating_dream",
-        "stream": true,
-        "volume": 0.4,
-        "weight": 3
-      },
-      {
-        "name": "music/game/hal1",
-        "stream": true,
-        "weight": 3
-      },
-      {
-        "name": "music/game/hal2",
-        "stream": true,
-        "weight": 3
-      },
-      {
-        "name": "music/game/hal3",
-        "stream": true,
-        "weight": 3
-      },
-      {
-        "name": "music/game/hal4",
-        "stream": true,
-        "weight": 3
-      },
-      {
         "name": "mixtape:music/chris",
         "stream": true,
-        "weight": 3
-      },
-      {
-        "name": "music/game/left_to_bloom",
-        "stream": true,
-        "volume": 0.4,
         "weight": 3
       },
       {
@@ -815,17 +404,7 @@
         "volume": 0.4
       },
       {
-        "name": "music/game/nuance1",
-        "stream": true,
-        "weight": 3
-      },
-      {
         "name": "mixtape:music/door",
-        "stream": true,
-        "weight": 3
-      },
-      {
-        "name": "music/game/nuance2",
         "stream": true,
         "weight": 3
       },
@@ -837,98 +416,26 @@
       {
         "name": "mixtape:music/droopy_likes_ricochet",
         "stream": true
-      },
-      {
-        "name": "music/game/one_more_day",
-        "stream": true,
-        "volume": 0.4,
-        "weight": 3
-      },
-      {
-        "name": "music/game/piano1",
-        "stream": true,
-        "weight": 3
-      },
-      {
-        "name": "music/game/piano2",
-        "stream": true,
-        "weight": 3
-      },
-      {
-        "name": "music/game/piano3",
-        "stream": true,
-        "weight": 3
-      },
-      {
-        "name": "music/game/swamp/aerie",
-        "stream": true
-      },
-      {
-        "name": "music/game/swamp/firebugs",
-        "stream": true
-      },
-      {
-        "name": "music/game/swamp/labyrinthine",
-        "stream": true
       }
     ]
   },
   "music.overworld.snowy_slopes": {
     "sounds": [
       {
-        "name": "music/game/an_ordinary_day",
-        "stream": true,
-        "volume": 0.4
-      },
-      {
-        "name": "music/game/hal1",
-        "stream": true
-      },
-      {
-        "name": "music/game/hal2",
-        "stream": true
-      },
-      {
         "name": "mixtape:music/kyoto",
         "stream": true
-      },
-      {
-        "name": "music/game/hal3",
-        "stream": true
-      },
-      {
-        "name": "music/game/one_more_day",
-        "stream": true,
-        "volume": 0.4
       },
       {
         "name": "mixtape:music/memento_mori",
         "stream": true,
         "volume": 0.4
-      },
-      {
-        "name": "music/game/stand_tall",
-        "stream": true,
-        "volume": 0.4
       }
     ]
   },
-  "music.overworld.stony_peaks": {
+  "music.overworld.sparse_jungle": {
     "sounds": [
       {
-        "name": "music/game/hal1",
-        "stream": true
-      },
-      {
-        "name": "music/game/hal2",
-        "stream": true
-      },
-      {
-        "name": "music/game/hal3",
-        "stream": true
-      },
-      {
-        "name": "music/game/hal4",
+        "name": "mixtape:music/kyoto",
         "stream": true
       },
       {
@@ -936,40 +443,34 @@
         "stream": true
       },
       {
-        "name": "music/game/piano1",
-        "stream": true
-      },
-      {
-        "name": "music/game/piano2",
-        "stream": true
-      },
-      {
-        "name": "music/game/piano3",
-        "stream": true
-      },
-      {
-        "name": "music/game/stand_tall",
-        "stream": true,
-        "volume": 0.4,
-        "weight": 2
-      },
-      {
-        "name": "music/game/wending",
+        "name": "mixtape:music/memento_mori",
         "stream": true,
         "volume": 0.4
+      },
+      {
+        "name": "mixtape:music/door",
+        "stream": true
+      },
+      {
+        "name": "mixtape:music/equinoxe",
+        "stream": true
+      },
+      {
+        "name": "mixtape:music/droopy_likes_ricochet",
+        "stream": true
+      }
+    ]
+  },
+  "music.overworld.stony_peaks": {
+    "sounds": [
+      {
+        "name": "mixtape:music/chris",
+        "stream": true
       }
     ]
   },
   "music.overworld.swamp": {
     "sounds": [
-      {
-        "name": "music/game/swamp/aerie",
-        "stream": true
-      },
-      {
-        "name": "music/game/swamp/firebugs",
-        "stream": true
-      },
       {
         "name": "mixtape:music/kyoto",
         "stream": true
@@ -980,4 +481,4 @@
       }
     ]
   }
-}
+},
