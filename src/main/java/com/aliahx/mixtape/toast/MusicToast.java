@@ -6,7 +6,7 @@ import com.mojang.blaze3d.systems.RenderSystem;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.font.TextRenderer;
-import net.minecraft.client.gui.DrawableHelper;
+import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.toast.Toast;
 import net.minecraft.client.toast.ToastManager;
 import net.minecraft.client.util.math.MatrixStack;
@@ -21,7 +21,6 @@ import org.joml.Vector3fc;
 import java.util.Objects;
 
 import static com.aliahx.mixtape.Mixtape.config;
-import static net.minecraft.client.gui.DrawableHelper.*;
 
 @Environment(EnvType.CLIENT)
 public class MusicToast implements Toast {
@@ -46,6 +45,7 @@ public class MusicToast implements Toast {
             case "Minecraft: The Wild Update" -> AlbumCover.THE_WILD_UPDATE;
             case "Minecraft: Caves & Cliffs" -> AlbumCover.CAVES_AND_CLIFFS;
             case "Minecraft: Nether Update" -> AlbumCover.NETHER_UPDATE;
+            case "Minecraft: Trails & Tales" -> AlbumCover.TRAILS_AND_TALES;
             case "Axolotl - Single" -> AlbumCover.AXOLOTL;
             case "Dragon Fish - Single" -> AlbumCover.DRAGON_FISH;
             case "Shuniji - Single" -> AlbumCover.SHUNIJI;
@@ -54,25 +54,26 @@ public class MusicToast implements Toast {
     }
 
     @Override
-    public Toast.Visibility draw(MatrixStack matrices, ToastManager manager, long startTime) {
-        RenderSystem.setShaderTexture(0, TEXTURE);
-        DrawableHelper.drawTexture(matrices, 0, 0, 0, 32, this.getWidth(), this.getHeight());
+    public Toast.Visibility draw(DrawContext context, ToastManager manager, long startTime) {
+        context.drawTexture(TEXTURE, 0, 0, 0, 32, this.getWidth(), this.getHeight());
         if(config.musicToastConfig.showAlbumCover) {
             if(config.musicToastConfig.useDiscItemAsAlbumCover && ITEM != ItemStack.EMPTY) {
-                manager.getClient().getItemRenderer().renderInGui(matrices, ITEM, 8, 8);
+                context.drawItemWithoutEntity(ITEM, 8, 8);
             } else {
-                ALBUMCOVER.drawIcon(matrices, 6, 6);
+                ALBUMCOVER.drawIcon(context, 6, 6);
             }
         }
 
         int albumCoverOffset = config.musicToastConfig.showAlbumCover ? 30 : 6;
-        drawScrollableText(matrices, manager.getClient().textRenderer, Text.of(config.musicToastConfig.showArtistName ? ARTIST.getString() + " - " + NAME.getString() : NAME.getString()), albumCoverOffset, 0, 154, 20);
-        if(config.musicToastConfig.showAlbumName) {drawScrollableText(matrices, manager.getClient().textRenderer, ALBUM, albumCoverOffset, 10, 154, 30);}
+        drawScrollableText(context, manager.getClient().textRenderer, Text.of(config.musicToastConfig.showArtistName ? ARTIST.getString() + " - " + NAME.getString() : NAME.getString()), albumCoverOffset, 0, 154, 20);
+        if(config.musicToastConfig.showAlbumName) {
+            drawScrollableText(context, manager.getClient().textRenderer, ALBUM, albumCoverOffset, 10, 154, 30);
+        }
 
         return (double)(startTime) >= DURATION * manager.getNotificationDisplayTimeMultiplier() ? Toast.Visibility.HIDE : Toast.Visibility.SHOW;
     }
 
-    static void drawScrollableText(MatrixStack matrices, TextRenderer textRenderer, Text text, int left, int top, int right, int bottom) {
+    static void drawScrollableText(DrawContext context, TextRenderer textRenderer, Text text, int left, int top, int right, int bottom) {
         int i = textRenderer.getWidth(text);
         int var10000 = top + bottom;
         Objects.requireNonNull(textRenderer);
@@ -84,14 +85,15 @@ public class MusicToast implements Toast {
             double e = Math.max(l * 0.5, 3.0);
             double f = Math.sin(1.5707963267948966 * Math.cos(6.283185307179586 * d / e)) / 2.0 + 0.5;
             int g = (int) MathHelper.lerp(f, 0.0, l);
+            MatrixStack matrices = context.getMatrices();
             int x = (int) matrices.peek().getPositionMatrix().translate(FORWARD_SHIFT).get(3, 0);
             int y = (int) matrices.peek().getPositionMatrix().translate(FORWARD_SHIFT).get(3, 1);
 
-            enableScissor(x + left, y + top, x + right, y + bottom);
-            textRenderer.draw(matrices, text, left - g, j, -11534256);
-            disableScissor();
+            context.enableScissor(x + left, y + top, x + right, y + bottom);
+            context.drawText(textRenderer, text, left - g, j, -11534256, false);
+            context.disableScissor();
         } else {
-            textRenderer.draw(matrices, text, left, j, -11534256);
+            context.drawText(textRenderer, text, left, j, -11534256, false);
         }
     }
 
@@ -114,7 +116,8 @@ public class MusicToast implements Toast {
         NETHER_UPDATE(0, 1),
         CAVES_AND_CLIFFS(1, 1),
         THE_WILD_UPDATE(2, 1),
-        _0x10c(3, 1);
+        _0x10c(3, 1),
+        TRAILS_AND_TALES(4, 1);
 
         private final int x;
         private final int y;
@@ -124,9 +127,8 @@ public class MusicToast implements Toast {
             this.y = y;
         }
 
-        public void drawIcon(MatrixStack matrices, int x, int y) {
-            RenderSystem.setShaderTexture(0, ALBUM_COVERS);
-            DrawableHelper.drawTexture(matrices, x, y, 0, this.x * 20, this.y * 20, 20, 20, 100, 100);
+        public void drawIcon(DrawContext context, int x, int y) {
+            context.drawTexture(ALBUM_COVERS, x, y, 0, this.x * 20, this.y * 20, 20, 20, 100, 100);
         }
     }
 }
