@@ -83,7 +83,7 @@ public class MusicTrackerMixin {
         };
     }
 
-    @Inject(method = "stop", at = @At("HEAD"), cancellable = true)
+    @Inject(method = "stop*", at = @At("HEAD"), cancellable = true)
     public void stopMixin(CallbackInfo ci) {
         if(config.mainConfig.enabled && !config.mainConfig.stopMusicWhenSwitchingDimensions) {
             ci.cancel();
