@@ -400,5 +400,30 @@
     "name": "Droopy Likes Your Face",
     "artist": "C418",
     "album": "Minecraft - Volume Alpha"
+  },
+  "echo_in_the_wind": {
+    "name": "Echo in the Wind",
+    "artist": "Aaron Cherof",
+    "album": "Minecraft: Trails & Tales"
+  },
+  "a_familiar_room": {
+    "name": "A Familiar Room",
+    "artist": "Aaron Cherof",
+    "album": "Minecraft: Trails & Tales"
+  },
+  "bromeliad": {
+    "name": "Bromeliad",
+    "artist": "Aaron Cherof",
+    "album": "Minecraft: Trails & Tales"
+  },
+  "crescent_dunes": {
+    "name": "Crescent Dunes",
+    "artist": "Aaron Cherof",
+    "album": "Minecraft: Trails & Tales"
+  },
+  "relic": {
+    "name": "Relic",
+    "artist": "Aaron Cherof",
+    "album": "Minecraft: Trails & Tales"
   }
 }
