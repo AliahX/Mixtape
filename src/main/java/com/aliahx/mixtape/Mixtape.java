@@ -89,7 +89,7 @@ public class Mixtape implements ClientModInitializer {
                 if(config.mainConfig.playKeybindReplacesCurrentSong) {
                     MinecraftClient.getInstance().getSoundManager().stopSounds(null, MUSIC);
                 } else {
-                    if(MinecraftClient.getInstance().getMusicTracker().isPlayingType(MinecraftClient.getInstance().getMusicType())) {
+                    if(Mixtape.debugTimeUntilNextSong == Mixtape.debugMaxTimeUntilNextSong) {
                         return;
                     }
                 }
