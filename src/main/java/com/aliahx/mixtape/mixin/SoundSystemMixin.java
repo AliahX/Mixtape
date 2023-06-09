@@ -1,14 +1,16 @@
 package com.aliahx.mixtape.mixin;
 
+import com.google.common.collect.Multimap;
 import net.minecraft.client.sound.*;
 import net.minecraft.sound.SoundCategory;
+import net.minecraft.util.Identifier;
+import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import java.util.Map;
 
@@ -38,9 +40,11 @@ public abstract class SoundSystemMixin {
     }
 
     @Inject(at = @At("HEAD"), method = "stopSounds", cancellable = true)
-    public void stopSoundsMixin(CallbackInfo ci) {
-        if(config.mainConfig.enabled && config.mainConfig.stopMusicWhenLeftGame) {
-            ci.cancel();
+    public void stopSoundsMixin(@Nullable Identifier id, @Nullable SoundCategory category, CallbackInfo ci) {
+        if(!(id == null && category == SoundCategory.MUSIC)) {
+            if (config.mainConfig.enabled && config.mainConfig.stopMusicWhenLeftGame) {
+                ci.cancel();
+            }
         }
     }
 }
