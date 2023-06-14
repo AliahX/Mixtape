@@ -1,0 +1,42 @@
+{
+  "Minecraft - Volume Alpha": {
+    "x": 0,
+    "y": 0
+  },
+  "Minecraft - Volume Beta": {
+    "x": 1,
+    "y":  0
+  },
+  "Axolotl - Single": {
+    "x": 2,
+    "y":  0
+  },
+  "Dragon Fish - Single": {
+    "x": 3,
+    "y":  0
+  },
+  "Shuniji - Single": {
+    "x": 4,
+    "y":  0
+  },
+  "Minecraft: Nether Update": {
+    "x": 0,
+    "y":  1
+  },
+  "Minecraft: Caves & Cliffs": {
+    "x": 1,
+    "y":  1
+  },
+  "Minecraft: The Wild Update": {
+    "x": 2,
+    "y":  1
+  },
+  "0x10c": {
+    "x": 3,
+    "y":  1
+  },
+  "Minecraft: Trails & Tales": {
+    "x": 4,
+    "y":  1
+  }
+}
