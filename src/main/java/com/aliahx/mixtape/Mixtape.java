@@ -2,6 +2,7 @@ package com.aliahx.mixtape;
 
 import com.aliahx.mixtape.config.ModConfig;
 import com.aliahx.mixtape.toast.MusicToast;
+import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.serializer.GsonConfigSerializer;
@@ -12,6 +13,7 @@ import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.option.KeyBinding;
+import net.minecraft.client.sound.SoundEntry;
 import net.minecraft.client.sound.SoundInstanceListener;
 import net.minecraft.client.sound.SoundManager;
 import net.minecraft.client.util.InputUtil;
@@ -22,12 +24,15 @@ import net.minecraft.sound.SoundCategory;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.JsonHelper;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.profiler.Profiler;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.lwjgl.glfw.GLFW;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.Reader;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
@@ -38,7 +43,7 @@ import static net.minecraft.sound.SoundCategory.MUSIC;
 public class Mixtape implements ClientModInitializer {
     public static final Logger LOGGER = LogManager.getLogger();
 
-    public static final String MOD_VERSION = "1.5.2";
+    public static final String MOD_VERSION = "1.5.3";
     public static final String MOD_ID = "mixtape";
     private static KeyBinding skipKey;
     private static KeyBinding pauseKey;
@@ -55,6 +60,8 @@ public class Mixtape implements ClientModInitializer {
     public static Map<BlockPos, Boolean> jukeboxesPlaying = new ConcurrentHashMap<BlockPos, Boolean>() {};
     public static Map<BlockPos, Boolean> lastJukeboxes = new ConcurrentHashMap<BlockPos, Boolean>() {};
     public static Map<BlockPos, Boolean> lastLastJukeboxes = new ConcurrentHashMap<BlockPos, Boolean>() {};
+    private static final String MUSIC_LIST_JSON = "music_list.json";
+    private static final String ALBUM_LIST_JSON = "album_list.json";
 
     public static MinecraftClient client;
     public static MusicManager musicManager;
@@ -110,16 +117,43 @@ public class Mixtape implements ClientModInitializer {
         }
     };
 
-    public static JsonObject resourceLoader(ResourceManager manager) {
-        Optional<Resource> resource = manager.getResource(new Identifier(MOD_ID, "music_list.json"));
-        if (resource.isPresent()) {
-            Resource  resource1 = resource.get();
-            try (BufferedReader reader = resource1.getReader()) {
-                return JsonHelper.deserialize(reader);
-            } catch (IOException e) {
-                LOGGER.error("Invalid music_list.json in resourcepack: " + resource1.getResourcePackName());
-            }
+    public static JsonObject[] resourceLoader(ResourceManager manager) {
+        JsonObject musicListJson = new JsonObject();
+        for (String string : manager.getAllNamespaces()) {
+            List<Resource> list = manager.getAllResources(new Identifier(string, MUSIC_LIST_JSON));
+            try {
+                for (Resource resource : list) {
+                    try (BufferedReader reader = resource.getReader();) {
+                        JsonObject jsonFile = JsonHelper.deserialize(reader);
+                        for (Map.Entry<String, JsonElement> entry : jsonFile.entrySet()) {
+                            musicListJson.add(entry.getKey(), entry.getValue());
+                        }
+                    }
+                    catch (RuntimeException runtimeException) {
+                        LOGGER.warn("Invalid {} in resourcepack: '{}'", MUSIC_LIST_JSON, resource.getResourcePackName(), runtimeException);
+                    }
+                }
+            } catch (IOException ignored) {}
         }
-        return new JsonObject();
+
+        JsonObject albumListJson = new JsonObject();
+        for (String string : manager.getAllNamespaces()) {
+            List<Resource> list = manager.getAllResources(new Identifier(string, ALBUM_LIST_JSON));
+            try {
+                for (Resource resource : list) {
+                    try (BufferedReader reader = resource.getReader();) {
+                        JsonObject jsonFile = JsonHelper.deserialize(reader);
+                        for (Map.Entry<String, JsonElement> entry : jsonFile.entrySet()) {
+                            albumListJson.add(entry.getKey(), entry.getValue());
+                        }
+                    }
+                    catch (RuntimeException runtimeException) {
+                        LOGGER.warn("Invalid {} in resourcepack: '{}'", ALBUM_LIST_JSON, resource.getResourcePackName(), runtimeException);
+                    }
+                }
+            } catch (IOException ignored) {}
+        }
+
+        return new JsonObject[]{musicListJson, albumListJson};
     }
 }
