@@ -16,6 +16,9 @@ public class MusicManager {
     public static final Identifier ALBUM_COVERS = new Identifier(Mixtape.MOD_ID, "textures/gui/album_covers.png");
 
     public MusicManager(JsonObject[] jsonArray) {
+        music = Maps.newHashMap();
+        albums = Maps.newHashMap();
+
         for (Map.Entry<String, JsonElement> entry : jsonArray[0].entrySet()) {
             music.put(entry.getKey(), new Entry((JsonObject) entry.getValue()));
         }
