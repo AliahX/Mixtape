@@ -2,7 +2,7 @@ package com.aliahx.mixtape.toast;
 
 import com.aliahx.mixtape.Mixtape;
 import com.aliahx.mixtape.MusicManager;
-import com.mojang.blaze3d.systems.RenderSystem;
+import com.aliahx.mixtape.MusicManager.AlbumCover;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.font.TextRenderer;
@@ -12,7 +12,6 @@ import net.minecraft.client.toast.ToastManager;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.item.ItemStack;
 import net.minecraft.text.Text;
-import net.minecraft.util.Identifier;
 import net.minecraft.util.Util;
 import net.minecraft.util.math.MathHelper;
 import org.joml.Vector3f;
@@ -24,7 +23,6 @@ import static com.aliahx.mixtape.Mixtape.config;
 
 @Environment(EnvType.CLIENT)
 public class MusicToast implements Toast {
-    public static final Identifier ALBUM_COVERS = new Identifier(Mixtape.MOD_ID, "textures/gui/album_covers.png");
     private static final Vector3fc FORWARD_SHIFT = new Vector3f(0.0F, 0.0F, 0.03F);
     private final long DURATION;
     private final Text NAME;
@@ -39,18 +37,7 @@ public class MusicToast implements Toast {
         this.ALBUM = ALBUM;
         this.ITEM = ITEM;
         this.DURATION = config.musicToastConfig.toastDisplayTime;
-        this.ALBUMCOVER = switch(ALBUM.getString()) {
-            case "Minecraft - Volume Alpha" -> AlbumCover.ALPHA;
-            case "Minecraft - Volume Beta" -> AlbumCover.BETA;
-            case "Minecraft: The Wild Update" -> AlbumCover.THE_WILD_UPDATE;
-            case "Minecraft: Caves & Cliffs" -> AlbumCover.CAVES_AND_CLIFFS;
-            case "Minecraft: Nether Update" -> AlbumCover.NETHER_UPDATE;
-            case "Minecraft: Trails & Tales" -> AlbumCover.TRAILS_AND_TALES;
-            case "Axolotl - Single" -> AlbumCover.AXOLOTL;
-            case "Dragon Fish - Single" -> AlbumCover.DRAGON_FISH;
-            case "Shuniji - Single" -> AlbumCover.SHUNIJI;
-            default -> AlbumCover._0x10c;
-        };
+        this.ALBUMCOVER = MusicManager.getAlbumCover(ALBUM.getString());
     }
 
     @Override
@@ -65,7 +52,7 @@ public class MusicToast implements Toast {
         }
 
         int albumCoverOffset = config.musicToastConfig.showAlbumCover ? 30 : 6;
-        drawScrollableText(context, manager.getClient().textRenderer, Text.of(config.musicToastConfig.showArtistName ? ARTIST.getString() + " - " + NAME.getString() : NAME.getString()), albumCoverOffset, 0, 154, 20, -11534256);
+        drawScrollableText(context, manager.getClient().textRenderer, Text.of((config.musicToastConfig.showArtistName && !Objects.equals(ARTIST.getString(), "")) ? ARTIST.getString() + " - " + NAME.getString() : NAME.getString()), albumCoverOffset, 0, 154, 20, -11534256);
         if(config.musicToastConfig.showAlbumName) {
             drawScrollableText(context, manager.getClient().textRenderer, ALBUM, albumCoverOffset, 10, 154, 30, -16777216);
         }
@@ -100,35 +87,12 @@ public class MusicToast implements Toast {
     public static void show(ToastManager manager, MusicManager.Entry entry, ItemStack itemStack) {
         if(config.mainConfig.enabled && config.musicToastConfig.enabled) {
             if(config.musicToastConfig.useHotbarInsteadOfToast) {
-                Mixtape.client.inGameHud.setRecordPlayingOverlay(Text.of((config.musicToastConfig.showArtistName ? entry.getArtist() + " - ": "") + entry.getName()));
+                Mixtape.client.inGameHud.setRecordPlayingOverlay(Text.of((config.musicToastConfig.showArtistName && !Objects.equals(entry.getArtist(), "") ? entry.getArtist() + " - ": "") + entry.getName()));
             } else {
                 manager.add(new MusicToast(Text.literal(entry.getName()), Text.literal(entry.getArtist()), Text.literal(entry.getAlbum()), itemStack));
             }
         }
     }
 
-    public enum AlbumCover {
-        ALPHA(0, 0),
-        BETA(1, 0),
-        AXOLOTL(2, 0),
-        DRAGON_FISH(3, 0),
-        SHUNIJI(4, 0),
-        NETHER_UPDATE(0, 1),
-        CAVES_AND_CLIFFS(1, 1),
-        THE_WILD_UPDATE(2, 1),
-        _0x10c(3, 1),
-        TRAILS_AND_TALES(4, 1);
 
-        private final int x;
-        private final int y;
-
-        AlbumCover(int x, int y) {
-            this.x = x;
-            this.y = y;
-        }
-
-        public void drawIcon(DrawContext context, int x, int y) {
-            context.drawTexture(ALBUM_COVERS, x, y, 0, this.x * 20, this.y * 20, 20, 20, 100, 100);
-        }
-    }
 }
