@@ -38,13 +38,4 @@ public abstract class SoundSystemMixin {
             ci.cancel();
         }
     }
-
-    @Inject(at = @At("HEAD"), method = "stopSounds", cancellable = true)
-    public void stopSoundsMixin(@Nullable Identifier id, @Nullable SoundCategory category, CallbackInfo ci) {
-        if(!(id == null && category == SoundCategory.MUSIC)) {
-            if (config.mainConfig.enabled && config.mainConfig.stopMusicWhenLeftGame) {
-                ci.cancel();
-            }
-        }
-    }
 }
