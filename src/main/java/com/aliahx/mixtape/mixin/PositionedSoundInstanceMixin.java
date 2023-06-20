@@ -69,9 +69,15 @@ public class PositionedSoundInstanceMixin {
                 case "minecraft:music.end" -> config.endConfig.volume;
                 case "minecraft:music.under_water" -> config.underwaterConfig.volume;
                 case "minecraft:music.credits" -> config.creditsConfig.volume;
-                case "minecraft:music.game", "minecraft:music.overworld.deep_dark", "minecraft:music.overworld.dripstone_caves", "minecraft:music.overworld.grove", "minecraft:music.overworld.jagged_peaks", "minecraft:music.overworld.lush_caves", "minecraft:music.overworld.swamp", "minecraft:music.overworld.jungle_and_forest", "minecraft:music.overworld.old_growth_taiga", "minecraft:music.overworld.meadow", "minecraft:music.overworld.frozen_peaks", "minecraft:music.overworld.snowy_slopes", "minecraft:music.overworld.stony_peaks" -> config.gameConfig.volume;
-                case "minecraft:music.nether.nether_wastes", "minecraft:music.nether.warped_forest", "minecraft:music.nether.soul_sand_valley", "minecraft:music.nether.crimson_forest", "minecraft:music.nether.basalt_deltas" -> config.netherConfig.volume;
-                default -> 100f;
+                case "minecraft:music.game" -> config.gameConfig.volume;
+                default -> {
+                    if(sound.getId().toString().contains("overworld")) {
+                        yield config.gameConfig.volume;
+                    } else if (sound.getId().toString().contains("nether")) {
+                        yield config.netherConfig.volume;
+                    }
+                    yield 100f;
+                }
             };
             long note = config.mainConfig.varyPitch ? new Random().nextLong((config.mainConfig.maxNoteChange - config.mainConfig.minNoteChange) + 1) + config.mainConfig.minNoteChange : 0;
             cir.setReturnValue(new PositionedSoundInstance(sound.getId(), SoundCategory.MUSIC, volume / 100, (float) Math.pow(2.0D, (double) (note) / 12.0D), SoundInstance.createRandom(), false, 0, SoundInstance.AttenuationType.NONE, 0.0D, 0.0D, 0.0D, false));

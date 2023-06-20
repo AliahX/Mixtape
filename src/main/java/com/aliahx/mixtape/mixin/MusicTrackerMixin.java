@@ -64,9 +64,15 @@ public class MusicTrackerMixin {
             case "minecraft:music.creative" -> config.creativeConfig.minSongDelay;
             case "minecraft:music.end" -> config.endConfig.minSongDelay;
             case "minecraft:music.under_water" -> config.underwaterConfig.minSongDelay;
-            case "minecraft:music.game", "minecraft:music.overworld.deep_dark", "minecraft:music.overworld.dripstone_caves", "minecraft:music.overworld.grove", "minecraft:music.overworld.jagged_peaks", "minecraft:music.overworld.lush_caves", "minecraft:music.overworld.swamp", "minecraft:music.overworld.jungle_and_forest", "minecraft:music.overworld.old_growth_taiga", "minecraft:music.overworld.meadow", "minecraft:music.overworld.frozen_peaks", "minecraft:music.overworld.snowy_slopes", "minecraft:music.overworld.stony_peaks" -> config.gameConfig.minSongDelay;
-            case "minecraft:music.nether.nether_wastes", "minecraft:music.nether.warped_forest", "minecraft:music.nether.soul_sand_valley", "minecraft:music.nether.crimson_forest", "minecraft:music.nether.basalt_deltas" -> config.netherConfig.minSongDelay;
-            default -> musicSound.getMinDelay();
+            case "minecraft:music.game" -> config.gameConfig.minSongDelay;
+            default -> {
+                if(musicSound.getSound().value().getId().toString().contains("overworld")) {
+                    yield config.gameConfig.minSongDelay;
+                } else if (musicSound.getSound().value().getId().toString().contains("nether")) {
+                    yield config.netherConfig.minSongDelay;
+                }
+                yield musicSound.getMinDelay();
+            }
         };
     }
 
@@ -77,9 +83,15 @@ public class MusicTrackerMixin {
             case "minecraft:music.creative" -> config.creativeConfig.maxSongDelay;
             case "minecraft:music.end" -> config.endConfig.maxSongDelay;
             case "minecraft:music.under_water" -> config.underwaterConfig.maxSongDelay;
-            case "minecraft:music.game", "minecraft:music.overworld.deep_dark", "minecraft:music.overworld.dripstone_caves", "minecraft:music.overworld.grove", "minecraft:music.overworld.jagged_peaks", "minecraft:music.overworld.lush_caves", "minecraft:music.overworld.swamp", "minecraft:music.overworld.jungle_and_forest", "minecraft:music.overworld.old_growth_taiga", "minecraft:music.overworld.meadow", "minecraft:music.overworld.frozen_peaks", "minecraft:music.overworld.snowy_slopes", "minecraft:music.overworld.stony_peaks" -> config.gameConfig.maxSongDelay;
-            case "minecraft:music.nether.nether_wastes", "minecraft:music.nether.warped_forest", "minecraft:music.nether.soul_sand_valley", "minecraft:music.nether.crimson_forest", "minecraft:music.nether.basalt_deltas" -> config.netherConfig.maxSongDelay;
-            default -> musicSound.getMaxDelay();
+            case "minecraft:music.game" -> config.gameConfig.maxSongDelay;
+            default -> {
+                if(musicSound.getSound().value().getId().toString().contains("overworld")) {
+                    yield config.gameConfig.maxSongDelay;
+                } else if (musicSound.getSound().value().getId().toString().contains("nether")) {
+                    yield config.netherConfig.maxSongDelay;
+                }
+                yield musicSound.getMinDelay();
+            }
         };
     }
 
