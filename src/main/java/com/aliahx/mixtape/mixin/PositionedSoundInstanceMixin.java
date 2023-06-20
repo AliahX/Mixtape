@@ -59,7 +59,7 @@ public class PositionedSoundInstanceMixin {
                 case UNDER_WATER -> SoundEvents.MUSIC_UNDER_WATER.value();
             };
 
-            if(config.gameConfig.creativeMusicPlaysInSurvival && (sound.getId().toString().equals("minecraft:music.game")) || sound.getId().toString().contains("minecraft:music.overworld.")) {
+            if(config.gameConfig.creativeMusicPlaysInSurvival && (sound.getId().toString().equals("minecraft:music.game") || sound.getId().toString().contains("minecraft:music.overworld."))) {
                 sound = SoundEvents.MUSIC_CREATIVE.value();
             }
 
