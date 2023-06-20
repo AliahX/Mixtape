@@ -178,6 +178,7 @@ public class ModConfig implements ConfigData {
     public static class JukeboxConfig implements ConfigData {
         public boolean enabled = true;
         public boolean mono = false;
+        public float distance = 56;
         public boolean elevenReplaces11 = false;
         public boolean dogReplacesCat = false;
         public boolean droopyLikesYourFaceReplacesWard = false;
