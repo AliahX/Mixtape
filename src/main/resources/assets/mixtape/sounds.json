@@ -212,7 +212,7 @@
   },
   "music.aerie": {
     "sounds": [{
-      "name": "music/game/aerie",
+      "name": "music/game/swamp/aerie",
       "stream": true
     }]
   },
@@ -260,7 +260,7 @@
   },
   "music.firebugs": {
     "sounds": [{
-      "name": "music/game/firebugs",
+      "name": "music/game/swamp/firebugs",
       "stream": true
     }]
   },
@@ -278,7 +278,7 @@
   },
   "music.labyrinthine": {
     "sounds": [{
-      "name": "music/game/labyrinthine",
+      "name": "music/game/swamp/labyrinthine",
       "stream": true
     }]
   },
@@ -350,19 +350,19 @@
   },
   "music.chrysopoeia": {
     "sounds": [{
-      "name": "music/game/nether/chrysopoeia",
+      "name": "music/game/nether/crimson_forest/chrysopoeia",
       "stream": true
     }]
   },
   "music.rubedo": {
     "sounds": [{
-      "name": "music/game/nether/rubedo",
+      "name": "music/game/nether/nether_wastes/rubedo",
       "stream": true
     }]
   },
   "music.so_below": {
     "sounds": [{
-      "name": "music/game/nether/so_below",
+      "name": "music/game/nether/soulsand_valley/so_below",
       "stream": true
     }]
   },
