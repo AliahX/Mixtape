@@ -1,6 +1,6 @@
-package com.aliahx.mixtape.mixin;
+package gay.aliahx.mixtape.mixin;
 
-import com.aliahx.mixtape.Mixtape;
+import gay.aliahx.mixtape.Mixtape;
 import net.minecraft.client.sound.PositionedSoundInstance;
 import net.minecraft.client.sound.SoundInstance;
 import net.minecraft.sound.SoundCategory;
@@ -15,16 +15,16 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import java.util.Random;
 
-import static com.aliahx.mixtape.Mixtape.config;
+import static gay.aliahx.mixtape.Mixtape.config;
 
 @Mixin(PositionedSoundInstance.class)
 public class PositionedSoundInstanceMixin {
 
     @Inject(method = "music(Lnet/minecraft/sound/SoundEvent;)Lnet/minecraft/client/sound/PositionedSoundInstance;", at = @At("RETURN"), cancellable = true)
     private static void musicMixin(SoundEvent sound, CallbackInfoReturnable<PositionedSoundInstance> cir) {
-        if(config.mainConfig.enabled) {
+        if(config.main.enabled) {
             Mixtape.debugCurrentMusicType = sound.getId().toString();
-            sound = switch (config.mainConfig.musicType) {
+            sound = switch (config.main.musicType) {
                 case AUTOMATIC -> sound;
                 case CREATIVE -> SoundEvents.MUSIC_CREATIVE.value();
                 case CREDITS -> SoundEvents.MUSIC_CREDITS.value();
@@ -59,46 +59,46 @@ public class PositionedSoundInstanceMixin {
                 case UNDER_WATER -> SoundEvents.MUSIC_UNDER_WATER.value();
             };
 
-            if(config.gameConfig.creativeMusicPlaysInSurvival && (sound.getId().toString().equals("minecraft:music.game") || sound.getId().toString().contains("minecraft:music.overworld."))) {
+            if(config.game.creativeMusicPlaysInSurvival && (sound.getId().toString().equals("minecraft:music.game") || sound.getId().toString().contains("minecraft:music.overworld."))) {
                 sound = SoundEvents.MUSIC_CREATIVE.value();
             }
 
             float volume = switch (sound.getId().toString()) {
-                case "minecraft:music.menu" ->  config.menuConfig.volume;
-                case "minecraft:music.creative" -> config.creativeConfig.volume;
-                case "minecraft:music.end" -> config.endConfig.volume;
-                case "minecraft:music.under_water" -> config.underwaterConfig.volume;
-                case "minecraft:music.credits" -> config.creditsConfig.volume;
-                case "minecraft:music.game" -> config.gameConfig.volume;
+                case "minecraft:music.menu" ->  config.menu.volume;
+                case "minecraft:music.creative" -> config.creative.volume;
+                case "minecraft:music.end" -> config.end.volume;
+                case "minecraft:music.under_water" -> config.underwater.volume;
+                case "minecraft:music.credits" -> config.credits.volume;
+                case "minecraft:music.game" -> config.game.volume;
                 default -> {
                     if(sound.getId().toString().contains("overworld")) {
-                        yield config.gameConfig.volume;
+                        yield config.game.volume;
                     } else if (sound.getId().toString().contains("nether")) {
-                        yield config.netherConfig.volume;
+                        yield config.nether.volume;
                     }
                     yield 100f;
                 }
             };
-            long note = config.mainConfig.varyPitch ? new Random().nextLong((config.mainConfig.maxNoteChange - config.mainConfig.minNoteChange) + 1) + config.mainConfig.minNoteChange : 0;
+            long note = config.main.varyPitch ? new Random().nextLong((config.main.maxNoteChange - config.main.minNoteChange) + 1) + config.main.minNoteChange : 0;
             cir.setReturnValue(new PositionedSoundInstance(sound.getId(), SoundCategory.MUSIC, volume / 100, (float) Math.pow(2.0D, (double) (note) / 12.0D), SoundInstance.createRandom(), false, 0, SoundInstance.AttenuationType.NONE, 0.0D, 0.0D, 0.0D, false));
         }
     }
 
     @Inject(method = "record", at = @At("RETURN"), cancellable = true)
     private static void recordMixin(SoundEvent sound, Vec3d pos, CallbackInfoReturnable<PositionedSoundInstance> cir) {
-        if(config.mainConfig.enabled && config.jukeboxConfig.enabled) {
-            if(config.jukeboxConfig.dogReplacesCat && sound.getId().toString().equals("minecraft:music_disc.cat")) {
+        if(config.main.enabled && config.jukebox.enabled) {
+            if(config.jukebox.dogReplacesCat && sound.getId().toString().equals("minecraft:music_disc.cat")) {
                 sound = SoundEvent.of(new Identifier("mixtape:music.dog"));
-            } else if(config.jukeboxConfig.elevenReplaces11 && sound.getId().toString().equals("minecraft:music_disc.11")) {
+            } else if(config.jukebox.elevenReplaces11 && sound.getId().toString().equals("minecraft:music_disc.11")) {
                 sound = SoundEvent.of(new Identifier("mixtape:music.eleven"));
-            } else if(config.jukeboxConfig.droopyLikesYourFaceReplacesWard && sound.getId().toString().equals("minecraft:music_disc.ward")) {
+            } else if(config.jukebox.droopyLikesYourFaceReplacesWard && sound.getId().toString().equals("minecraft:music_disc.ward")) {
                 sound = SoundEvent.of(new Identifier("mixtape:music.droopy_likes_your_face"));
             }
 
-            if(config.jukeboxConfig.mono) {
-                cir.setReturnValue(new PositionedSoundInstance(sound.getId(), SoundCategory.RECORDS, config.jukeboxConfig.volume / 100, 1.0F, SoundInstance.createRandom(), false, 0, SoundInstance.AttenuationType.LINEAR, pos.x, pos.y, pos.z, true));
+            if(config.jukebox.mono) {
+                cir.setReturnValue(new PositionedSoundInstance(sound.getId(), SoundCategory.RECORDS, config.jukebox.volume / 100, 1.0F, SoundInstance.createRandom(), false, 0, SoundInstance.AttenuationType.LINEAR, pos.x, pos.y, pos.z, true));
             } else {
-                cir.setReturnValue(new PositionedSoundInstance(sound.getId(), SoundCategory.RECORDS, config.jukeboxConfig.volume / 100, 1.0F, SoundInstance.createRandom(), false, 0, SoundInstance.AttenuationType.LINEAR, pos.x, pos.y, pos.z, false));
+                cir.setReturnValue(new PositionedSoundInstance(sound.getId(), SoundCategory.RECORDS, config.jukebox.volume / 100, 1.0F, SoundInstance.createRandom(), false, 0, SoundInstance.AttenuationType.LINEAR, pos.x, pos.y, pos.z, false));
             }
         }
     }

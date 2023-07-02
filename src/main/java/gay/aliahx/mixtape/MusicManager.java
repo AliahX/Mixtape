@@ -1,4 +1,4 @@
-package com.aliahx.mixtape;
+package gay.aliahx.mixtape;
 
 import com.google.common.collect.Maps;
 import com.google.gson.JsonElement;

@@ -1,6 +1,6 @@
-package com.aliahx.mixtape.mixin;
+package gay.aliahx.mixtape.mixin;
 
-import com.aliahx.mixtape.Mixtape;
+import gay.aliahx.mixtape.Mixtape;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.JukeboxBlockEntity;
 import net.minecraft.inventory.SingleStackInventory;

@@ -1,5 +1,6 @@
-package com.aliahx.mixtape.mixin;
+package gay.aliahx.mixtape.mixin;
 
+import gay.aliahx.mixtape.Mixtape;
 import net.minecraft.client.sound.*;
 import net.minecraft.sound.SoundCategory;
 import org.spongepowered.asm.mixin.Final;
@@ -12,7 +13,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.util.Map;
 
-import static com.aliahx.mixtape.Mixtape.config;
+import static gay.aliahx.mixtape.Mixtape.config;
 
 @Mixin(SoundSystem.class)
 public abstract class SoundSystemMixin {
@@ -24,17 +25,17 @@ public abstract class SoundSystemMixin {
 
     @Redirect(method = "play(Lnet/minecraft/client/sound/SoundInstance;)V", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/sound/SoundInstance;getX()D"))
     private double getXMixin(SoundInstance instance) {
-        return instance.getCategory() == SoundCategory.RECORDS && config.jukeboxConfig.mono ? 0 : instance.getX();
+        return instance.getCategory() == SoundCategory.RECORDS && config.jukebox.mono ? 0 : instance.getX();
     }
 
     @Redirect(method = "play(Lnet/minecraft/client/sound/SoundInstance;)V", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/sound/SoundInstance;getY()D"))
     private double getYMixin(SoundInstance instance) {
-        return instance.getCategory() == SoundCategory.RECORDS && config.jukeboxConfig.mono ? 0 : instance.getY();
+        return instance.getCategory() == SoundCategory.RECORDS && config.jukebox.mono ? 0 : instance.getY();
     }
 
     @Redirect(method = "play(Lnet/minecraft/client/sound/SoundInstance;)V", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/sound/SoundInstance;getZ()D"))
     private double getZMixin(SoundInstance instance) {
-        return instance.getCategory() == SoundCategory.RECORDS && config.jukeboxConfig.mono ? 0 : instance.getZ();
+        return instance.getCategory() == SoundCategory.RECORDS && config.jukebox.mono ? 0 : instance.getZ();
     }
 
     @Inject(at = @At("HEAD"), method = "updateSoundVolume", cancellable = true)
@@ -43,7 +44,7 @@ public abstract class SoundSystemMixin {
             if(source.getCategory() == SoundCategory.RECORDS) {
                 double distanceToPlayer = Math.sqrt(listener.getPos().squaredDistanceTo(source.getX(), source.getY(), source.getZ()));
                 sourceManager.run((sourcex) -> {
-                    float newVolume = (float) (config.jukeboxConfig.distance - distanceToPlayer) / config.jukeboxConfig.distance;
+                    float newVolume = (float) (config.jukebox.distance - distanceToPlayer) / config.jukebox.distance;
                     sourcex.setVolume(newVolume < 0 ? 0 : newVolume);
                 });
             }

@@ -1,8 +1,8 @@
-package com.aliahx.mixtape.mixin;
+package gay.aliahx.mixtape.mixin;
 
-import com.aliahx.mixtape.Mixtape;
-import com.aliahx.mixtape.MusicManager;
-import com.aliahx.mixtape.toast.MusicToast;
+import gay.aliahx.mixtape.Mixtape;
+import gay.aliahx.mixtape.MusicManager;
+import gay.aliahx.mixtape.toast.MusicToast;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.render.WorldRenderer;
 import net.minecraft.client.sound.PositionedSoundInstance;
@@ -26,7 +26,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import java.util.Map;
 import java.util.Objects;
 
-import static com.aliahx.mixtape.Mixtape.config;
+import static gay.aliahx.mixtape.Mixtape.config;
 
 @Mixin(WorldRenderer.class)
 public abstract class WorldRendererMixin {
@@ -38,7 +38,7 @@ public abstract class WorldRendererMixin {
 
     @Redirect(method = "processWorldEvent", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/render/WorldRenderer;playSong(Lnet/minecraft/sound/SoundEvent;Lnet/minecraft/util/math/BlockPos;)V"))
     private void playSongMixin(WorldRenderer instance, SoundEvent song, BlockPos songPosition) {
-        if(!config.mainConfig.enabled || config.jukeboxConfig.enabled) {
+        if(!config.main.enabled || config.jukebox.enabled) {
             SoundInstance soundInstance = this.playingSongs.get(songPosition);
             if (soundInstance != null) {
                 this.client.getSoundManager().stop(soundInstance);
@@ -48,7 +48,7 @@ public abstract class WorldRendererMixin {
             if (song != null) {
                 MusicDiscItem musicDiscItem = MusicDiscItem.bySound(song);
                 if (musicDiscItem != null) {
-                    if(!config.musicToastConfig.enabled || !config.musicToastConfig.hideJukeboxHotbarMessage) {
+                    if(!config.musicToast.enabled || !config.musicToast.hideJukeboxHotbarMessage) {
                         this.client.inGameHud.setRecordPlayingOverlay(musicDiscItem.getDescription());
                     }
                 }
@@ -62,11 +62,11 @@ public abstract class WorldRendererMixin {
 
         if(song != null) {
             String songName = song.getId().toString().split("\\.")[1];
-            if(Objects.equals(songName, "cat") && config.jukeboxConfig.dogReplacesCat) {
+            if(Objects.equals(songName, "cat") && config.jukebox.dogReplacesCat) {
                 songName = "dog";
-            } else if (Objects.equals(songName, "11") && config.jukeboxConfig.elevenReplaces11) {
+            } else if (Objects.equals(songName, "11") && config.jukebox.elevenReplaces11) {
                 songName = "eleven";
-            } else if (Objects.equals(songName, "ward") && config.jukeboxConfig.droopyLikesYourFaceReplacesWard) {
+            } else if (Objects.equals(songName, "ward") && config.jukebox.droopyLikesYourFaceReplacesWard) {
                 songName = "droopy_likes_your_face";
             }
             MusicManager.Entry entry = Mixtape.musicManager.getEntry(songName);

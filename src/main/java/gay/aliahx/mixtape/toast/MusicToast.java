@@ -1,8 +1,8 @@
-package com.aliahx.mixtape.toast;
+package gay.aliahx.mixtape.toast;
 
-import com.aliahx.mixtape.Mixtape;
-import com.aliahx.mixtape.MusicManager;
-import com.aliahx.mixtape.MusicManager.AlbumCover;
+import gay.aliahx.mixtape.Mixtape;
+import gay.aliahx.mixtape.MusicManager;
+import gay.aliahx.mixtape.MusicManager.AlbumCover;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.font.TextRenderer;
@@ -19,7 +19,7 @@ import org.joml.Vector3fc;
 
 import java.util.Objects;
 
-import static com.aliahx.mixtape.Mixtape.config;
+import static gay.aliahx.mixtape.Mixtape.config;
 
 @Environment(EnvType.CLIENT)
 public class MusicToast implements Toast {
@@ -36,24 +36,24 @@ public class MusicToast implements Toast {
         this.ARTIST = ARTIST;
         this.ALBUM = ALBUM;
         this.ITEM = ITEM;
-        this.DURATION = config.musicToastConfig.toastDisplayTime;
+        this.DURATION = config.musicToast.toastDisplayTime;
         this.ALBUMCOVER = MusicManager.getAlbumCover(ALBUM.getString());
     }
 
     @Override
     public Toast.Visibility draw(DrawContext context, ToastManager manager, long startTime) {
         context.drawTexture(TEXTURE, 0, 0, 0, 32, this.getWidth(), this.getHeight());
-        if(config.musicToastConfig.showAlbumCover) {
-            if(config.musicToastConfig.useDiscItemAsAlbumCover && ITEM != ItemStack.EMPTY) {
+        if(config.musicToast.showAlbumCover) {
+            if(config.musicToast.useDiscItemAsAlbumCover && ITEM != ItemStack.EMPTY) {
                 context.drawItemWithoutEntity(ITEM, 8, 8);
             } else {
                 ALBUMCOVER.drawIcon(context, 6, 6);
             }
         }
 
-        int albumCoverOffset = config.musicToastConfig.showAlbumCover ? 30 : 6;
-        drawScrollableText(context, manager.getClient().textRenderer, Text.of((config.musicToastConfig.showArtistName && !Objects.equals(ARTIST.getString(), "")) ? ARTIST.getString() + " - " + NAME.getString() : NAME.getString()), albumCoverOffset, 0, 154, 20, -11534256);
-        if(config.musicToastConfig.showAlbumName) {
+        int albumCoverOffset = config.musicToast.showAlbumCover ? 30 : 6;
+        drawScrollableText(context, manager.getClient().textRenderer, Text.of((config.musicToast.showArtistName && !Objects.equals(ARTIST.getString(), "")) ? ARTIST.getString() + " - " + NAME.getString() : NAME.getString()), albumCoverOffset, 0, 154, 20, -11534256);
+        if(config.musicToast.showAlbumName) {
             drawScrollableText(context, manager.getClient().textRenderer, ALBUM, albumCoverOffset, 10, 154, 30, -16777216);
         }
 
@@ -85,9 +85,9 @@ public class MusicToast implements Toast {
     }
 
     public static void show(ToastManager manager, MusicManager.Entry entry, ItemStack itemStack) {
-        if(config.mainConfig.enabled && config.musicToastConfig.enabled) {
-            if(config.musicToastConfig.useHotbarInsteadOfToast) {
-                Mixtape.client.inGameHud.setRecordPlayingOverlay(Text.of((config.musicToastConfig.showArtistName && !Objects.equals(entry.getArtist(), "") ? entry.getArtist() + " - ": "") + entry.getName()));
+        if(config.main.enabled && config.musicToast.enabled) {
+            if(config.musicToast.useHotbarInsteadOfToast) {
+                Mixtape.client.inGameHud.setRecordPlayingOverlay(Text.of((config.musicToast.showArtistName && !Objects.equals(entry.getArtist(), "") ? entry.getArtist() + " - ": "") + entry.getName()));
             } else {
                 manager.add(new MusicToast(Text.literal(entry.getName()), Text.literal(entry.getArtist()), Text.literal(entry.getAlbum()), itemStack));
             }

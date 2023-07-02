@@ -1,4 +1,4 @@
-package com.aliahx.mixtape;
+package gay.aliahx.mixtape;
 
 import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
 import net.fabricmc.fabric.api.resource.ResourcePackActivationType;

@@ -1,10 +1,7 @@
-package com.aliahx.mixtape.mixin;
+package gay.aliahx.mixtape.mixin;
 
-import com.aliahx.mixtape.config.ModConfig;
-import me.shedaniel.autoconfig.AutoConfig;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.screen.option.OptionsScreen;
 import net.minecraft.client.gui.widget.*;
@@ -28,7 +25,7 @@ public abstract class OptionsScreenMixin extends Screen {
     @Inject(method = "init", at = @At("TAIL"))
     private void initMixin(CallbackInfo ci) {
         this.addDrawableChild(new TexturedButtonWidget(this.width / 2 + 159, this.height / 6 + 42, 20, 20, 0, 0, 20, MIXTAPE_ICON_TEXTURE, 20, 40, (button) -> {
-            MinecraftClient.getInstance().setScreen(AutoConfig.getConfigScreen(ModConfig.class, this).get());
+//            MinecraftClient.getInstance().setScreen(AutoConfig.getConfigScreen(ModConfig.class, this).get());
         }));
     }
 }

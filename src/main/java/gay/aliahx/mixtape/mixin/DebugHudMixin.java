@@ -1,6 +1,6 @@
-package com.aliahx.mixtape.mixin;
+package gay.aliahx.mixtape.mixin;
 
-import com.aliahx.mixtape.Mixtape;
+import gay.aliahx.mixtape.Mixtape;
 import net.minecraft.client.gui.hud.DebugHud;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -9,13 +9,13 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import java.util.List;
 
-import static com.aliahx.mixtape.Mixtape.config;
+import static gay.aliahx.mixtape.Mixtape.config;
 
 @Mixin(DebugHud.class)
 public class DebugHudMixin {
     @Inject(at = @At("RETURN"), method = "getLeftText")
     protected void getLeftText(CallbackInfoReturnable<List<String>> info) {
-        if(config.mainConfig.enabled && config.mainConfig.enableDebugInfo) {
+        if(config.main.enabled && config.main.enableDebugInfo) {
             info.getReturnValue().add("[Mixtape] Song: " + Mixtape.debugCurrentSong);
             info.getReturnValue().add("[Mixtape] Music Type: " + Mixtape.debugCurrentMusicType);
             info.getReturnValue().add("[Mixtape] Paused: " + Mixtape.paused);

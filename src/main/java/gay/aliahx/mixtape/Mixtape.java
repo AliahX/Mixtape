@@ -1,11 +1,9 @@
-package com.aliahx.mixtape;
+package gay.aliahx.mixtape;
 
-import com.aliahx.mixtape.config.ModConfig;
-import com.aliahx.mixtape.toast.MusicToast;
+import gay.aliahx.mixtape.config.ModConfig;
+import gay.aliahx.mixtape.toast.MusicToast;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import me.shedaniel.autoconfig.AutoConfig;
-import me.shedaniel.autoconfig.serializer.GsonConfigSerializer;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -53,9 +51,9 @@ public class Mixtape implements ClientModInitializer {
     public static boolean discPlaying = false;
     public static float volumeScale = 1.0f;
     public static boolean paused = false;
-    public static Map<BlockPos, Boolean> jukeboxesPlaying = new ConcurrentHashMap<BlockPos, Boolean>() {};
-    public static Map<BlockPos, Boolean> lastJukeboxes = new ConcurrentHashMap<BlockPos, Boolean>() {};
-    public static Map<BlockPos, Boolean> lastLastJukeboxes = new ConcurrentHashMap<BlockPos, Boolean>() {};
+    public static Map<BlockPos, Boolean> jukeboxesPlaying = new ConcurrentHashMap<>() {};
+    public static Map<BlockPos, Boolean> lastJukeboxes = new ConcurrentHashMap<>() {};
+    public static Map<BlockPos, Boolean> lastLastJukeboxes = new ConcurrentHashMap<>() {};
     private static final String MUSIC_LIST_JSON = "music_list.json";
     private static final String ALBUM_LIST_JSON = "album_list.json";
 
@@ -67,8 +65,7 @@ public class Mixtape implements ClientModInitializer {
 
     @Override
     public void onInitializeClient() {
-        AutoConfig.register(ModConfig.class, GsonConfigSerializer::new);
-        config = AutoConfig.getConfigHolder(ModConfig.class).getConfig();
+        config = ModConfig.INSTANCE;
         client = MinecraftClient.getInstance();
 
         MixtapePacks.init();
@@ -79,7 +76,7 @@ public class Mixtape implements ClientModInitializer {
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
             while (skipKey.wasPressed()) {
                 MinecraftClient.getInstance().getSoundManager().stopSounds(null, MUSIC);
-                if(config.mainConfig.skipKeybindStartsNextSong) {
+                if(config.main.skipKeybindStartsNextSong) {
                     MinecraftClient.getInstance().getMusicTracker().play(MinecraftClient.getInstance().getMusicType());
                 }
             }
@@ -89,7 +86,7 @@ public class Mixtape implements ClientModInitializer {
             }
 
             while (playKey.wasPressed()) {
-                if(config.mainConfig.playKeybindReplacesCurrentSong) {
+                if(config.main.playKeybindReplacesCurrentSong) {
                     MinecraftClient.getInstance().getSoundManager().stopSounds(null, MUSIC);
                 } else {
                     if(Mixtape.debugTimeUntilNextSong == Mixtape.debugMaxTimeUntilNextSong) {
@@ -119,7 +116,7 @@ public class Mixtape implements ClientModInitializer {
             List<Resource> list = manager.getAllResources(new Identifier(string, MUSIC_LIST_JSON));
             try {
                 for (Resource resource : list) {
-                    try (BufferedReader reader = resource.getReader();) {
+                    try (BufferedReader reader = resource.getReader()) {
                         JsonObject jsonFile = JsonHelper.deserialize(reader);
                         for (Map.Entry<String, JsonElement> entry : jsonFile.entrySet()) {
                             musicListJson.add(entry.getKey(), entry.getValue());
@@ -137,7 +134,7 @@ public class Mixtape implements ClientModInitializer {
             List<Resource> list = manager.getAllResources(new Identifier(string, ALBUM_LIST_JSON));
             try {
                 for (Resource resource : list) {
-                    try (BufferedReader reader = resource.getReader();) {
+                    try (BufferedReader reader = resource.getReader()) {
                         JsonObject jsonFile = JsonHelper.deserialize(reader);
                         for (Map.Entry<String, JsonElement> entry : jsonFile.entrySet()) {
                             albumListJson.add(entry.getKey(), entry.getValue());

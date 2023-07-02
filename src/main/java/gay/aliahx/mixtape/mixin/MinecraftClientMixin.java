@@ -1,7 +1,7 @@
-package com.aliahx.mixtape.mixin;
+package gay.aliahx.mixtape.mixin;
 
-import com.aliahx.mixtape.Mixtape;
-import com.aliahx.mixtape.MusicManager;
+import gay.aliahx.mixtape.Mixtape;
+import gay.aliahx.mixtape.MusicManager;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.sound.MusicTracker;
 import net.minecraft.client.sound.SoundManager;
@@ -15,7 +15,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import java.util.concurrent.CompletableFuture;
 
-import static com.aliahx.mixtape.Mixtape.config;
+import static gay.aliahx.mixtape.Mixtape.config;
 
 @Mixin(MinecraftClient.class)
 public abstract class MinecraftClientMixin {
@@ -26,14 +26,14 @@ public abstract class MinecraftClientMixin {
 
     @Redirect(method = "openPauseMenu", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/sound/SoundManager;pauseAll()V"))
     private void pauseAllMixin(SoundManager instance) {
-        if(!(config.mainConfig.enabled && !config.mainConfig.pauseMusicWhenGamePaused)) {
+        if(!(config.main.enabled && !config.main.pauseMusicWhenGamePaused)) {
             instance.pauseAll();
         }
     }
 
     @Redirect(method = "reset", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/sound/SoundManager;stopAll()V"))
     private void stopAllMixin(SoundManager instance) {
-        if (!(config.mainConfig.enabled && !config.mainConfig.stopMusicWhenLeftGame)) {
+        if (!(config.main.enabled && !config.main.stopMusicWhenLeftGame)) {
             instance.stopAll();
         }
     }

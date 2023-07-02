@@ -2,30 +2,27 @@
   "schemaVersion": 1,
   "id": "mixtape",
   "version": "${version}",
+
   "name": "Mixtape",
   "description": "A mod that lets you configure the music",
-  "authors": [
-    "Aliah"
-  ],
-  "contact": {},
+  "authors": ["AliahX"],
+  "contact": {
+    "homepage": "https://github.com/aliahx/Mixtape",
+    "sources": "https://github.com/aliahx/Mixtape",
+    "issues": "https://github.com/aliahx/Mixtape/issues"
+  },
   "license": "MIT",
+
   "icon": "assets/Mixtape/icon.png",
   "environment": "client",
   "entrypoints": {
-    "client": [
-      "com.aliahx.mixtape.Mixtape"
-    ],
-    "modmenu": [
-      "com.aliahx.mixtape.config.ModMenuIntegration"
-    ]
+    "client": ["gay.aliahx.mixtape.Mixtape"],
+    "modmenu": ["gay.aliahx.mixtape.config.ModMenuIntegration"]
   },
-  "mixins": [
-    "Mixtape.mixins.json"
-  ],
+  "mixins": ["Mixtape.mixins.json"],
   "depends": {
     "fabricloader": ">=0.14.8",
     "fabric": "*",
-    "minecraft": ">=1.19",
-    "cloth-config2": ">=7.0.72"
+    "minecraft": ">=1.20"
   }
 }
