@@ -37,9 +37,9 @@ public class MusicTrackerMixin {
 
         Mixtape.discPlaying = false;
         Mixtape.jukeboxesPlaying.forEach((blockPos, isPlaying) -> {
-            if(isPlaying && (this.client.world != null && this.client.world.getBlockEntity(blockPos) != null && this.client.world.getBlockEntity(blockPos).getType() == BlockEntityType.JUKEBOX && this.client.world.isChunkLoaded(blockPos)) || config.jukebox.mono) {
+            if(isPlaying && (this.client.world != null && this.client.world.getBlockEntity(blockPos) != null && this.client.world.getBlockEntity(blockPos).getType() == BlockEntityType.JUKEBOX && this.client.world.isChunkLoaded(blockPos))) {
                 if(this.client.player != null) {
-                    if (Math.sqrt(this.client.player.squaredDistanceTo(blockPos.toCenterPos())) < 64 || config.jukebox.mono) {
+                    if (Math.sqrt(this.client.player.squaredDistanceTo(blockPos.toCenterPos())) < 64) {
                         Mixtape.discPlaying = true;
                     }
                 }
