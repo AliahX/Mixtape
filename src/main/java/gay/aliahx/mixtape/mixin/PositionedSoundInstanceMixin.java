@@ -79,6 +79,36 @@ public class PositionedSoundInstanceMixin {
                     yield 100f;
                 }
             };
+
+            SoundEvent sound2 = SoundEvents.INTENTIONALLY_EMPTY;
+            switch (sound.getId().toString()) {
+                case "minecraft:music.menu" -> {
+                    if (!config.menu.enabled) sound = sound2;
+                }
+                case "minecraft:music.creative" -> {
+                    if (!config.creative.enabled) sound = sound2;
+                }
+                case "minecraft:music.end" -> {
+                    if (!config.end.enabled) sound = sound2;
+                }
+                case "minecraft:music.under_water" -> {
+                    if (!config.underwater.enabled) sound = sound2;
+                }
+                case "minecraft:music.credits" -> {
+                    if (!config.credits.enabled) sound = sound2;
+                }
+                case "minecraft:music.game" -> {
+                    if (!config.game.enabled) sound = sound2;
+                }
+                default -> {
+                    if (sound.getId().toString().contains("overworld")) {
+                        if (!config.game.enabled) sound = sound2;
+                    } else if (sound.getId().toString().contains("nether")) {
+                        if (!config.nether.enabled) sound = sound2;
+                    }
+                }
+            }
+
             long note = config.main.varyPitch ? new Random().nextLong((config.main.maxNoteChange - config.main.minNoteChange) + 1) + config.main.minNoteChange : 0;
             cir.setReturnValue(new PositionedSoundInstance(sound.getId(), SoundCategory.MUSIC, volume / 100, (float) Math.pow(2.0D, (double) (note) / 12.0D), SoundInstance.createRandom(), false, 0, SoundInstance.AttenuationType.NONE, 0.0D, 0.0D, 0.0D, false));
         }
