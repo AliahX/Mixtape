@@ -86,7 +86,7 @@ public class PositionedSoundInstanceMixin {
 
     @Inject(method = "record", at = @At("RETURN"), cancellable = true)
     private static void recordMixin(SoundEvent sound, Vec3d pos, CallbackInfoReturnable<PositionedSoundInstance> cir) {
-        if(config.main.enabled && config.jukebox.enabled) {
+        if(config.main.enabled) {
             if(config.jukebox.dogReplacesCat && sound.getId().toString().equals("minecraft:music_disc.cat")) {
                 sound = SoundEvent.of(new Identifier("mixtape:music.dog"));
             } else if(config.jukebox.elevenReplaces11 && sound.getId().toString().equals("minecraft:music_disc.11")) {

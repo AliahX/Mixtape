@@ -1,18 +1,20 @@
 package gay.aliahx.mixtape.config;
 
-import me.shedaniel.autoconfig.ConfigData;
-import me.shedaniel.autoconfig.annotation.Config;
-import me.shedaniel.autoconfig.annotation.ConfigEntry;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import dev.isxander.yacl3.api.NameableEnum;
+import net.fabricmc.loader.api.FabricLoader;
+import net.minecraft.text.Text;
 
-@Config(name = "mixtape")
-@Config.Gui.CategoryBackground(category = "jukebox", background = "minecraft:textures/block/jukebox_side.png")
-@Config.Gui.CategoryBackground(category = "credits", background = "minecraft:textures/block/bedrock.png")
-@Config.Gui.CategoryBackground(category = "nether", background = "minecraft:textures/block/netherrack.png")
-@Config.Gui.CategoryBackground(category = "end", background = "minecraft:textures/block/end_stone.png")
-@Config.Gui.CategoryBackground(category = "underwater", background = "minecraft:textures/block/sand.png")
+import java.io.*;
+import java.nio.charset.StandardCharsets;
 
-public class ModConfig implements ConfigData {
-    public enum MusicType {
+public class ModConfig {
+    public static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
+    public static final File CONFIG_FILE = FabricLoader.getInstance().getConfigDir().resolve("mixtape.json").toFile();
+    public static ModConfig INSTANCE = loadConfigFile(CONFIG_FILE);
+
+    public enum MusicType implements NameableEnum {
         AUTOMATIC,
         CREATIVE,
         CREDITS,
@@ -44,57 +46,29 @@ public class ModConfig implements ConfigData {
         OVERWORLD_JUNGLE,
         OVERWORLD_SPARSE_JUNGLE,
         OVERWORLD_BAMBOO_JUNGLE,
-        UNDER_WATER
+        UNDER_WATER;
+
+        @Override
+        public Text getDisplayName() {
+            return Text.translatable("config.mixtape.musicType." + this.name().toLowerCase());
+        }
     }
+    public MainConfig main = new MainConfig();
+    public MusicToastConfig musicToast = new MusicToastConfig();
+    public MenuConfig menu = new MenuConfig();
+    public CreativeConfig creative = new CreativeConfig();
+    public GameConfig game = new GameConfig();
+    public UnderwaterConfig underwater = new UnderwaterConfig();
+    public EndConfig end = new EndConfig();
+    public NetherConfig nether = new NetherConfig();
+    public CreditsConfig credits = new CreditsConfig();
+    public JukeboxConfig jukebox = new JukeboxConfig();
 
-    @ConfigEntry.Category("main")
-    @ConfigEntry.Gui.TransitiveObject
-    public MainConfig mainConfig = new MainConfig();
-
-    @ConfigEntry.Category("musicToast")
-    @ConfigEntry.Gui.TransitiveObject
-    public MusicToastConfig musicToastConfig = new MusicToastConfig();
-
-    @ConfigEntry.Category("menu")
-    @ConfigEntry.Gui.TransitiveObject
-    public MenuConfig menuConfig = new MenuConfig();
-
-    @ConfigEntry.Category("creative")
-    @ConfigEntry.Gui.TransitiveObject
-    public CreativeConfig creativeConfig = new CreativeConfig();
-
-    @ConfigEntry.Category("game")
-    @ConfigEntry.Gui.TransitiveObject
-    public gameConfig gameConfig = new gameConfig();
-
-    @ConfigEntry.Category("underwater")
-    @ConfigEntry.Gui.TransitiveObject
-    public UnderwaterConfig underwaterConfig = new UnderwaterConfig();
-
-    @ConfigEntry.Category("end")
-    @ConfigEntry.Gui.TransitiveObject
-    public EndConfig endConfig = new EndConfig();
-
-    @ConfigEntry.Category("nether")
-    @ConfigEntry.Gui.TransitiveObject
-    public NetherConfig netherConfig = new NetherConfig();
-
-    @ConfigEntry.Category("credits")
-    @ConfigEntry.Gui.TransitiveObject
-    public CreditsConfig creditsConfig  = new CreditsConfig();
-
-    @ConfigEntry.Category("jukebox")
-    @ConfigEntry.Gui.TransitiveObject
-    public JukeboxConfig jukeboxConfig  = new JukeboxConfig();
-
-    @Config(name = "main")
-    public static class MainConfig implements ConfigData {
+    public static class MainConfig {
         public boolean enabled = false;
         public boolean varyPitch = false;
-        @ConfigEntry.BoundedDiscrete(min = 0, max = 12)
-        public int maxNoteChange = 3;
-        @ConfigEntry.BoundedDiscrete(min = -12, max = 0)
-        public int minNoteChange = -3;
+        public long maxNoteChange = 3;
+        public long minNoteChange = -3;
         public boolean noDelayBetweenSongs = false;
         public boolean playKeybindReplacesCurrentSong = false;
         public boolean skipKeybindStartsNextSong = false;
@@ -105,16 +79,7 @@ public class ModConfig implements ConfigData {
         public boolean enableDebugInfo = true;
     }
 
-    @Config(name = "menu")
-    public static class MenuConfig implements ConfigData {
-        public boolean enabled = true;
-        public int minSongDelay = 20;
-        public int maxSongDelay = 600;
-        public float volume = 100;
-    }
-
-    @Config(name = "musicToast")
-    public static class MusicToastConfig implements ConfigData {
+    public static class MusicToastConfig {
         public boolean enabled = true;
         public boolean showArtistName = true;
         public boolean showAlbumName = true;
@@ -123,20 +88,25 @@ public class ModConfig implements ConfigData {
         public boolean hideJukeboxHotbarMessage = true;
         public boolean useHotbarInsteadOfToast = false;
         public boolean toastMakesSound = false;
-        @ConfigEntry.BoundedDiscrete(min = 2000, max = 20000)
-        public long toastDisplayTime = 7500;
+        public boolean remainForFullSong = false;
+        public int toastDisplayTime = 7500;
     }
 
-    @Config(name = "creative")
-    public static class CreativeConfig implements ConfigData {
+    public static class MenuConfig {
+        public boolean enabled = true;
+        public int minSongDelay = 20;
+        public int maxSongDelay = 600;
+        public float volume = 100;
+    }
+
+    public static class CreativeConfig {
         public boolean enabled = true;
         public int minSongDelay = 12000;
         public int maxSongDelay = 24000;
         public float volume = 100;
     }
 
-    @Config(name = "game")
-    public static class gameConfig implements ConfigData {
+    public static class GameConfig {
         public boolean enabled = true;
         public int minSongDelay = 12000;
         public int maxSongDelay = 24000;
@@ -144,45 +114,102 @@ public class ModConfig implements ConfigData {
         public float volume = 100;
     }
 
-    @Config(name = "underwater")
-    public static class UnderwaterConfig implements ConfigData {
+    public static class UnderwaterConfig {
         public boolean enabled = true;
         public int minSongDelay = 12000;
         public int maxSongDelay = 24000;
         public float volume = 100;
     }
 
-    @Config(name = "end")
-    public static class EndConfig implements ConfigData {
+    public static class EndConfig {
         public boolean enabled = true;
         public int minSongDelay = 6000;
         public int maxSongDelay = 24000;
         public float volume = 100;
     }
 
-    @Config(name = "nether")
-    public static class NetherConfig implements ConfigData {
+    public static class NetherConfig {
         public boolean enabled = true;
         public int minSongDelay = 12000;
         public int maxSongDelay = 24000;
         public float volume = 100;
     }
 
-    @Config(name = "credits")
-    public static class CreditsConfig implements ConfigData {
+    public static class CreditsConfig {
         public boolean enabled = true;
         public float volume = 100;
     }
 
-    @Config(name = "jukebox")
-    public static class JukeboxConfig implements ConfigData {
-        public boolean enabled = true;
+    public static class JukeboxConfig {
         public boolean mono = false;
-        public float distance = 56;
+        public int distance = 56;
         public boolean elevenReplaces11 = false;
         public boolean dogReplacesCat = false;
         public boolean droopyLikesYourFaceReplacesWard = false;
-        public boolean turnDownMusic = false;
+        public boolean turnDownMusic = true;
         public float volume = 400;
+    }
+
+    public static Object getCategoryDefaults(String category) {
+        return switch(category) {
+            case "main" -> new MainConfig();
+            case "musicToast" -> new MusicToastConfig();
+            case "menu" -> new MenuConfig();
+            case "creative" -> new CreativeConfig();
+            case "game" -> new GameConfig();
+            case "underwater" -> new UnderwaterConfig();
+            case "end" -> new EndConfig();
+            case "nether" -> new NetherConfig();
+            case "credits" -> new CreditsConfig();
+            case "jukebox" -> new JukeboxConfig();
+            default -> throw new IllegalStateException("Unexpected value: " + category);
+        };
+    }
+
+    public static Object getCategory(String category) {
+        return switch (category) {
+            case "main" -> ModConfig.INSTANCE.main;
+            case "musicToast" -> ModConfig.INSTANCE.musicToast;
+            case "menu" -> ModConfig.INSTANCE.menu;
+            case "creative" -> ModConfig.INSTANCE.creative;
+            case "game" -> ModConfig.INSTANCE.game;
+            case "underwater" -> ModConfig.INSTANCE.underwater;
+            case "end" -> ModConfig.INSTANCE.end;
+            case "nether" -> ModConfig.INSTANCE.nether;
+            case "credits" -> ModConfig.INSTANCE.credits;
+            case "jukebox" -> ModConfig.INSTANCE.jukebox;
+            default -> null;
+        };
+    }
+
+    public void save() {
+        saveConfigFile(CONFIG_FILE);
+    }
+
+    private static ModConfig loadConfigFile(File file) {
+        ModConfig config = null;
+
+        if (file.exists()) {
+            try (BufferedReader fileReader = new BufferedReader( new InputStreamReader(new FileInputStream(file), StandardCharsets.UTF_8))) {
+                config = GSON.fromJson(fileReader, ModConfig.class);
+            } catch (IOException e) {
+                throw new RuntimeException("Problem occurred when trying to load config: ", e);
+            }
+        }
+
+        if (config == null) {
+            config = new ModConfig();
+        }
+
+        config.saveConfigFile(file);
+        return config;
+    }
+
+    private void saveConfigFile(File file) {
+        try (Writer writer = new OutputStreamWriter(new FileOutputStream(file), StandardCharsets.UTF_8)) {
+            GSON.toJson(this, writer);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

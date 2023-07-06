@@ -38,7 +38,7 @@ public abstract class WorldRendererMixin {
 
     @Redirect(method = "processWorldEvent", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/render/WorldRenderer;playSong(Lnet/minecraft/sound/SoundEvent;Lnet/minecraft/util/math/BlockPos;)V"))
     private void playSongMixin(WorldRenderer instance, SoundEvent song, BlockPos songPosition) {
-        if(!config.main.enabled || config.jukebox.enabled) {
+        if(!config.main.enabled) {
             SoundInstance soundInstance = this.playingSongs.get(songPosition);
             if (soundInstance != null) {
                 this.client.getSoundManager().stop(soundInstance);
