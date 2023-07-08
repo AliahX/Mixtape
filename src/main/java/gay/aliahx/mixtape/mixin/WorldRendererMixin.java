@@ -38,27 +38,25 @@ public abstract class WorldRendererMixin {
 
     @Redirect(method = "processWorldEvent", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/render/WorldRenderer;playSong(Lnet/minecraft/sound/SoundEvent;Lnet/minecraft/util/math/BlockPos;)V"))
     private void playSongMixin(WorldRenderer instance, SoundEvent song, BlockPos songPosition) {
-        if(!config.main.enabled) {
-            SoundInstance soundInstance = this.playingSongs.get(songPosition);
-            if (soundInstance != null) {
-                this.client.getSoundManager().stop(soundInstance);
-                this.playingSongs.remove(songPosition);
-            }
-
-            if (song != null) {
-                MusicDiscItem musicDiscItem = MusicDiscItem.bySound(song);
-                if (musicDiscItem != null) {
-                    if(!config.musicToast.enabled || !config.musicToast.hideJukeboxHotbarMessage) {
-                        this.client.inGameHud.setRecordPlayingOverlay(musicDiscItem.getDescription());
-                    }
-                }
-
-                SoundInstance soundInstance2 = PositionedSoundInstance.record(song, Vec3d.ofCenter(songPosition));
-                this.playingSongs.put(songPosition, soundInstance2);
-                this.client.getSoundManager().play(soundInstance2);
-            }
-            this.updateEntitiesForSong(this.world, songPosition, song != null);
+        SoundInstance soundInstance = this.playingSongs.get(songPosition);
+        if (soundInstance != null) {
+            this.client.getSoundManager().stop(soundInstance);
+            this.playingSongs.remove(songPosition);
         }
+
+        if (song != null) {
+            MusicDiscItem musicDiscItem = MusicDiscItem.bySound(song);
+            if (musicDiscItem != null) {
+                if(!config.musicToast.enabled || !config.musicToast.hideJukeboxHotbarMessage) {
+                    this.client.inGameHud.setRecordPlayingOverlay(musicDiscItem.getDescription());
+                }
+            }
+
+            SoundInstance soundInstance2 = PositionedSoundInstance.record(song, Vec3d.ofCenter(songPosition));
+            this.playingSongs.put(songPosition, soundInstance2);
+            this.client.getSoundManager().play(soundInstance2);
+        }
+        this.updateEntitiesForSong(this.world, songPosition, song != null);
 
         if(song != null) {
             String songName = song.getId().toString().split("\\.")[1];
@@ -72,7 +70,6 @@ public abstract class WorldRendererMixin {
             MusicManager.Entry entry = Mixtape.musicManager.getEntry(songName);
             MusicToast.show(MinecraftClient.getInstance().getToastManager(), entry, new ItemStack(MusicDiscItem.bySound(song)));
         }
-
     }
 
     @Inject(method = "updateEntitiesForSong", at = @At("HEAD"))
