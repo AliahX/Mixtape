@@ -13,7 +13,7 @@
   },
   "license": "MIT",
 
-  "icon": "assets/Mixtape/icon.png",
+  "icon": "assets/mixtape/icon.png",
   "environment": "client",
   "entrypoints": {
     "client": ["gay.aliahx.mixtape.Mixtape"],
