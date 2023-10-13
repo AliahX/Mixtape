@@ -1,0 +1,12 @@
+{
+  "sources": [
+    {
+      "type": "single",
+      "resource": "mixtape:mixtape_button_focused"
+    },
+    {
+      "type": "single",
+      "resource": "mixtape:mixtape_button_unfocused"
+    }
+  ]
+}

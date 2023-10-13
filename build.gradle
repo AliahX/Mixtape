@@ -1,5 +1,5 @@
 plugins {
-    id 'fabric-loom' version '0.12-SNAPSHOT'
+    id 'fabric-loom' version '1.4-SNAPSHOT'
     id 'maven-publish'
 }
 
@@ -21,7 +21,11 @@ dependencies {
     modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
     modImplementation "com.terraformersmc:modmenu:${project.modmenu_version}"
-    modImplementation "dev.isxander.yacl:yet-another-config-lib-fabric:${project.yet_another_config_lib_version}"
+    modImplementation("dev.isxander.yacl:yet-another-config-lib-fabric:${project.yet_another_config_lib_version}") {
+        exclude(group: "org.quiltmc.parsers")
+        exclude(group: "com.twelvemonkeys.common")
+        exclude(group: "com.twelvemonkeys.imageio")
+    }
 }
 
 processResources {

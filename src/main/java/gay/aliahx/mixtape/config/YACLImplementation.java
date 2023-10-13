@@ -3,8 +3,6 @@ package gay.aliahx.mixtape.config;
 import dev.isxander.yacl3.api.*;
 import dev.isxander.yacl3.api.controller.*;
 import gay.aliahx.mixtape.Mixtape;
-import gay.aliahx.mixtape.config.gui.MusicList.MusicListOption;
-import gay.aliahx.mixtape.config.gui.Song.SongControllerBuilder;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.text.MutableText;
 import net.minecraft.text.Text;
