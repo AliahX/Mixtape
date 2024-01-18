@@ -21,11 +21,7 @@ dependencies {
     modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
     modImplementation "com.terraformersmc:modmenu:${project.modmenu_version}"
-    modImplementation("dev.isxander.yacl:yet-another-config-lib-fabric:${project.yet_another_config_lib_version}") {
-        exclude(group: "org.quiltmc.parsers")
-        exclude(group: "com.twelvemonkeys.common")
-        exclude(group: "com.twelvemonkeys.imageio")
-    }
+    modImplementation "dev.isxander.yacl:yet-another-config-lib-fabric:${project.yet_another_config_lib_version}"
 }
 
 processResources {
