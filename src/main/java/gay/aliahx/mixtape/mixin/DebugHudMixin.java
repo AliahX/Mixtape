@@ -16,7 +16,7 @@ public class DebugHudMixin {
     @Inject(at = @At("RETURN"), method = "getLeftText")
     protected void getLeftText(CallbackInfoReturnable<List<String>> info) {
         if(config.main.enabled && config.main.enableDebugInfo) {
-            info.getReturnValue().add("[Mixtape] Song: " + Mixtape.debugCurrentSong);
+            info.getReturnValue().add("[Mixtape] Song: " + Mixtape.currentSong);
             info.getReturnValue().add("[Mixtape] Music Type: " + Mixtape.debugCurrentMusicType);
             info.getReturnValue().add("[Mixtape] Paused: " + Mixtape.paused);
             info.getReturnValue().add("[Mixtape] Next music type: " + Mixtape.debugNextMusicType);

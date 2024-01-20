@@ -42,8 +42,11 @@ public class MusicToast implements Toast {
     @Override
     public Toast.Visibility draw(DrawContext context, ToastManager manager, long startTime) {
 
-        String[] arr = Mixtape.debugCurrentSong.split("/");
-        String currentSongName = Mixtape.musicManager.getEntry(arr[arr.length - 1]).getName();
+        String currentSongName = "";
+        if(!Objects.equals(Mixtape.currentSong, "")) {
+            String[] arr = Mixtape.currentSong.split("/");
+            currentSongName = Mixtape.musicManager.getEntry(arr[arr.length - 1]).getName();
+        }
 
         context.drawTexture(TEXTURE, 0, 0, 0, 32, this.getWidth(), this.getHeight());
         if(config.musicToast.showAlbumCover) {
@@ -59,7 +62,16 @@ public class MusicToast implements Toast {
         if(config.musicToast.showAlbumName) {
             drawScrollableText(context, manager.getClient().textRenderer, ALBUM, albumCoverOffset, 10, 154, 30, -16777216);
         }
-        return (double)(startTime) >= (config.musicToast.remainForFullSong ? Objects.equals(currentSongName, NAME.getString()) ? Long.MAX_VALUE : 0 : config.musicToast.toastDisplayTime) * manager.getNotificationDisplayTimeMultiplier() ? Toast.Visibility.HIDE : Toast.Visibility.SHOW;
+
+        int toastDisplayTime = 0;
+        if(currentSongName.equals(NAME.getString()) || ITEM != ItemStack.EMPTY) {
+            if(config.musicToast.remainForFullSong) {
+                toastDisplayTime = Integer.MAX_VALUE;
+            } else {
+                toastDisplayTime = config.musicToast.toastDisplayTime;
+            }
+        }
+        return (double)(startTime) >= toastDisplayTime * manager.getNotificationDisplayTimeMultiplier() ? Toast.Visibility.HIDE : Toast.Visibility.SHOW;
     }
 
     static void drawScrollableText(DrawContext context, TextRenderer textRenderer, Text text, int left, int top, int right, int bottom, int color) {
