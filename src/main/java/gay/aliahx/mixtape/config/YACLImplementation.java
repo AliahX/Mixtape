@@ -89,7 +89,7 @@ public class YACLImplementation {
                                 .build());
                         case "class gay.aliahx.mixtape.config.ModConfig$MusicType" ->
                             categoryBuilder = categoryBuilder.option(getOption(ModConfig.MusicType.class, category.getName(), field.getName())
-                                .controller(YACLImplementation::getEnumSelector)
+                                .controller(YACLImplementation::getEnumSelectorMusicType)
                                 .binding((ModConfig.MusicType) defaultValue, () -> {
                                     try {
                                         return (ModConfig.MusicType) currentCategory.getClass().getField(field.getName()).get(currentCategory);
@@ -102,6 +102,22 @@ public class YACLImplementation {
                                     } catch (Exception ignored) {}
                                 })
                                 .build());
+                        case "class gay.aliahx.mixtape.config.ModConfig$SongLocation" ->
+                                categoryBuilder = categoryBuilder.option(getOption(ModConfig.SongLocation.class, category.getName(), field.getName())
+                                        .controller(YACLImplementation::getEnumSelectorSongLocation)
+                                        .binding((ModConfig.SongLocation) defaultValue, () -> {
+                                            try {
+                                                return (ModConfig.SongLocation) currentCategory.getClass().getField(field.getName()).get(currentCategory);
+                                            } catch (Exception ignored) {
+                                                return ModConfig.SongLocation.PAUSE_SCREEN;
+                                            }
+                                        }, value -> {
+                                            try {
+                                                currentCategory.getClass().getField(field.getName()).set(currentCategory, value);
+                                            } catch (Exception ignored) {}
+                                        })
+                                        .build());
+
                         default -> Mixtape.LOGGER.warn("Unknown config option type: " + field.getType() + ". for " + field.getName());
                     }
                 }
@@ -136,8 +152,12 @@ public class YACLImplementation {
         return LongSliderControllerBuilder.create(option).range((long) -12, (long) 12).step((long) 1);
     }
 
-    private static EnumControllerBuilder getEnumSelector(Option<ModConfig.MusicType> option) {
+    private static EnumControllerBuilder getEnumSelectorMusicType(Option<ModConfig.MusicType> option) {
         return EnumControllerBuilder.create(option).enumClass(ModConfig.MusicType.class);
+    }
+
+    private static EnumControllerBuilder getEnumSelectorSongLocation(Option<ModConfig.SongLocation> option) {
+        return EnumControllerBuilder.create(option).enumClass(ModConfig.SongLocation.class);
     }
 
     private static MutableText getText(String category, String key) {
