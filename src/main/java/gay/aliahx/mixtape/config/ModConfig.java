@@ -142,7 +142,7 @@ public class ModConfig {
 
     public static class JukeboxConfig {
         public boolean mono = false;
-        public int distance = 56;
+        public float distance = 56;
         public boolean elevenReplaces11 = false;
         public boolean dogReplacesCat = false;
         public boolean droopyLikesYourFaceReplacesWard = false;
