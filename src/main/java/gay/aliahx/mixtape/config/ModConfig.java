@@ -65,7 +65,7 @@ public class ModConfig {
     public JukeboxConfig jukebox = new JukeboxConfig();
 
     public static class MainConfig {
-        public boolean enabled = false;
+        public boolean enabled = true;
         public boolean varyPitch = false;
         public long maxNoteChange = 3;
         public long minNoteChange = -3;
