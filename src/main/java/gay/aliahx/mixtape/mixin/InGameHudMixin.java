@@ -25,7 +25,7 @@ public abstract class InGameHudMixin {
 
     @Inject(method = "setRecordPlayingOverlay", at = @At("HEAD"), cancellable = true)
     public void setRecordPlayingOverlayMixin(Text description, CallbackInfo ci) {
-        if(description.getString().contains("m:")) {
+        if(config.main.enabled && description.getString().contains("m:")) {
             Text text = Text.translatable("record.nowPlaying", Text.of(description.getString().replace("m:", "")));
             this.setCanShowChatDisabledScreen(false);
             this.overlayMessage = text;

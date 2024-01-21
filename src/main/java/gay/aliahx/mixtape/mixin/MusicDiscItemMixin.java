@@ -1,6 +1,5 @@
 package gay.aliahx.mixtape.mixin;
 
-import gay.aliahx.mixtape.Mixtape;
 import net.minecraft.item.MusicDiscItem;
 import net.minecraft.text.MutableText;
 import net.minecraft.text.Text;
@@ -17,7 +16,7 @@ public abstract class MusicDiscItemMixin {
 
     @Shadow public abstract int getComparatorOutput();
 
-    @Inject(method = "Lnet/minecraft/item/MusicDiscItem;getDescription()Lnet/minecraft/text/MutableText;", at = @At("HEAD"), cancellable = true)
+    @Inject(method = "getDescription()Lnet/minecraft/text/MutableText;", at = @At("HEAD"), cancellable = true)
     private void getDescriptionMixin(CallbackInfoReturnable<MutableText> cir) {
         if(config.main.enabled) {
             if(this.getComparatorOutput() == 2 && config.jukebox.dogReplacesCat) {

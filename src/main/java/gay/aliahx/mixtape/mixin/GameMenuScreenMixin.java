@@ -24,7 +24,7 @@ public class GameMenuScreenMixin extends Screen {
 
     @Inject(method = "render", at = @At("TAIL"))
     private void renderMixin(DrawContext context, int mouseX, int mouseY, float delta, CallbackInfo ci) {
-        if(config.main.showCurrentSong && config.main.songLocation == ModConfig.SongLocation.PAUSE_SCREEN && !Objects.equals(Mixtape.currentSong, "")) {
+        if(config.main.enabled && config.main.showCurrentSong && config.main.songLocation == ModConfig.SongLocation.PAUSE_SCREEN && !Objects.equals(Mixtape.currentSong, "")) {
             String[] arr = Mixtape.currentSong.split("/");
             MusicManager.Entry song = Mixtape.musicManager.getEntry(arr[arr.length - 1]);
             String currentSongString = "♫ " + song.getArtist() + " - " + song.getName() + " ♫";

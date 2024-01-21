@@ -79,7 +79,7 @@ public abstract class OptionsScreenMixin extends Screen {
 
     @Inject(method = "render", at = @At("TAIL"))
     private void renderMixin(DrawContext context, int mouseX, int mouseY, float delta, CallbackInfo ci) {
-        if(config.main.showCurrentSong && config.main.songLocation == ModConfig.SongLocation.OPTIONS_SCREEN) {
+        if(config.main.enabled && config.main.showCurrentSong && config.main.songLocation == ModConfig.SongLocation.OPTIONS_SCREEN) {
             String[] arr = Mixtape.currentSong.split("/");
             MusicManager.Entry song = Mixtape.musicManager.getEntry(arr[arr.length - 1]);
 
