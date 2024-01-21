@@ -7,7 +7,6 @@
     "DebugHudMixin",
     "GameMenuScreenMixin",
     "InGameHudMixin",
-    "JukeboxBlockEntityMixin",
     "MinecraftClientMixin",
     "MusicDiscItemMixin",
     "MusicTrackerMixin",

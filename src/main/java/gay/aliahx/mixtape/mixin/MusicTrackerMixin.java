@@ -49,7 +49,7 @@ public abstract class MusicTrackerMixin {
         client.getSoundManager().updateSoundVolume(SoundCategory.MUSIC, config.jukebox.turnDownMusic ? Mixtape.volumeScale * defaultVolume : defaultVolume);
 
         Mixtape.discPlaying = false;
-        Mixtape.jukeboxesPlaying.forEach((blockPos, isPlaying) -> {
+        Mixtape.jukeboxes.forEach((blockPos, isPlaying) -> {
             if(isPlaying && (this.client.world != null && this.client.world.getBlockEntity(blockPos) != null && this.client.world.getBlockEntity(blockPos).getType() == BlockEntityType.JUKEBOX && this.client.world.isChunkLoaded(blockPos))) {
                 if(this.client.player != null) {
                     if (Math.sqrt(this.client.player.squaredDistanceTo(blockPos.toCenterPos())) < 64) {

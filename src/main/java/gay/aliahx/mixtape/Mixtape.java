@@ -52,9 +52,7 @@ public class Mixtape implements ClientModInitializer {
     public static String debugCurrentMusicType = "minecraft:music.game";
     public static String debugNextMusicType = "minecraft:music.game";
     public static String currentSong = "";
-    public static Map<BlockPos, Boolean> jukeboxesPlaying = new ConcurrentHashMap<>() {};
-    public static Map<BlockPos, Boolean> lastJukeboxes = new ConcurrentHashMap<>() {};
-    public static Map<BlockPos, Boolean> lastLastJukeboxes = new ConcurrentHashMap<>() {};
+    public static Map<BlockPos, Boolean> jukeboxes = new ConcurrentHashMap<>() {};
     private static final String MUSIC_LIST_JSON = "music_list.json";
     private static final String ALBUM_LIST_JSON = "album_list.json";
 

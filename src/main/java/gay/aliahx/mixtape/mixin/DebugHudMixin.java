@@ -23,7 +23,7 @@ public class DebugHudMixin {
             info.getReturnValue().add("[Mixtape] Time until next song: " + Mixtape.debugTimeUntilNextSong + "/" + Mixtape.debugMaxTimeUntilNextSong);
             info.getReturnValue().add("[Mixtape] Is disc playing: " + Mixtape.discPlaying);
             info.getReturnValue().add("[Mixtape] Music volume scale: " + Mixtape.volumeScale);
-            Mixtape.jukeboxesPlaying.forEach((BlockPos, Boolean) -> info.getReturnValue().add("[Mixtape] " + BlockPos + " " + Boolean));
+            Mixtape.jukeboxes.forEach((BlockPos, Boolean) -> info.getReturnValue().add("[Mixtape] " + BlockPos + " " + Boolean));
         }
     }
 }

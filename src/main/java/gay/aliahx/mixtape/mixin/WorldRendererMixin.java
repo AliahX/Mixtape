@@ -3,6 +3,7 @@ package gay.aliahx.mixtape.mixin;
 import gay.aliahx.mixtape.Mixtape;
 import gay.aliahx.mixtape.MusicManager;
 import gay.aliahx.mixtape.toast.MusicToast;
+import net.minecraft.block.BlockState;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.render.WorldRenderer;
 import net.minecraft.client.sound.PositionedSoundInstance;
@@ -12,6 +13,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.MusicDiscItem;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.ChunkSectionPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
@@ -27,6 +29,7 @@ import java.util.Map;
 import java.util.Objects;
 
 import static gay.aliahx.mixtape.Mixtape.config;
+import static net.minecraft.block.JukeboxBlock.HAS_RECORD;
 
 @Mixin(WorldRenderer.class)
 public abstract class WorldRendererMixin {
@@ -35,6 +38,8 @@ public abstract class WorldRendererMixin {
     @Shadow @Final private MinecraftClient client;
     @Shadow protected abstract void updateEntitiesForSong(World world, BlockPos pos, boolean playing);
     @Shadow private @Nullable ClientWorld world;
+
+    @Shadow public abstract void playSong(@Nullable SoundEvent song, BlockPos songPosition);
 
     @Redirect(method = "processWorldEvent", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/render/WorldRenderer;playSong(Lnet/minecraft/sound/SoundEvent;Lnet/minecraft/util/math/BlockPos;)V"))
     private void playSongMixin(WorldRenderer instance, SoundEvent song, BlockPos songPosition) {
@@ -62,9 +67,9 @@ public abstract class WorldRendererMixin {
             String songName = song.getId().toString().split("\\.")[1];
             if(Objects.equals(songName, "cat") && config.jukebox.dogReplacesCat) {
                 songName = "dog";
-            } else if (Objects.equals(songName, "11") && config.jukebox.elevenReplaces11) {
+            } else if(Objects.equals(songName, "11") && config.jukebox.elevenReplaces11) {
                 songName = "eleven";
-            } else if (Objects.equals(songName, "ward") && config.jukebox.droopyLikesYourFaceReplacesWard) {
+            } else if(Objects.equals(songName, "ward") && config.jukebox.droopyLikesYourFaceReplacesWard) {
                 songName = "droopy_likes_your_face";
             }
             MusicManager.Entry entry = Mixtape.musicManager.getEntry(songName);
@@ -74,16 +79,20 @@ public abstract class WorldRendererMixin {
 
     @Inject(method = "updateEntitiesForSong", at = @At("HEAD"))
     private void updateEntitiesForSongMixin(World world, BlockPos pos, boolean playing, CallbackInfo ci) {
-        if(client.player != null) {
-            if (playing) {
-                Mixtape.jukeboxesPlaying.put(pos, true);
-                Mixtape.lastJukeboxes.put(pos, true);
-                Mixtape.lastLastJukeboxes.put(pos, true);
-            } else {
-                Mixtape.jukeboxesPlaying.remove(pos);
-                Mixtape.lastJukeboxes.remove(pos);
-                Mixtape.lastLastJukeboxes.remove(pos);
-            }
+        if(client.player != null && playing) {
+            Mixtape.jukeboxes.put(pos, true);
         }
+    }
+
+    @Inject(method = "tick", at = @At("HEAD"))
+    private void tickMixin(CallbackInfo ci) {
+        Mixtape.jukeboxes.forEach((pos, playing) -> {
+            BlockState jukebox = client.world.getBlockState(pos);
+            String blockName = jukebox.getBlock().getName().getString();
+            if(!blockName.equals("Void Air") && (!blockName.equals("Jukebox") || !jukebox.get(HAS_RECORD))) {
+                Mixtape.jukeboxes.remove(pos);
+                playSong(null, pos);
+            }
+        });
     }
 }
