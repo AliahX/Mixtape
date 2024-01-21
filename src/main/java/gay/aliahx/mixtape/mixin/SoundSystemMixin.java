@@ -25,41 +25,46 @@ public abstract class SoundSystemMixin {
 
     @Redirect(method = "play(Lnet/minecraft/client/sound/SoundInstance;)V", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/sound/SoundInstance;getX()D"))
     private double getXMixin(SoundInstance instance) {
+        if(!config.main.enabled) return instance.getX();
         return instance.getCategory() == SoundCategory.RECORDS && config.jukebox.mono ? 0 : instance.getX();
     }
 
     @Redirect(method = "play(Lnet/minecraft/client/sound/SoundInstance;)V", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/sound/SoundInstance;getY()D"))
     private double getYMixin(SoundInstance instance) {
+        if(!config.main.enabled) return instance.getY();
         return instance.getCategory() == SoundCategory.RECORDS && config.jukebox.mono ? 0 : instance.getY();
     }
 
     @Redirect(method = "play(Lnet/minecraft/client/sound/SoundInstance;)V", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/sound/SoundInstance;getZ()D"))
     private double getZMixin(SoundInstance instance) {
+        if(!config.main.enabled) return instance.getZ();
         return instance.getCategory() == SoundCategory.RECORDS && config.jukebox.mono ? 0 : instance.getZ();
     }
 
     @Inject(at = @At("HEAD"), method = "updateSoundVolume", cancellable = true)
     private void updateSoundVolume(SoundCategory category, float volume, CallbackInfo ci) {
-        this.sources.forEach((source, sourceManager) -> {
-            if(source.getCategory() == SoundCategory.RECORDS) {
-                double distanceToPlayer = Math.sqrt(listener.getPos().squaredDistanceTo(source.getX(), source.getY(), source.getZ()));
-                sourceManager.run((sourcex) -> {
-                    float newVolume = (float) (config.jukebox.distance - distanceToPlayer) / config.jukebox.distance;
-                    sourcex.setVolume(newVolume < 0 ? 0 : newVolume);
-                });
-            }
-        });
+        if(config.main.enabled) {
+            this.sources.forEach((source, sourceManager) -> {
+                if (source.getCategory() == SoundCategory.RECORDS) {
+                    double distanceToPlayer = Math.sqrt(listener.getPos().squaredDistanceTo(source.getX(), source.getY(), source.getZ()));
+                    sourceManager.run((sourcex) -> {
+                        float newVolume = (float) (config.jukebox.distance - distanceToPlayer) / config.jukebox.distance;
+                        sourcex.setVolume(newVolume < 0 ? 0 : newVolume);
+                    });
+                }
+            });
 
-        if (this.started && category == SoundCategory.MUSIC) {
+            if (this.started && category == SoundCategory.MUSIC) {
                 this.sources.forEach((source, sourceManager) -> {
-                    if(source.getCategory() == SoundCategory.MUSIC) {
+                    if (source.getCategory() == SoundCategory.MUSIC) {
                         float f = this.getAdjustedVolume(source) * volume;
                         sourceManager.run((sourcex) -> {
                             sourcex.setVolume(f);
                         });
                     }
                 });
-            ci.cancel();
+                ci.cancel();
+            }
         }
     }
 }
