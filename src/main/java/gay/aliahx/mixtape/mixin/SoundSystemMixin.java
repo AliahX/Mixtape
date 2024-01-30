@@ -1,7 +1,6 @@
 package gay.aliahx.mixtape.mixin;
 
 import gay.aliahx.mixtape.Mixtape;
-import net.minecraft.client.option.GameOptions;
 import net.minecraft.client.sound.*;
 import net.minecraft.sound.SoundCategory;
 import org.spongepowered.asm.mixin.Final;
@@ -15,7 +14,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.util.Map;
 
-import static gay.aliahx.mixtape.Mixtape.client;
 import static gay.aliahx.mixtape.Mixtape.config;
 
 @Mixin(SoundSystem.class)
@@ -23,7 +21,6 @@ public abstract class SoundSystemMixin {
     @Shadow @Final private Map<SoundInstance, Channel.SourceManager> sources;
 
     @Shadow protected abstract float getAdjustedVolume(SoundInstance sound);
-    @Shadow private boolean started;
     @Shadow @Final private SoundListener listener;
 
     @Unique
