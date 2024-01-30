@@ -45,11 +45,6 @@ public abstract class MusicTrackerMixin {
             }
         }
 
-        float defaultVolume = client.options.getSoundVolume(SoundCategory.MUSIC);
-        if(config.main.enabled) {
-            client.getSoundManager().updateSoundVolume(SoundCategory.MUSIC, config.jukebox.turnDownMusic ? Mixtape.volumeScale * defaultVolume : defaultVolume);
-        }
-
         Mixtape.discPlaying = false;
         Mixtape.jukeboxes.forEach((blockPos, isPlaying) -> {
             if(isPlaying && (this.client.world != null && this.client.world.getBlockEntity(blockPos) != null && this.client.world.getBlockEntity(blockPos).getType() == BlockEntityType.JUKEBOX && this.client.world.isChunkLoaded(blockPos))) {

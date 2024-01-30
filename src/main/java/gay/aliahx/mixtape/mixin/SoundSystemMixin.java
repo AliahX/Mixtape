@@ -15,6 +15,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.util.Map;
 
+import static gay.aliahx.mixtape.Mixtape.client;
 import static gay.aliahx.mixtape.Mixtape.config;
 
 @Mixin(SoundSystem.class)
@@ -48,30 +49,34 @@ public abstract class SoundSystemMixin {
         return instance.getCategory() == SoundCategory.RECORDS && config.jukebox.mono ? 0 : instance.getZ();
     }
 
-    @Inject(at = @At("HEAD"), method = "updateSoundVolume", cancellable = true)
+    @Inject(at = @At("RETURN"), method = "updateSoundVolume")
     private void updateSoundVolume(SoundCategory category, float volume, CallbackInfo ci) {
-        if(config.main.enabled && this.started) {
+        if(config.main.enabled) {
             this.sources.forEach((source, sourceManager) -> {
-                if (source.getCategory() == SoundCategory.RECORDS) {
-                    double distanceToPlayer = Math.sqrt(listener.getPos().squaredDistanceTo(source.getX(), source.getY(), source.getZ()));
-                    sourceManager.run((sourcex) -> {
-                        float newVolume = (float) (config.jukebox.distance - distanceToPlayer) / config.jukebox.distance;
-                        sourcex.setVolume(newVolume < 0 ? 0 : newVolume);
-                    });
+                if (source.getCategory() == SoundCategory.MUSIC) {
+                    float f = this.getAdjustedVolume(source) * (config.jukebox.turnDownMusic ? Mixtape.volumeScale : 1);
+                    sourceManager.run((sourcex) -> sourcex.setVolume(f));
                 }
             });
+        }
+    }
 
-            if (this.started && category == SoundCategory.MUSIC) {
-                this.sources.forEach((source, sourceManager) -> {
-                    if (source.getCategory() == SoundCategory.MUSIC) {
-                        float f = this.getAdjustedVolume(source) * volume;
-                        sourceManager.run((sourcex) -> {
-                            sourcex.setVolume(f);
-                        });
-                    }
-                });
-                ci.cancel();
-            }
+    @Inject(at = @At("RETURN"), method = "tick()V")
+    private void tickMixin(CallbackInfo ci) {
+        if(config.main.enabled) {
+            this.sources.forEach((source, sourceManager) -> {
+                if(source.getCategory() == SoundCategory.RECORDS) {
+                    double distanceToPlayer = Math.sqrt(listener.getPos().squaredDistanceTo(source.getX(), source.getY(), source.getZ()));
+                    float distanceScale = (float) ((config.jukebox.distance - distanceToPlayer) / config.jukebox.distance);
+                    float f = this.getAdjustedVolume(source) * distanceScale;
+                    sourceManager.run((sourcex) -> sourcex.setVolume(f < 0 ? 0 : f));
+                }
+
+                if (source.getCategory() == SoundCategory.MUSIC) {
+                    float f = this.getAdjustedVolume(source) * (config.jukebox.turnDownMusic ? Mixtape.volumeScale : 1);
+                    sourceManager.run((sourcex) -> sourcex.setVolume(f));
+                }
+            });
         }
     }
 }
