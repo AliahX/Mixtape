@@ -8,6 +8,7 @@ import gay.aliahx.mixtape.gui.UpdateAvailableBadge;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.gui.screen.ButtonTextures;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.ConfirmScreen;
 import net.minecraft.client.gui.screen.Screen;
@@ -24,7 +25,6 @@ import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-
 import java.net.URI;
 import java.net.URL;
 import java.nio.charset.Charset;
@@ -33,12 +33,9 @@ import java.util.Objects;
 
 import static gay.aliahx.mixtape.Mixtape.config;
 
-
-@Environment(EnvType.CLIENT)
-@Mixin(OptionsScreen.class)
 public abstract class OptionsScreenMixin extends Screen {
-    @Unique
-    private static final Identifier MIXTAPE_ICON_TEXTURE = new Identifier("mixtape:textures/gui/mixtape_button.png");
+    private static final Identifier MIXTAPE_ICON_TEXTURE_FOCUSED = new Identifier("mixtape:mixtape_button_focused");
+    private static final Identifier MIXTAPE_ICON_TEXTURE_UNFOCUSED = new Identifier("mixtape:mixtape_button_unfocused");
 
     protected OptionsScreenMixin(Text title) {
         super(title);
@@ -65,9 +62,10 @@ public abstract class OptionsScreenMixin extends Screen {
                 }, Text.translatable("mixtape.update", latestVersion), Text.translatable("mixtape.update.message"), ScreenTexts.YES, ScreenTexts.NO));
             }));
         }
-        this.addDrawableChild(new TexturedButtonWidget(this.width / 2 + 159, this.height / 6 + 42, 20, 20, 0, 0, 20, MIXTAPE_ICON_TEXTURE, 20, 40, (button) -> {
+        this.addDrawableChild(new TexturedButtonWidget(this.width / 2 + 159, this.height / 6 + 42, 20, 20, new ButtonTextures(MIXTAPE_ICON_TEXTURE_UNFOCUSED, MIXTAPE_ICON_TEXTURE_FOCUSED), (button) -> {
             MinecraftClient.getInstance().setScreen(YACLImplementation.generateConfigScreen(this));
         }));
+
         if(needsUpdate && !config.main.hideUpdateBadge) {
             this.addDrawableChild(new UpdateAvailableBadge(this.width / 2 + 156, this.height / 6 + 39, "amethyst", Text.of("Mixtape Requires an update"), (button) -> {}));
         }

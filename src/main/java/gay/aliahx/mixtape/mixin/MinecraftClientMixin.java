@@ -24,9 +24,9 @@ public abstract class MinecraftClientMixin {
         return false;
     }
 
-    @Redirect(method = "openPauseMenu", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/sound/SoundManager;pauseAll()V"))
+    @Redirect(method = "openGameMenu(Z)V", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/sound/SoundManager;pauseAll()V"))
     private void pauseAllMixin(SoundManager instance) {
-        if(!config.main.enabled || config.main.pauseMusicWhenGamePaused) {
+        if (!config.main.enabled || config.main.pauseMusicWhenGamePaused) {
             instance.pauseAll();
         }
     }
@@ -38,7 +38,7 @@ public abstract class MinecraftClientMixin {
         }
     }
 
-    @Inject(method = "<init>", at = @At(value="TAIL", target = "Lnet/minecraft/client/MinecraftClient;<init>(Lnet/minecraft/client/RunArgs;)V"))
+    @Inject(method = "<init>", at = @At(value = "TAIL", target = "Lnet/minecraft/client/MinecraftClient;<init>(Lnet/minecraft/client/RunArgs;)V"))
     private void initMixin(CallbackInfo info) {
         Mixtape.resourceManager = Mixtape.client.getResourceManager();
         Mixtape.musicManager = new MusicManager(Mixtape.resourceLoader(Mixtape.resourceManager));
@@ -46,7 +46,7 @@ public abstract class MinecraftClientMixin {
         Mixtape.soundManager.registerListener(Mixtape.SoundListener);
     }
 
-    @Inject(method = "reloadResources(Z)Ljava/util/concurrent/CompletableFuture;", at = @At(value = "TAIL"))
+    @Inject(method = "reloadResources(ZLnet/minecraft/client/MinecraftClient$LoadingContext;)Ljava/util/concurrent/CompletableFuture;", at = @At(value = "TAIL"))
     private void reloadResourcesMixin(CallbackInfoReturnable<CompletableFuture<Void>> cir) {
         Mixtape.resourceManager = Mixtape.client.getResourceManager();
         Mixtape.musicManager = new MusicManager(Mixtape.resourceLoader(Mixtape.resourceManager));
