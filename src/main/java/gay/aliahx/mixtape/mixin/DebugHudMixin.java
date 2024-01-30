@@ -16,14 +16,14 @@ public class DebugHudMixin {
     @Inject(at = @At("RETURN"), method = "getLeftText")
     protected void getLeftText(CallbackInfoReturnable<List<String>> info) {
         if(config.main.enabled && config.main.enableDebugInfo) {
-            info.getReturnValue().add("[Mixtape] Song: " + Mixtape.debugCurrentSong);
+            info.getReturnValue().add("[Mixtape] Song: " + Mixtape.currentSong);
             info.getReturnValue().add("[Mixtape] Music Type: " + Mixtape.debugCurrentMusicType);
             info.getReturnValue().add("[Mixtape] Paused: " + Mixtape.paused);
             info.getReturnValue().add("[Mixtape] Next music type: " + Mixtape.debugNextMusicType);
             info.getReturnValue().add("[Mixtape] Time until next song: " + Mixtape.debugTimeUntilNextSong + "/" + Mixtape.debugMaxTimeUntilNextSong);
             info.getReturnValue().add("[Mixtape] Is disc playing: " + Mixtape.discPlaying);
             info.getReturnValue().add("[Mixtape] Music volume scale: " + Mixtape.volumeScale);
-            Mixtape.jukeboxesPlaying.forEach((BlockPos, Boolean) -> info.getReturnValue().add("[Mixtape] " + BlockPos + " " + Boolean));
+            Mixtape.jukeboxes.forEach((BlockPos, Boolean) -> info.getReturnValue().add("[Mixtape] " + BlockPos + " " + Boolean));
         }
     }
 }

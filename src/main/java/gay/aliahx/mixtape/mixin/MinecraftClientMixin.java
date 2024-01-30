@@ -26,14 +26,14 @@ public abstract class MinecraftClientMixin {
 
     @Redirect(method = "openGameMenu(Z)V", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/sound/SoundManager;pauseAll()V"))
     private void pauseAllMixin(SoundManager instance) {
-        if (!(config.main.enabled && !config.main.pauseMusicWhenGamePaused)) {
+        if (!config.main.enabled || config.main.pauseMusicWhenGamePaused) {
             instance.pauseAll();
         }
     }
 
     @Redirect(method = "reset", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/sound/SoundManager;stopAll()V"))
     private void stopAllMixin(SoundManager instance) {
-        if (!(config.main.enabled && !config.main.stopMusicWhenLeftGame)) {
+        if (!config.main.enabled || config.main.stopMusicWhenLeftGame) {
             instance.stopAll();
         }
     }

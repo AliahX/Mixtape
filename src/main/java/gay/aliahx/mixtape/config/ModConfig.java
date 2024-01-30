@@ -14,6 +14,15 @@ public class ModConfig {
     public static final File CONFIG_FILE = FabricLoader.getInstance().getConfigDir().resolve("mixtape.json").toFile();
     public static ModConfig INSTANCE = loadConfigFile(CONFIG_FILE);
 
+    public enum SongLocation implements NameableEnum {
+        OPTIONS_SCREEN,
+        PAUSE_SCREEN;
+        @Override
+        public Text getDisplayName() {
+            return Text.translatable("config.mixtape.songLocation." + this.name().toLowerCase());
+        }
+    }
+
     public enum MusicType implements NameableEnum {
         AUTOMATIC,
         CREATIVE,
@@ -65,7 +74,7 @@ public class ModConfig {
     public JukeboxConfig jukebox = new JukeboxConfig();
 
     public static class MainConfig {
-        public boolean enabled = false;
+        public boolean enabled = true;
         public boolean varyPitch = false;
         public long maxNoteChange = 3;
         public long minNoteChange = -3;
@@ -77,6 +86,9 @@ public class ModConfig {
         public boolean stopMusicWhenSwitchingDimensions = true;
         public boolean stopMusicWhenLeftGame = true;
         public boolean enableDebugInfo = true;
+        public boolean showCurrentSong = true;
+        public SongLocation songLocation = SongLocation.PAUSE_SCREEN;
+        public boolean hideUpdateBadge = false;
     }
 
     public static class MusicToastConfig {
@@ -142,7 +154,7 @@ public class ModConfig {
 
     public static class JukeboxConfig {
         public boolean mono = false;
-        public int distance = 56;
+        public float distance = 56;
         public boolean elevenReplaces11 = false;
         public boolean dogReplacesCat = false;
         public boolean droopyLikesYourFaceReplacesWard = false;

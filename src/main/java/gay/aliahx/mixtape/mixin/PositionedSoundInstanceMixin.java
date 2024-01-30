@@ -13,6 +13,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
+import java.util.Objects;
 import java.util.Random;
 
 import static gay.aliahx.mixtape.Mixtape.config;
@@ -107,6 +108,20 @@ public class PositionedSoundInstanceMixin {
                         if (!config.nether.enabled) sound = sound2;
                     }
                 }
+            }
+
+            String soundId = sound.getId().toString();
+
+            boolean menu = Objects.equals(soundId, "minecraft:music.menu") && !config.menu.enabled;
+            boolean creative = Objects.equals(soundId, "minecraft:music.creative") && !config.creative.enabled;
+            boolean end = Objects.equals(soundId, "minecraft:music.end") && !config.end.enabled;
+            boolean underwater = Objects.equals(soundId, "minecraft:music.under_water") && !config.underwater.enabled;
+            boolean credits = Objects.equals(soundId, "minecraft:music.credits") && !config.credits.enabled;
+            boolean game = (Objects.equals(soundId, "minecraft:music.game") || soundId.contains("overworld")) && !config.game.enabled;
+            boolean nether = soundId.contains("nether") && !config.nether.enabled;
+            boolean dontPlay = menu || creative || end || underwater || credits || game || nether;
+            if(dontPlay) {
+                sound = SoundEvents.INTENTIONALLY_EMPTY;;
             }
 
             long note = config.main.varyPitch ? new Random().nextLong((config.main.maxNoteChange - config.main.minNoteChange) + 1) + config.main.minNoteChange : 0;

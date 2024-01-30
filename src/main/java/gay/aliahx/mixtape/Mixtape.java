@@ -37,23 +37,22 @@ import static net.minecraft.sound.SoundCategory.MUSIC;
 public class Mixtape implements ClientModInitializer {
     public static final Logger LOGGER = LogManager.getLogger();
 
-    public static final String MOD_VERSION = "1.6.1";
+    public static final String MOD_VERSION = "v1.6.2";
     public static final String MOD_ID = "mixtape";
     private static KeyBinding skipKey;
     private static KeyBinding pauseKey;
     private static KeyBinding playKey;
 
-    public static String debugCurrentMusicType = "minecraft:music.game";
-    public static String debugCurrentSong = "";
-    public static String debugNextMusicType = "minecraft:music.game";
     public static int debugTimeUntilNextSong = Integer.MAX_VALUE;
     public static int debugMaxTimeUntilNextSong = Integer.MAX_VALUE;
     public static boolean discPlaying = false;
+    public static boolean startSong = false;
     public static float volumeScale = 1.0f;
     public static boolean paused = false;
-    public static Map<BlockPos, Boolean> jukeboxesPlaying = new ConcurrentHashMap<>() {};
-    public static Map<BlockPos, Boolean> lastJukeboxes = new ConcurrentHashMap<>() {};
-    public static Map<BlockPos, Boolean> lastLastJukeboxes = new ConcurrentHashMap<>() {};
+    public static String debugCurrentMusicType = "minecraft:music.game";
+    public static String debugNextMusicType = "minecraft:music.game";
+    public static String currentSong = "";
+    public static Map<BlockPos, Boolean> jukeboxes = new ConcurrentHashMap<>() {};
     private static final String MUSIC_LIST_JSON = "music_list.json";
     private static final String ALBUM_LIST_JSON = "album_list.json";
 
@@ -77,7 +76,7 @@ public class Mixtape implements ClientModInitializer {
             while (skipKey.wasPressed()) {
                 MinecraftClient.getInstance().getSoundManager().stopSounds(null, MUSIC);
                 if(config.main.skipKeybindStartsNextSong) {
-                    MinecraftClient.getInstance().getMusicTracker().play(MinecraftClient.getInstance().getMusicType());
+                    startSong = true;
                 }
             }
 
@@ -97,15 +96,17 @@ public class Mixtape implements ClientModInitializer {
             }
         });
 
-        LOGGER.info("Mixtape version " + MOD_VERSION + " loaded!");
+        LOGGER.info("Mixtape " + MOD_VERSION + " loaded!");
     }
 
     public static SoundInstanceListener SoundListener = (soundInstance, soundSet) -> {
         if (soundInstance.getCategory() == SoundCategory.MUSIC) {
-            debugCurrentSong = soundInstance.getSound().getIdentifier().toString();
+            currentSong = soundInstance.getSound().getIdentifier().toString();
             if(Mixtape.volumeScale != 0.001f) {
                 String[] arr = soundInstance.getSound().getIdentifier().toString().split("/");
-                MusicToast.show(client.getToastManager(), Mixtape.musicManager.getEntry(arr[arr.length - 1]), ItemStack.EMPTY);
+                if(client.options.getSoundVolume(SoundCategory.MASTER) != 0.0) {
+                    MusicToast.show(client.getToastManager(), Mixtape.musicManager.getEntry(arr[arr.length - 1]), ItemStack.EMPTY);
+                }
             }
         }
     };

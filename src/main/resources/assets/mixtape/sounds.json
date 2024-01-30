@@ -213,115 +213,134 @@
   "music.aerie": {
     "sounds": [{
       "name": "music/game/swamp/aerie",
-      "stream": true
+      "stream": true,
+      "volume": 0.4
     }]
   },
   "music.ancestry": {
     "sounds": [{
       "name": "music/game/ancestry",
-      "stream": true
+      "stream": true,
+      "volume": 0.4
     }]
   },
   "music.a_familiar_room": {
     "sounds": [{
       "name": "music/game/a_familiar_room",
-      "stream": true
+      "stream": true,
+      "volume": 0.4
     }]
   },
   "music.an_ordinary_day": {
     "sounds": [{
       "name": "music/game/an_ordinary_day",
-      "stream": true
+      "stream": true,
+      "volume": 0.4
     }]
   },
   "music.bromeliad": {
     "sounds": [{
       "name": "music/game/bromeliad",
-      "stream": true
+      "stream": true,
+      "volume": 0.4
     }]
   },
   "music.comforting_memories": {
     "sounds": [{
       "name": "music/game/comforting_memories",
-      "stream": true
+      "stream": true,
+      "volume": 0.4
     }]
   },
   "music.crescent_dunes": {
     "sounds": [{
       "name": "music/game/crescent_dunes",
-      "stream": true
+      "stream": true,
+      "volume": 0.4
     }]
   },
   "music.echo_in_the_wind": {
     "sounds": [{
       "name": "music/game/echo_in_the_wind",
-      "stream": true
+      "stream": true,
+      "volume": 0.4
     }]
   },
   "music.firebugs": {
     "sounds": [{
       "name": "music/game/swamp/firebugs",
-      "stream": true
+      "stream": true,
+      "volume": 0.4
     }]
   },
   "music.floating_dream": {
     "sounds": [{
       "name": "music/game/floating_dream",
-      "stream": true
+      "stream": true,
+      "volume": 0.4
     }]
   },
   "music.infinite_amethyst": {
     "sounds": [{
       "name": "music/game/infinite_amethyst",
-      "stream": true
+      "stream": true,
+      "volume": 0.4
     }]
   },
   "music.labyrinthine": {
     "sounds": [{
       "name": "music/game/swamp/labyrinthine",
-      "stream": true
+      "stream": true,
+      "volume": 0.4
     }]
   },
   "music.left_to_bloom": {
     "sounds": [{
       "name": "music/game/left_to_bloom",
-      "stream": true
+      "stream": true,
+      "volume": 0.4
     }]
   },
   "music.one_more_day": {
     "sounds": [{
       "name": "music/game/one_more_day",
-      "stream": true
+      "stream": true,
+      "volume": 0.4
     }]
   },
   "music.stand_tall": {
     "sounds": [{
       "name": "music/game/stand_tall",
-      "stream": true
+      "stream": true,
+      "volume": 0.4
     }]
   },
   "music.wending": {
     "sounds": [{
       "name": "music/game/wending",
-      "stream": true
+      "stream": true,
+      "volume": 0.4
     }]
   },
   "music.axolotl": {
     "sounds": [{
       "name": "music/game/water/axolotl",
-      "stream": true
+      "stream": true,
+      "volume": 0.4
     }]
   },
   "music.dragon_fish": {
     "sounds": [{
       "name": "music/game/water/dragon_fish",
-      "stream": true
+      "stream": true,
+      "volume": 0.4
     }]
   },
   "music.shuniji": {
     "sounds": [{
       "name": "music/game/water/shuniji",
-      "stream": true
+      "stream": true,
+      "volume": 0.4
     }]
   },
   "music.concrete_halls": {
@@ -351,19 +370,22 @@
   "music.chrysopoeia": {
     "sounds": [{
       "name": "music/game/nether/crimson_forest/chrysopoeia",
-      "stream": true
+      "stream": true,
+      "volume": 0.4
     }]
   },
   "music.rubedo": {
     "sounds": [{
       "name": "music/game/nether/nether_wastes/rubedo",
-      "stream": true
+      "stream": true,
+      "volume": 0.4
     }]
   },
   "music.so_below": {
     "sounds": [{
       "name": "music/game/nether/soulsand_valley/so_below",
-      "stream": true
+      "stream": true,
+      "volume": 0.4
     }]
   },
   "music.boss": {
@@ -372,7 +394,7 @@
       "stream": true
     }]
   },
-  "music.end": {
+  "music.the_end": {
     "sounds": [{
       "name": "music/game/end/end",
       "stream": true

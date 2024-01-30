@@ -5,8 +5,8 @@
   "compatibilityLevel": "JAVA_17",
   "client": [
     "DebugHudMixin",
+    "GameMenuScreenMixin",
     "InGameHudMixin",
-    "JukeboxBlockEntityMixin",
     "MinecraftClientMixin",
     "MusicDiscItemMixin",
     "MusicTrackerMixin",

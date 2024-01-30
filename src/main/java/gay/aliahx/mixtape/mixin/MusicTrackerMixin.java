@@ -4,8 +4,10 @@ import gay.aliahx.mixtape.Mixtape;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.sound.MusicTracker;
+import net.minecraft.client.sound.SoundInstance;
 import net.minecraft.sound.MusicSound;
 import net.minecraft.sound.SoundCategory;
+import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -20,23 +22,31 @@ import static gay.aliahx.mixtape.Mixtape.config;
 import static gay.aliahx.mixtape.Mixtape.paused;
 
 @Mixin(MusicTracker.class)
-public class MusicTrackerMixin {
+public abstract class MusicTrackerMixin {
 
     @Shadow private int timeUntilNextSong;
-
     @Shadow @Final private MinecraftClient client;
+    @Shadow @Nullable private SoundInstance current;
 
     @Inject(at = @At("RETURN"), method = "tick")
     private void tickMixin(CallbackInfo info) {
         Mixtape.debugTimeUntilNextSong = timeUntilNextSong;
         Mixtape.debugMaxTimeUntilNextSong = getMaxDelayMixin(client.getMusicType());
         Mixtape.debugNextMusicType = client.getMusicType().getSound().value().getId().toString();
+        if(current == null) {
+            if(!Mixtape.currentSong.equals("")) {
+                Mixtape.currentSong = "";
+                //song has finished
+            }
 
-        float defaultVolume = client.options.getSoundVolume(SoundCategory.MUSIC);
-        client.getSoundManager().updateSoundVolume(SoundCategory.MUSIC, config.jukebox.turnDownMusic ? Mixtape.volumeScale * defaultVolume : defaultVolume);
+            if(Mixtape.startSong) {
+                Mixtape.startSong = false;
+                timeUntilNextSong = 13;
+            }
+        }
 
         Mixtape.discPlaying = false;
-        Mixtape.jukeboxesPlaying.forEach((blockPos, isPlaying) -> {
+        Mixtape.jukeboxes.forEach((blockPos, isPlaying) -> {
             if(isPlaying && (this.client.world != null && this.client.world.getBlockEntity(blockPos) != null && this.client.world.getBlockEntity(blockPos).getType() == BlockEntityType.JUKEBOX && this.client.world.isChunkLoaded(blockPos))) {
                 if(this.client.player != null) {
                     if (Math.sqrt(this.client.player.squaredDistanceTo(blockPos.toCenterPos())) < 64) {
@@ -46,11 +56,12 @@ public class MusicTrackerMixin {
             }
         });
 
-        if(Mixtape.discPlaying && Mixtape.volumeScale > 0.1f) {
+        boolean scaleMusic = Mixtape.discPlaying;
+        if(scaleMusic && Mixtape.volumeScale > 0.1f) {
             Mixtape.volumeScale -= 0.1f;
-        } else if (Mixtape.discPlaying && Mixtape.volumeScale <= 0.1f) {
+        } else if (scaleMusic && Mixtape.volumeScale <= 0.1f) {
             Mixtape.volumeScale = 0.001f;
-        } else if (!Mixtape.discPlaying && Mixtape.volumeScale < 1.0f) {
+        } else if (!scaleMusic && Mixtape.volumeScale < 1.0f) {
             Mixtape.volumeScale += 0.1f;
         } else {
             Mixtape.volumeScale = 1.0f;
@@ -59,7 +70,7 @@ public class MusicTrackerMixin {
 
     @Redirect(method = "tick", at = @At(value = "INVOKE", target = "Lnet/minecraft/sound/MusicSound;getMinDelay()I"))
     private int getMinDelayMixin(MusicSound musicSound) {
-        return !config.main.enabled ? musicSound.getMinDelay() : paused ? Integer.MAX_VALUE : config.main.noDelayBetweenSongs ? 0 : switch (musicSound.getSound().value().getId().toString()) {
+        return !config.main.enabled ? musicSound.getMinDelay() : paused ? Integer.MAX_VALUE : config.main.noDelayBetweenSongs ? 13 : switch (musicSound.getSound().value().getId().toString()) {
             case "minecraft:music.menu" -> config.menu.minSongDelay;
             case "minecraft:music.creative" -> config.creative.minSongDelay;
             case "minecraft:music.end" -> config.end.minSongDelay;
@@ -78,7 +89,7 @@ public class MusicTrackerMixin {
 
     @Redirect(method = "tick", at = @At(value = "INVOKE", target = "Lnet/minecraft/sound/MusicSound;getMaxDelay()I"))
     private int getMaxDelayMixin(MusicSound musicSound) {
-        return !config.main.enabled ? musicSound.getMaxDelay() : paused ? Integer.MAX_VALUE : config.main.noDelayBetweenSongs ? 0 : switch (musicSound.getSound().value().getId().toString()) {
+        return !config.main.enabled ? musicSound.getMaxDelay() : paused ? Integer.MAX_VALUE : config.main.noDelayBetweenSongs ? 13 : switch (musicSound.getSound().value().getId().toString()) {
             case "minecraft:music.menu" -> config.menu.maxSongDelay;
             case "minecraft:music.creative" -> config.creative.maxSongDelay;
             case "minecraft:music.end" -> config.end.maxSongDelay;

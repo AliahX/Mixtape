@@ -4,14 +4,15 @@ import com.google.common.collect.Maps;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import net.minecraft.client.gui.DrawContext;
+import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.JsonHelper;
 
 import java.util.Map;
 
 public class MusicManager {
-    public Map<String, Entry> music = Maps.newHashMap();
-    public static Map<String, JsonElement> albums = Maps.newHashMap();
+    public Map<String, Entry> music;
+    public static Map<String, JsonElement> albums;
 
     public static final Identifier ALBUM_COVERS = new Identifier(Mixtape.MOD_ID, "textures/gui/album_covers.png");
 
