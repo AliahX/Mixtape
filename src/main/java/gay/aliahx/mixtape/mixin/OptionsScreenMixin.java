@@ -33,6 +33,8 @@ import java.util.Objects;
 
 import static gay.aliahx.mixtape.Mixtape.config;
 
+@Mixin(OptionsScreen.class)
+@Environment(EnvType.CLIENT)
 public abstract class OptionsScreenMixin extends Screen {
     private static final Identifier MIXTAPE_ICON_TEXTURE_FOCUSED = new Identifier("mixtape:mixtape_button_focused");
     private static final Identifier MIXTAPE_ICON_TEXTURE_UNFOCUSED = new Identifier("mixtape:mixtape_button_unfocused");
@@ -53,7 +55,7 @@ public abstract class OptionsScreenMixin extends Screen {
 
         if(needsUpdate && !config.main.hideUpdateBadge) {
             String latestVersion = version;
-            this.addDrawableChild(new UpdateAvailableBadge(this.width / 2 + 156, this.height / 6 + 39, "amethyst", Text.translatable("mixtape.update.available"), (button) -> {
+            this.addDrawableChild(new UpdateAvailableBadge(this.width / 2 + 156, this.height / 6 + 39, Text.translatable("mixtape.update.available"), (button) -> {
                 MinecraftClient.getInstance().setScreen(new ConfirmScreen((result) -> {
                     if (result) {
                         Util.getOperatingSystem().open(URI.create("https://modrinth.com/mod/mixtape/versions"));
@@ -67,7 +69,7 @@ public abstract class OptionsScreenMixin extends Screen {
         }));
 
         if(needsUpdate && !config.main.hideUpdateBadge) {
-            this.addDrawableChild(new UpdateAvailableBadge(this.width / 2 + 156, this.height / 6 + 39, "amethyst", Text.of("Mixtape Requires an update"), (button) -> {}));
+            this.addDrawableChild(new UpdateAvailableBadge(this.width / 2 + 156, this.height / 6 + 39, Text.of("Mixtape Requires an update"), (button) -> {}));
         }
 
         //the reason the badge is drawn twice is that it has to be drawn before the mixtape button
