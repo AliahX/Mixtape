@@ -27,7 +27,7 @@ import static gay.aliahx.mixtape.Mixtape.config;
 @Environment(EnvType.CLIENT)
 public class MusicToast implements Toast {
     private static final Vector3fc FORWARD_SHIFT = new Vector3f(0.0F, 0.0F, 0.03F);
-    private static final Identifier TEXTURE = new Identifier("toast/tutorial");
+    private static final Identifier TEXTURE = new Identifier("toast/recipe");
     private final Text NAME;
     private final Text ARTIST;
     private final Text ALBUM;
