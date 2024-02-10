@@ -13,7 +13,8 @@ import java.util.Objects;
 
 public class UpdateAvailableBadge extends TexturedButtonWidget {
 
-    private static final Identifier AMETHYST_GEM = new Identifier("mixtape", "textures/gui/gems/amethyst_gem.png");
+    private static final Identifier AMETHYST_GEM = new Identifier("mixtape", "textures/gui/sprites/amethyst_gem.png");
+
     private final Text toolTipMessage;
 
     public UpdateAvailableBadge(int x, int y, Text toolTipMessage, PressAction pressAction) {
@@ -21,7 +22,7 @@ public class UpdateAvailableBadge extends TexturedButtonWidget {
         this.toolTipMessage = toolTipMessage;
     }
 
-    public void renderButton(DrawContext context, int mouseX, int mouseY, float delta) {
+    public void renderWidget(DrawContext context, int mouseX, int mouseY, float delta) {
         RenderSystem.setShaderColor(1f, 1f, 1f, 1f);
         int u = ((Util.getMeasuringTimeMs() / (hovered ? 200L : 400L) & 1L) == 1L) ? 8 : 0;
         int v = ((Util.getMeasuringTimeMs() / (hovered ? 200L : 400L) & 2L) == 2L) ? 8 : 0;

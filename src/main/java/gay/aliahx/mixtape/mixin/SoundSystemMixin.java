@@ -63,7 +63,7 @@ public abstract class SoundSystemMixin {
         if(config.main.enabled) {
             this.sources.forEach((source, sourceManager) -> {
                 if(source.getCategory() == SoundCategory.RECORDS) {
-                    double distanceToPlayer = Math.sqrt(listener.getPos().squaredDistanceTo(source.getX(), source.getY(), source.getZ()));
+                    double distanceToPlayer = Math.sqrt(listener.getTransform().position().squaredDistanceTo(source.getX(), source.getY(), source.getZ()));
                     float distanceScale = (float) ((config.jukebox.distance - distanceToPlayer) / config.jukebox.distance);
                     float f = this.getAdjustedVolume(source) * distanceScale;
                     sourceManager.run((sourcex) -> sourcex.setVolume(f < 0 ? 0 : f));

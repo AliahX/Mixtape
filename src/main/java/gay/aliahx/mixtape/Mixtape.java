@@ -31,6 +31,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
+import static java.lang.Float.POSITIVE_INFINITY;
 import static net.minecraft.sound.SoundCategory.MUSIC;
 
 @Environment(EnvType.CLIENT)
@@ -99,7 +100,7 @@ public class Mixtape implements ClientModInitializer {
         LOGGER.info("Mixtape " + MOD_VERSION + " loaded!");
     }
 
-    public static SoundInstanceListener SoundListener = (soundInstance, soundSet) -> {
+    public static SoundInstanceListener SoundListener = (soundInstance, soundSet, range) -> {
         if (soundInstance.getCategory() == SoundCategory.MUSIC) {
             currentSong = soundInstance.getSound().getIdentifier().toString();
             if(Mixtape.volumeScale != 0.001f) {

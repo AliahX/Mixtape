@@ -1,90 +1,90 @@
 {
-  "calm1": {
+  "minecraft": {
     "name": "Minecraft",
     "artist": "C418",
     "album": "Minecraft - Volume Alpha"
   },
-  "calm2": {
+  "clark": {
     "name": "Clark",
     "artist": "C418",
     "album": "Minecraft - Volume Alpha"
   },
-  "calm3": {
+  "sweden": {
     "name": "Sweden",
     "artist": "C418",
     "album": "Minecraft - Volume Alpha"
   },
-  "creative1": {
+  "biome_fest": {
     "name": "Biome Fest",
     "artist": "C418",
     "album": "Minecraft - Volume Beta"
   },
-  "creative2": {
+  "blind_spots": {
     "name": "Blind Spots",
     "artist": "C418",
     "album": "Minecraft - Volume Beta"
   },
-  "creative3": {
+  "haunt_muskie": {
     "name": "Haunt Muskie",
     "artist": "C418",
     "album": "Minecraft - Volume Beta"
   },
-  "creative4": {
+  "aria_math": {
     "name": "Aria Math",
     "artist": "C418",
     "album": "Minecraft - Volume Beta"
   },
-  "creative5": {
+  "dreiton": {
     "name": "Dreiton",
     "artist": "C418",
     "album": "Minecraft - Volume Beta"
   },
-  "creative6": {
+  "taswell": {
     "name": "Taswell",
     "artist": "C418",
     "album": "Minecraft - Volume Beta"
   },
-  "hal1": {
+  "subwoofer_lullaby": {
     "name": "Subwoofer Lullaby",
     "artist": "C418",
     "album": "Minecraft - Volume Alpha"
   },
-  "hal2": {
+  "living_mice": {
     "name": "Living Mice",
     "artist": "C418",
     "album": "Minecraft - Volume Alpha"
   },
-  "hal3": {
+  "haggstrom": {
     "name": "Haggstrom",
     "artist": "C418",
     "album": "Minecraft - Volume Alpha"
   },
-  "hal4": {
+  "danny": {
     "name": "Danny",
     "artist": "C418",
     "album": "Minecraft - Volume Alpha"
   },
-  "nuance1": {
+  "key": {
     "name": "Key",
     "artist": "C418",
     "album": "Minecraft - Volume Alpha"
   },
-  "nuance2": {
+  "oxygene": {
     "name": "Oxygène",
     "artist": "C418",
     "album": "Minecraft - Volume Alpha"
   },
-  "piano1": {
+  "dry_hands": {
     "name": "Dry Hands",
     "artist": "C418",
     "album": "Minecraft - Volume Alpha"
   },
-  "piano2": {
+  "wet_hands": {
     "name": "Wet Hands",
     "artist": "C418",
     "album": "Minecraft - Volume Alpha"
   },
-  "piano3": {
+  "mice_on_venus": {
     "name": "Mice On Venus",
     "artist": "C418",
     "album": "Minecraft - Volume Alpha"
@@ -167,22 +167,22 @@
     "album": "Shuniji - Single"
   },
 
-  "nether1": {
+  "concrete_halls": {
     "name": "Concrete Halls",
     "artist": "C418",
     "album": "Minecraft - Volume Beta"
   },
-  "nether2": {
+  "dead_voxel": {
     "name": "Dead Voxel",
     "artist": "C418",
     "album": "Minecraft - Volume Beta"
   },
-  "nether3": {
+  "warmth": {
     "name": "Warmth",
     "artist": "C418",
     "album": "Minecraft - Volume Beta"
   },
-  "nether4": {
+  "ballad_of_the_cats": {
     "name": "Ballad of the Cats",
     "artist": "C418",
     "album": "Minecraft - Volume Beta"
@@ -208,33 +208,33 @@
     "artist": "C418",
     "album": "Minecraft - Volume Beta"
   },
-  "end": {
+  "the_end": {
     "name": "The End",
     "artist": "C418",
     "album": "Minecraft - Volume Beta"
   },
 
-  "menu1": {
+  "mutation": {
     "name": "Mutation",
     "artist": "C418",
     "album": "Minecraft - Volume Beta"
   },
-  "menu2": {
+  "moog_city_2": {
     "name": "Moog City 2",
     "artist": "C418",
     "album": "Minecraft - Volume Beta"
   },
-  "menu3": {
+  "beginning_2": {
     "name": "Beginning 2",
     "artist": "C418",
     "album": "Minecraft - Volume Beta"
   },
-  "menu4": {
+  "floating_trees": {
     "name": "Floating Trees",
     "artist": "C418",
     "album": "Minecraft - Volume Beta"
   },
-  "credits": {
+  "alpha": {
     "name": "Alpha",
     "artist": "C418",
     "album": "Minecraft - Volume Beta"
