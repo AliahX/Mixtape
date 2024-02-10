@@ -1,4 +1,8 @@
 {
+  "mixtape.update" : "Mixtape has been updated to %s!",
+  "mixtape.update.message": "Go to the Mixtape Modrinth Page?",
+  "mixtape.update.available": "An update for Mixtape is available!",
+
   "category.mixtape": "Mixtape",
   "key.mixtape.skip": "Skip Song",
   "key.mixtape.pause": "Pause/Resume Music",
@@ -43,6 +47,15 @@
   "config.mixtape.main.stopMusicWhenLeftGame.description": "Toggles whether the music should be stopped when leaving the game.",
   "config.mixtape.main.enableDebugInfo": "Enable Debug Info",
   "config.mixtape.main.enableDebugInfo.description": "Toggles whether mixtape debug info should be added to the f3 screen.",
+  "config.mixtape.main.showCurrentSong": "Show Current Song",
+  "config.mixtape.main.showCurrentSong.description": "Toggles whether the current song should be displayed in the options or pause screen.",
+  "config.mixtape.main.songLocation": "Song Location",
+  "config.mixtape.main.songLocation.description": "Where the current song should be displayed.",
+  "config.mixtape.main.hideUpdateBadge": "Hide Update Badge",
+  "config.mixtape.main.hideUpdateBadge.description": "Toggles whether the update badge should be hidden.",
+
+  "config.mixtape.songLocation.options_screen": "Options Screen",
+  "config.mixtape.songLocation.pause_screen": "Pause Screen",
 
   "config.mixtape.musicToast.enabled": "Enabled",
   "config.mixtape.musicToast.enabled.description": "Toggles whether music toasts should be displayed.",
