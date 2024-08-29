@@ -1,5 +1,5 @@
 plugins {
-    id 'fabric-loom' version '1.4-SNAPSHOT'
+    id 'fabric-loom' version '1.7-SNAPSHOT'
     id 'maven-publish'
 }
 
@@ -7,12 +7,12 @@ version = project.mod_version
 group = project.maven_group
 
 repositories {
-    maven { url "https://maven.isxander.dev/releases"}
+    maven { url "https://maven.isxander.dev/releases" }
     maven { url "https://maven.terraformersmc.com/releases" }
 }
 
 loom {
-    accessWidenerPath = file('src/main/resources/mixtape.accesswidener')
+    accessWidenerPath = file("src/main/resources/mixtape.accesswidener")
 }
 
 dependencies {
@@ -21,7 +21,7 @@ dependencies {
     modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
     modImplementation "com.terraformersmc:modmenu:${project.modmenu_version}"
-    modImplementation "dev.isxander.yacl:yet-another-config-lib-fabric:${project.yet_another_config_lib_version}"
+    modImplementation "dev.isxander:yet-another-config-lib:${project.yacl_version}"
 }
 
 processResources {
