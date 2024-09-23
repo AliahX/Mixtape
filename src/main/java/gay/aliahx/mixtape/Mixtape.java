@@ -115,7 +115,7 @@ public class Mixtape implements ClientModInitializer {
     public static JsonObject[] resourceLoader(ResourceManager manager) {
         JsonObject musicListJson = new JsonObject();
         for (String string : manager.getAllNamespaces()) {
-            List<Resource> list = manager.getAllResources(new Identifier(string, MUSIC_LIST_JSON));
+            List<Resource> list = manager.getAllResources(Identifier.of(string, MUSIC_LIST_JSON));
             try {
                 for (Resource resource : list) {
                     try (BufferedReader reader = resource.getReader()) {
@@ -125,7 +125,7 @@ public class Mixtape implements ClientModInitializer {
                         }
                     }
                     catch (RuntimeException runtimeException) {
-                        LOGGER.warn("Invalid {} in resourcepack: '{}'", MUSIC_LIST_JSON, resource.getResourcePackName(), runtimeException);
+                        LOGGER.warn("Invalid {} in resourcepack: '{}'", MUSIC_LIST_JSON, resource.getPackId(), runtimeException);
                     }
                 }
             } catch (IOException ignored) {}
@@ -133,7 +133,7 @@ public class Mixtape implements ClientModInitializer {
 
         JsonObject albumListJson = new JsonObject();
         for (String string : manager.getAllNamespaces()) {
-            List<Resource> list = manager.getAllResources(new Identifier(string, ALBUM_LIST_JSON));
+            List<Resource> list = manager.getAllResources(Identifier.of(string, ALBUM_LIST_JSON));
             try {
                 for (Resource resource : list) {
                     try (BufferedReader reader = resource.getReader()) {
@@ -143,7 +143,7 @@ public class Mixtape implements ClientModInitializer {
                         }
                     }
                     catch (RuntimeException runtimeException) {
-                        LOGGER.warn("Invalid {} in resourcepack: '{}'", ALBUM_LIST_JSON, resource.getResourcePackName(), runtimeException);
+                        LOGGER.warn("Invalid {} in resourcepack: '{}'", ALBUM_LIST_JSON, resource.getPackId(), runtimeException);
                     }
                 }
             } catch (IOException ignored) {}

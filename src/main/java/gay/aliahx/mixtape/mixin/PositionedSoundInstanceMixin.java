@@ -133,11 +133,11 @@ public class PositionedSoundInstanceMixin {
     private static void recordMixin(SoundEvent sound, Vec3d pos, CallbackInfoReturnable<PositionedSoundInstance> cir) {
         if(config.main.enabled) {
             if(config.jukebox.dogReplacesCat && sound.getId().toString().equals("minecraft:music_disc.cat")) {
-                sound = SoundEvent.of(new Identifier("mixtape:music.dog"));
+                sound = SoundEvent.of(Identifier.of("mixtape:music.dog"));
             } else if(config.jukebox.elevenReplaces11 && sound.getId().toString().equals("minecraft:music_disc.11")) {
-                sound = SoundEvent.of(new Identifier("mixtape:music.eleven"));
+                sound = SoundEvent.of(Identifier.of("mixtape:music.eleven"));
             } else if(config.jukebox.droopyLikesYourFaceReplacesWard && sound.getId().toString().equals("minecraft:music_disc.ward")) {
-                sound = SoundEvent.of(new Identifier("mixtape:music.droopy_likes_your_face"));
+                sound = SoundEvent.of(Identifier.of("mixtape:music.droopy_likes_your_face"));
             }
 
             if(config.jukebox.mono) {

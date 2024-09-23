@@ -13,7 +13,7 @@ import java.util.Objects;
 
 public class UpdateAvailableBadge extends TexturedButtonWidget {
 
-    private static final Identifier AMETHYST_GEM = new Identifier("mixtape", "textures/gui/sprites/amethyst_gem.png");
+    private static final Identifier AMETHYST_GEM = Identifier.of("mixtape", "textures/gui/sprites/amethyst_gem.png");
 
     private final Text toolTipMessage;
 

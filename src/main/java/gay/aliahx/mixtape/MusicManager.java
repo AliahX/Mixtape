@@ -14,7 +14,7 @@ public class MusicManager {
     public Map<String, Entry> music;
     public static Map<String, JsonElement> albums;
 
-    public static final Identifier ALBUM_COVERS = new Identifier(Mixtape.MOD_ID, "textures/gui/album_covers.png");
+    public static final Identifier ALBUM_COVERS = Identifier.of(Mixtape.MOD_ID, "textures/gui/album_covers.png");
 
     public MusicManager(JsonObject[] jsonArray) {
         music = Maps.newHashMap();

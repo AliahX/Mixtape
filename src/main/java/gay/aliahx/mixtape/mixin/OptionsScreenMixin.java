@@ -36,8 +36,10 @@ import static gay.aliahx.mixtape.Mixtape.config;
 @Mixin(OptionsScreen.class)
 @Environment(EnvType.CLIENT)
 public abstract class OptionsScreenMixin extends Screen {
-    private static final Identifier MIXTAPE_ICON_TEXTURE_FOCUSED = new Identifier("mixtape:mixtape_button_focused");
-    private static final Identifier MIXTAPE_ICON_TEXTURE_UNFOCUSED = new Identifier("mixtape:mixtape_button_unfocused");
+    @Unique
+    private static final Identifier MIXTAPE_ICON_TEXTURE_FOCUSED = Identifier.of("mixtape:mixtape_button_focused");
+    @Unique
+    private static final Identifier MIXTAPE_ICON_TEXTURE_UNFOCUSED = Identifier.of("mixtape:mixtape_button_unfocused");
 
     protected OptionsScreenMixin(Text title) {
         super(title);
