@@ -425,5 +425,65 @@
     "name": "Relic",
     "artist": "Aaron Cherof",
     "album": "Minecraft: Trails & Tales"
+  },
+  "featherfall": {
+    "name": "Featherfall",
+    "artist": "Aaron Cherof",
+    "album": "Minecraft: Tricky Trials"
+  },
+  "watcher": {
+    "name": "Watcher",
+    "artist": "Aaron Cherof",
+    "album": "Minecraft: Tricky Trials"
+  },
+  "puzzlebox": {
+    "name": "Puzzlebox",
+    "artist": "Aaron Cherof",
+    "album": "Minecraft: Tricky Trials"
+  },
+  "komorebi": {
+    "name": "komorebi",
+    "artist": "Kumi Tanioka",
+    "album": "Minecraft: Tricky Trials"
+  },
+  "pokopoko": {
+    "name": "pokopoko",
+    "artist": "Kumi Tanioka",
+    "album": "Minecraft: Tricky Trials"
+  },
+  "yakusoku": {
+    "name": "yakusoku",
+    "artist": "Kumi Tanioka",
+    "album": "Minecraft: Tricky Trials"
+  },
+  "deeper": {
+    "name": "Deeper",
+    "artist": "Lena Raine",
+    "album": "Minecraft: Tricky Trials"
+  },
+  "eld_unknown": {
+    "name": "Eld Unknown",
+    "artist": "Lena Raine",
+    "album": "Minecraft: Tricky Trials"
+  },
+  "endless": {
+    "name": "Endless",
+    "artist": "Lena Raine",
+    "album": "Minecraft: Tricky Trials"
+  },
+  "creator": {
+    "name": "Creator",
+    "artist": "Lena Raine",
+    "album": "Minecraft: Tricky Trials"
+  },
+  "creator_music_box": {
+    "name": "Creator (Music Box Version)",
+    "artist": "Lena Raine",
+    "album": "Minecraft: Tricky Trials"
+  },
+  "precipice": {
+    "name": "Precipice",
+    "artist": "Aaron Cherof",
+    "album": "Minecraft: Tricky Trials"
   }
 }

@@ -31,12 +31,16 @@
     "x": 2,
     "y":  1
   },
-  "0x10c": {
+  "Minecraft: Trails & Tales": {
     "x": 3,
     "y":  1
   },
-  "Minecraft: Trails & Tales": {
+  "Minecraft: Tricky Trials": {
     "x": 4,
     "y":  1
+  },
+  "0x10c": {
+    "x": 0,
+    "y":  2
   }
 }
