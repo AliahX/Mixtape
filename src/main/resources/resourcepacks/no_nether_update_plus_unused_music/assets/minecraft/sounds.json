@@ -3,19 +3,19 @@
     "replace": true,
     "sounds": [
       {
-        "name": "music/game/nether/nether1",
+        "name": "music/game/nether/concrete_halls",
         "stream": true
       },
       {
-        "name": "music/game/nether/nether2",
+        "name": "music/game/nether/dead_voxel",
         "stream": true
       },
       {
-        "name": "music/game/nether/nether3",
+        "name": "music/game/nether/warmth",
         "stream": true
       },
       {
-        "name": "music/game/nether/nether4",
+        "name": "music/game/nether/ballad_of_the_cats",
         "stream": true
       },
       {
@@ -28,19 +28,19 @@
     "replace": true,
     "sounds": [
       {
-        "name": "music/game/nether/nether1",
+        "name": "music/game/nether/concrete_halls",
         "stream": true
       },
       {
-        "name": "music/game/nether/nether2",
+        "name": "music/game/nether/dead_voxel",
         "stream": true
       },
       {
-        "name": "music/game/nether/nether3",
+        "name": "music/game/nether/warmth",
         "stream": true
       },
       {
-        "name": "music/game/nether/nether4",
+        "name": "music/game/nether/ballad_of_the_cats",
         "stream": true
       },
       {
@@ -53,19 +53,19 @@
     "replace": true,
     "sounds": [
       {
-        "name": "music/game/nether/nether1",
+        "name": "music/game/nether/concrete_halls",
         "stream": true
       },
       {
-        "name": "music/game/nether/nether2",
+        "name": "music/game/nether/dead_voxel",
         "stream": true
       },
       {
-        "name": "music/game/nether/nether3",
+        "name": "music/game/nether/warmth",
         "stream": true
       },
       {
-        "name": "music/game/nether/nether4",
+        "name": "music/game/nether/ballad_of_the_cats",
         "stream": true
       },
       {
@@ -78,19 +78,19 @@
     "replace": true,
     "sounds": [
       {
-        "name": "music/game/nether/nether1",
+        "name": "music/game/nether/concrete_halls",
         "stream": true
       },
       {
-        "name": "music/game/nether/nether2",
+        "name": "music/game/nether/dead_voxel",
         "stream": true
       },
       {
-        "name": "music/game/nether/nether3",
+        "name": "music/game/nether/warmth",
         "stream": true
       },
       {
-        "name": "music/game/nether/nether4",
+        "name": "music/game/nether/ballad_of_the_cats",
         "stream": true
       },
       {

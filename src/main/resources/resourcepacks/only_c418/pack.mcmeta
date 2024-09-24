@@ -1,6 +1,6 @@
 {
    "pack": {
-      "pack_format": 22,
+      "pack_format": 34,
       "description": "Removes overworld music not written by C418.\n\n"
    }
 }

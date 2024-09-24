@@ -7,27 +7,27 @@
         "type": "event"
       },
       {
-        "name": "music/game/creative/creative1",
+        "name": "music/game/creative/biome_fest",
         "stream": true
       },
       {
-        "name": "music/game/creative/creative2",
+        "name": "music/game/creative/blind_spots",
         "stream": true
       },
       {
-        "name": "music/game/creative/creative3",
+        "name": "music/game/creative/haunt_muskie",
         "stream": true
       },
       {
-        "name": "music/game/creative/creative4",
+        "name": "music/game/creative/aria_math",
         "stream": true
       },
       {
-        "name": "music/game/creative/creative5",
+        "name": "music/game/creative/dreiton",
         "stream": true
       },
       {
-        "name": "music/game/creative/creative6",
+        "name": "music/game/creative/taswell",
         "stream": true
       },
       {
@@ -53,15 +53,15 @@
         "volume": 0.4
       },
       {
-        "name": "music/game/calm1",
+        "name": "music/game/minecraft",
         "stream": true
       },
       {
-        "name": "music/game/calm2",
+        "name": "music/game/clark",
         "stream": true
       },
       {
-        "name": "music/game/calm3",
+        "name": "music/game/sweden",
         "stream": true
       },
       {
@@ -75,19 +75,19 @@
         "volume": 0.4
       },
       {
-        "name": "music/game/hal1",
+        "name": "music/game/subwoofer_lullaby",
         "stream": true
       },
       {
-        "name": "music/game/hal2",
+        "name": "music/game/living_mice",
         "stream": true
       },
       {
-        "name": "music/game/hal3",
+        "name": "music/game/haggstrom",
         "stream": true
       },
       {
-        "name": "music/game/hal4",
+        "name": "music/game/danny",
         "stream": true
       },
       {
@@ -96,11 +96,11 @@
         "volume": 0.4
       },
       {
-        "name": "music/game/nuance1",
+        "name": "music/game/key",
         "stream": true
       },
       {
-        "name": "music/game/nuance2",
+        "name": "music/game/oxygene",
         "stream": true
       },
       {
@@ -109,15 +109,15 @@
         "volume": 0.4
       },
       {
-        "name": "music/game/piano1",
+        "name": "music/game/dry_hands",
         "stream": true
       },
       {
-        "name": "music/game/piano2",
+        "name": "music/game/wet_hands",
         "stream": true
       },
       {
-        "name": "music/game/piano3",
+        "name": "music/game/mice_on_venus",
         "stream": true
       },
       {
@@ -171,19 +171,19 @@
         "volume": 0.4
       },
       {
-        "name": "music/menu/menu1",
+        "name": "music/menu/mutation",
         "stream": true
       },
       {
-        "name": "music/menu/menu2",
+        "name": "music/menu/moog_city_2",
         "stream": true
       },
       {
-        "name": "music/menu/menu3",
+        "name": "music/menu/beginning_2",
         "stream": true
       },
       {
-        "name": "music/menu/menu4",
+        "name": "music/menu/floating_trees",
         "stream": true
       },
       {
@@ -200,19 +200,19 @@
     "replace": true,
     "sounds": [
       {
-        "name": "music/game/nether/nether1",
+        "name": "music/game/nether/concrete_halls",
         "stream": true
       },
       {
-        "name": "music/game/nether/nether2",
+        "name": "music/game/nether/dead_voxel",
         "stream": true
       },
       {
-        "name": "music/game/nether/nether3",
+        "name": "music/game/nether/warmth",
         "stream": true
       },
       {
-        "name": "music/game/nether/nether4",
+        "name": "music/game/nether/ballad_of_the_cats",
         "stream": true
       },
       {
@@ -237,19 +237,19 @@
         "weight": 7
       },
       {
-        "name": "music/game/nether/nether1",
+        "name": "music/game/nether/concrete_halls",
         "stream": true
       },
       {
-        "name": "music/game/nether/nether2",
+        "name": "music/game/nether/dead_voxel",
         "stream": true
       },
       {
-        "name": "music/game/nether/nether3",
+        "name": "music/game/nether/warmth",
         "stream": true
       },
       {
-        "name": "music/game/nether/nether4",
+        "name": "music/game/nether/ballad_of_the_cats",
         "stream": true
       },
       {
@@ -262,19 +262,19 @@
     "replace": true,
     "sounds": [
       {
-        "name": "music/game/nether/nether1",
+        "name": "music/game/nether/concrete_halls",
         "stream": true
       },
       {
-        "name": "music/game/nether/nether2",
+        "name": "music/game/nether/dead_voxel",
         "stream": true
       },
       {
-        "name": "music/game/nether/nether3",
+        "name": "music/game/nether/warmth",
         "stream": true
       },
       {
-        "name": "music/game/nether/nether4",
+        "name": "music/game/nether/ballad_of_the_cats",
         "stream": true
       },
       {
@@ -293,19 +293,19 @@
     "replace": true,
     "sounds": [
       {
-        "name": "music/game/nether/nether1",
+        "name": "music/game/nether/concrete_halls",
         "stream": true
       },
       {
-        "name": "music/game/nether/nether2",
+        "name": "music/game/nether/dead_voxel",
         "stream": true
       },
       {
-        "name": "music/game/nether/nether3",
+        "name": "music/game/nether/warmth",
         "stream": true
       },
       {
-        "name": "music/game/nether/nether4",
+        "name": "music/game/nether/ballad_of_the_cats",
         "stream": true
       },
       {
@@ -335,27 +335,27 @@
         "volume": 0.4
       },
       {
-        "name": "music/game/hal1",
+        "name": "music/game/subwoofer_lullaby",
         "stream": true
       },
       {
-        "name": "music/game/hal2",
+        "name": "music/game/living_mice",
         "stream": true
       },
       {
-        "name": "music/game/hal3",
+        "name": "music/game/haggstrom",
         "stream": true
       },
       {
-        "name": "music/game/hal4",
+        "name": "music/game/danny",
         "stream": true
       },
       {
-        "name": "music/game/nuance1",
+        "name": "music/game/key",
         "stream": true
       },
       {
-        "name": "music/game/nuance2",
+        "name": "music/game/oxygene",
         "stream": true
       },
       {
@@ -364,15 +364,15 @@
         "volume": 0.4
       },
       {
-        "name": "music/game/piano1",
+        "name": "music/game/dry_hands",
         "stream": true
       },
       {
-        "name": "music/game/piano2",
+        "name": "music/game/wet_hands",
         "stream": true
       },
       {
-        "name": "music/game/piano3",
+        "name": "music/game/mice_on_venus",
         "stream": true
       },
       {
@@ -408,19 +408,19 @@
         "weight": 2
       },
       {
-        "name": "music/game/hal1",
+        "name": "music/game/subwoofer_lullaby",
         "stream": true
       },
       {
-        "name": "music/game/hal2",
+        "name": "music/game/living_mice",
         "stream": true
       },
       {
-        "name": "music/game/hal3",
+        "name": "music/game/haggstrom",
         "stream": true
       },
       {
-        "name": "music/game/hal4",
+        "name": "music/game/danny",
         "stream": true
       },
       {
@@ -429,23 +429,23 @@
         "volume": 0.4
       },
       {
-        "name": "music/game/nuance1",
+        "name": "music/game/key",
         "stream": true
       },
       {
-        "name": "music/game/nuance2",
+        "name": "music/game/oxygene",
         "stream": true
       },
       {
-        "name": "music/game/piano1",
+        "name": "music/game/dry_hands",
         "stream": true
       },
       {
-        "name": "music/game/piano2",
+        "name": "music/game/wet_hands",
         "stream": true
       },
       {
-        "name": "music/game/piano3",
+        "name": "music/game/mice_on_venus",
         "stream": true
       },
       {
@@ -485,15 +485,15 @@
         "weight": 3
       },
       {
-        "name": "music/game/calm1",
+        "name": "music/game/minecraft",
         "stream": true
       },
       {
-        "name": "music/game/calm2",
+        "name": "music/game/clark",
         "stream": true
       },
       {
-        "name": "music/game/calm3",
+        "name": "music/game/sweden",
         "stream": true
       },
       {
@@ -540,27 +540,27 @@
         "weight": 3
       },
       {
-        "name": "music/game/hal1",
+        "name": "music/game/subwoofer_lullaby",
         "stream": true
       },
       {
-        "name": "music/game/hal2",
+        "name": "music/game/living_mice",
         "stream": true
       },
       {
-        "name": "music/game/hal3",
+        "name": "music/game/haggstrom",
         "stream": true
       },
       {
-        "name": "music/game/hal4",
+        "name": "music/game/danny",
         "stream": true
       },
       {
-        "name": "music/game/nuance1",
+        "name": "music/game/key",
         "stream": true
       },
       {
-        "name": "music/game/nuance2",
+        "name": "music/game/oxygene",
         "stream": true
       },
       {
@@ -599,11 +599,11 @@
         "stream": true
       },
       {
-        "name": "music/game/hal1",
+        "name": "music/game/subwoofer_lullaby",
         "stream": true
       },
       {
-        "name": "music/game/hal4",
+        "name": "music/game/danny",
         "stream": true
       },
       {
@@ -612,11 +612,11 @@
         "volume": 0.4
       },
       {
-        "name": "music/game/nuance1",
+        "name": "music/game/key",
         "stream": true
       },
       {
-        "name": "music/game/nuance2",
+        "name": "music/game/oxygene",
         "stream": true
       },
       {
@@ -662,19 +662,19 @@
         "volume": 0.4
       },
       {
-        "name": "music/game/hal1",
+        "name": "music/game/subwoofer_lullaby",
         "stream": true
       },
       {
-        "name": "music/game/hal2",
+        "name": "music/game/living_mice",
         "stream": true
       },
       {
-        "name": "music/game/hal3",
+        "name": "music/game/haggstrom",
         "stream": true
       },
       {
-        "name": "music/game/hal4",
+        "name": "music/game/danny",
         "stream": true
       },
       {
@@ -683,11 +683,11 @@
         "volume": 0.4
       },
       {
-        "name": "music/game/nuance1",
+        "name": "music/game/key",
         "stream": true
       },
       {
-        "name": "music/game/nuance2",
+        "name": "music/game/oxygene",
         "stream": true
       },
       {
@@ -726,15 +726,15 @@
         "volume": 0.4
       },
       {
-        "name": "music/game/calm1",
+        "name": "music/game/minecraft",
         "stream": true
       },
       {
-        "name": "music/game/calm2",
+        "name": "music/game/clark",
         "stream": true
       },
       {
-        "name": "music/game/calm3",
+        "name": "music/game/sweden",
         "stream": true
       },
       {
@@ -748,19 +748,19 @@
         "volume": 0.4
       },
       {
-        "name": "music/game/hal1",
+        "name": "music/game/subwoofer_lullaby",
         "stream": true
       },
       {
-        "name": "music/game/hal2",
+        "name": "music/game/living_mice",
         "stream": true
       },
       {
-        "name": "music/game/hal3",
+        "name": "music/game/haggstrom",
         "stream": true
       },
       {
-        "name": "music/game/hal4",
+        "name": "music/game/danny",
         "stream": true
       },
       {
@@ -769,11 +769,11 @@
         "volume": 0.4
       },
       {
-        "name": "music/game/nuance1",
+        "name": "music/game/key",
         "stream": true
       },
       {
-        "name": "music/game/nuance2",
+        "name": "music/game/oxygene",
         "stream": true
       },
       {
@@ -782,15 +782,15 @@
         "volume": 0.4
       },
       {
-        "name": "music/game/piano1",
+        "name": "music/game/dry_hands",
         "stream": true
       },
       {
-        "name": "music/game/piano2",
+        "name": "music/game/wet_hands",
         "stream": true
       },
       {
-        "name": "music/game/piano3",
+        "name": "music/game/mice_on_venus",
         "stream": true
       },
       {
@@ -839,31 +839,31 @@
     "replace": true,
     "sounds": [
       {
-        "name": "music/game/hal1",
+        "name": "music/game/subwoofer_lullaby",
         "stream": true
       },
       {
-        "name": "music/game/hal2",
+        "name": "music/game/living_mice",
         "stream": true
       },
       {
-        "name": "music/game/hal3",
+        "name": "music/game/haggstrom",
         "stream": true
       },
       {
-        "name": "music/game/hal4",
+        "name": "music/game/danny",
         "stream": true
       },
       {
-        "name": "music/game/piano1",
+        "name": "music/game/dry_hands",
         "stream": true
       },
       {
-        "name": "music/game/piano2",
+        "name": "music/game/wet_hands",
         "stream": true
       },
       {
-        "name": "music/game/piano3",
+        "name": "music/game/mice_on_venus",
         "stream": true
       },
       {
@@ -882,15 +882,15 @@
     "replace": true,
     "sounds": [
       {
-        "name": "music/game/calm1",
+        "name": "music/game/minecraft",
         "stream": true
       },
       {
-        "name": "music/game/calm2",
+        "name": "music/game/clark",
         "stream": true
       },
       {
-        "name": "music/game/calm3",
+        "name": "music/game/sweden",
         "stream": true
       },
       {
@@ -904,15 +904,15 @@
         "volume": 0.4
       },
       {
-        "name": "music/game/nuance1",
+        "name": "music/game/key",
         "stream": true
       },
       {
-        "name": "music/game/nuance2",
+        "name": "music/game/oxygene",
         "stream": true
       },
       {
-        "name": "music/game/piano3",
+        "name": "music/game/mice_on_venus",
         "stream": true
       },
       {
@@ -952,31 +952,31 @@
         "volume": 0.4
       },
       {
-        "name": "music/game/hal1",
+        "name": "music/game/subwoofer_lullaby",
         "stream": true
       },
       {
-        "name": "music/game/hal2",
+        "name": "music/game/living_mice",
         "stream": true
       },
       {
-        "name": "music/game/nuance1",
+        "name": "music/game/key",
         "stream": true
       },
       {
-        "name": "music/game/nuance2",
+        "name": "music/game/oxygene",
         "stream": true
       },
       {
-        "name": "music/game/piano1",
+        "name": "music/game/dry_hands",
         "stream": true
       },
       {
-        "name": "music/game/piano2",
+        "name": "music/game/wet_hands",
         "stream": true
       },
       {
-        "name": "music/game/piano3",
+        "name": "music/game/mice_on_venus",
         "stream": true
       },
       {
@@ -1017,19 +1017,19 @@
         "weight": 3
       },
       {
-        "name": "music/game/hal1",
+        "name": "music/game/subwoofer_lullaby",
         "stream": true
       },
       {
-        "name": "music/game/hal2",
+        "name": "music/game/living_mice",
         "stream": true
       },
       {
-        "name": "music/game/hal3",
+        "name": "music/game/haggstrom",
         "stream": true
       },
       {
-        "name": "music/game/hal4",
+        "name": "music/game/danny",
         "stream": true
       },
       {
@@ -1037,23 +1037,23 @@
         "volume": 0.4
       },
       {
-        "name": "music/game/nuance1",
+        "name": "music/game/key",
         "stream": true
       },
       {
-        "name": "music/game/nuance2",
+        "name": "music/game/oxygene",
         "stream": true
       },
       {
-        "name": "music/game/piano1",
+        "name": "music/game/dry_hands",
         "stream": true
       },
       {
-        "name": "music/game/piano2",
+        "name": "music/game/wet_hands",
         "stream": true
       },
       {
-        "name": "music/game/piano3",
+        "name": "music/game/mice_on_venus",
         "stream": true
       },
       {
@@ -1130,7 +1130,7 @@
         "weight": 2
       },
       {
-        "name": "music/game/piano3",
+        "name": "music/game/mice_on_venus",
         "stream": true,
         "weight": 2
       },
@@ -1164,19 +1164,19 @@
     "replace": true,
     "sounds": [
       {
-        "name": "music/game/hal1",
+        "name": "music/game/subwoofer_lullaby",
         "stream": true
       },
       {
-        "name": "music/game/hal2",
+        "name": "music/game/living_mice",
         "stream": true
       },
       {
-        "name": "music/game/hal3",
+        "name": "music/game/haggstrom",
         "stream": true
       },
       {
-        "name": "music/game/hal4",
+        "name": "music/game/danny",
         "stream": true
       },
       {
@@ -1236,22 +1236,22 @@
         "weight": 3
       },
       {
-        "name": "music/game/hal1",
+        "name": "music/game/subwoofer_lullaby",
         "stream": true,
         "weight": 3
       },
       {
-        "name": "music/game/hal2",
+        "name": "music/game/living_mice",
         "stream": true,
         "weight": 3
       },
       {
-        "name": "music/game/hal3",
+        "name": "music/game/haggstrom",
         "stream": true,
         "weight": 3
       },
       {
-        "name": "music/game/hal4",
+        "name": "music/game/danny",
         "stream": true,
         "weight": 3
       },
@@ -1262,12 +1262,12 @@
         "weight": 3
       },
       {
-        "name": "music/game/nuance1",
+        "name": "music/game/key",
         "stream": true,
         "weight": 3
       },
       {
-        "name": "music/game/nuance2",
+        "name": "music/game/oxygene",
         "stream": true,
         "weight": 3
       },
@@ -1278,17 +1278,17 @@
         "weight": 3
       },
       {
-        "name": "music/game/piano1",
+        "name": "music/game/dry_hands",
         "stream": true,
         "weight": 3
       },
       {
-        "name": "music/game/piano2",
+        "name": "music/game/wet_hands",
         "stream": true,
         "weight": 3
       },
       {
-        "name": "music/game/piano3",
+        "name": "music/game/mice_on_venus",
         "stream": true,
         "weight": 3
       },
@@ -1346,15 +1346,15 @@
         "volume": 0.4
       },
       {
-        "name": "music/game/hal1",
+        "name": "music/game/subwoofer_lullaby",
         "stream": true
       },
       {
-        "name": "music/game/hal2",
+        "name": "music/game/living_mice",
         "stream": true
       },
       {
-        "name": "music/game/hal3",
+        "name": "music/game/haggstrom",
         "stream": true
       },
       {
@@ -1388,19 +1388,19 @@
         "weight": 2
       },
       {
-        "name": "music/game/hal1",
+        "name": "music/game/subwoofer_lullaby",
         "stream": true
       },
       {
-        "name": "music/game/hal2",
+        "name": "music/game/living_mice",
         "stream": true
       },
       {
-        "name": "music/game/hal3",
+        "name": "music/game/haggstrom",
         "stream": true
       },
       {
-        "name": "music/game/hal4",
+        "name": "music/game/danny",
         "stream": true
       },
       {
@@ -1409,23 +1409,23 @@
         "volume": 0.4
       },
       {
-        "name": "music/game/nuance1",
+        "name": "music/game/key",
         "stream": true
       },
       {
-        "name": "music/game/nuance2",
+        "name": "music/game/oxygene",
         "stream": true
       },
       {
-        "name": "music/game/piano1",
+        "name": "music/game/dry_hands",
         "stream": true
       },
       {
-        "name": "music/game/piano2",
+        "name": "music/game/wet_hands",
         "stream": true
       },
       {
-        "name": "music/game/piano3",
+        "name": "music/game/mice_on_venus",
         "stream": true
       },
       {
@@ -1459,31 +1459,31 @@
     "replace": true,
     "sounds": [
       {
-        "name": "music/game/hal1",
+        "name": "music/game/subwoofer_lullaby",
         "stream": true
       },
       {
-        "name": "music/game/hal2",
+        "name": "music/game/living_mice",
         "stream": true
       },
       {
-        "name": "music/game/hal3",
+        "name": "music/game/haggstrom",
         "stream": true
       },
       {
-        "name": "music/game/hal4",
+        "name": "music/game/danny",
         "stream": true
       },
       {
-        "name": "music/game/piano1",
+        "name": "music/game/dry_hands",
         "stream": true
       },
       {
-        "name": "music/game/piano2",
+        "name": "music/game/wet_hands",
         "stream": true
       },
       {
-        "name": "music/game/piano3",
+        "name": "music/game/mice_on_venus",
         "stream": true
       },
       {
